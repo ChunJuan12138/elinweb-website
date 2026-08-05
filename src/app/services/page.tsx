@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { Section, SectionHeader } from "@/components/sections/Section";
 import { FeatureCard } from "@/components/cards/FeatureCard";
+import { ServicesFeatureGrid } from "@/components/sections/ServicesFeatureGrid";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 
 const upstreamServices = [
@@ -95,7 +96,7 @@ export default function ServicesPage() {
           title="上游厂家服务内容"
           description="覆盖厂家进入包钢市场所需的全部中间环节"
         />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <ServicesFeatureGrid className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {upstreamServices.map((item) => (
             <FeatureCard
               key={item.title}
@@ -116,9 +117,10 @@ export default function ServicesPage() {
               }
               title={item.title}
               description={item.description}
+              animate={false}
             />
           ))}
-        </div>
+        </ServicesFeatureGrid>
       </Section>
 
       <Section background="white">
@@ -148,7 +150,7 @@ export default function ServicesPage() {
           description="艺林对包钢现场的承诺，是速度、专业和责任。"
           light
         />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <ServicesFeatureGrid className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {downstreamServices.map((item) => (
             <FeatureCard
               key={item.title}
@@ -169,9 +171,10 @@ export default function ServicesPage() {
               }
               title={item.title}
               description={item.description}
+              animate={false}
             />
           ))}
-        </div>
+        </ServicesFeatureGrid>
       </Section>
     </>
   );
