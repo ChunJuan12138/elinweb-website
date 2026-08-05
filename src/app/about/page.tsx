@@ -50,10 +50,12 @@ export default function AboutPage() {
               质量异议处理的全流程服务。对包钢体系的高度熟悉和本地化服务网络，是我们最坚实的竞争壁垒。
             </p>
           </div>
-          <PlaceholderImage
-            label="公司办公环境 / 团队合影"
-            aspectRatio="aspect-[4/3]"
-          />
+         <PlaceholderImage
+           label="公司办公环境 / 团队合影"
+           aspectRatio="aspect-[4/3]"
+           variant="industrial"
+           imageSrc="/images/industrial/machinery.jpg"
+         />
         </div>
       </Section>
 

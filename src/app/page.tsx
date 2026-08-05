@@ -151,10 +151,12 @@ export default function HomePage() {
             </div>
           </div>
 
-          <PlaceholderImage
-            label="工业设备与供应链服务场景图"
-            aspectRatio="aspect-[4/3]"
-          />
+         <PlaceholderImage
+           label="工业设备与供应链服务场景图"
+           aspectRatio="aspect-[4/3]"
+           variant="industrial"
+           imageSrc="/images/industrial/pipes-valves.jpg"
+         />
         </div>
       </Section>
 
