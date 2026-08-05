@@ -15,28 +15,34 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-steel-200 bg-white/95 backdrop-blur">
-      <div className="container-wide flex h-18 items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          <Image
-            src="/images/logo.png"
-            alt="艺林工业供应链"
-            width={160}
-            height={48}
-            className="h-10 w-auto object-contain"
-            priority
-          />
-          <span className="hidden text-lg font-bold text-primary lg:inline">
-            艺林工业供应链
-          </span>
+    <header className="sticky top-0 z-50 border-b border-steel-200 bg-white/95 shadow-sm backdrop-blur">
+      <div className="container-wide flex h-20 items-center justify-between md:h-24">
+        <Link href="/" className="flex items-center gap-4">
+          <div className="relative flex h-14 w-40 items-center justify-center md:h-16 md:w-48">
+            <Image
+              src="/images/logo.png"
+              alt="艺林工业供应链"
+              fill
+              className="object-contain object-left"
+              priority
+            />
+          </div>
+          <div className="hidden flex-col justify-center lg:flex">
+            <span className="text-lg font-bold leading-tight text-primary md:text-xl">
+              艺林工业供应链
+            </span>
+            <span className="text-xs text-steel-500">
+              包钢本土化工业供应链全包服务商
+            </span>
+          </div>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-steel-700 transition hover:text-primary"
+              className="relative text-sm font-medium text-steel-700 transition hover:text-primary"
             >
               {item.label}
             </Link>
@@ -48,7 +54,7 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-steel-700 md:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-steel-700 lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="切换导航"
         >
@@ -78,7 +84,7 @@ export function Header() {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-steel-200 bg-white md:hidden">
+        <div className="border-t border-steel-200 bg-white lg:hidden">
           <div className="container-wide flex flex-col gap-4 py-4">
             {navItems.map((item) => (
               <Link
@@ -90,7 +96,8 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link href="/contact" className="btn-primary w-full text-center">
+            <Link href="/contact" className="btn-primary w-full text-center"
+            >
               合作咨询
             </Link>
           </div>

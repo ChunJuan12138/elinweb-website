@@ -22,9 +22,9 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <h3 className="text-xl font-bold">艺林工业供应链</h3>
+            <p className="mt-1 text-sm text-accent">最懂包钢的本土化工业供应链全包服务商</p>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-steel-300">
-              最懂包钢的本土化工业供应链全包服务商。深耕包钢体系 14 年以上，
-              提供工业仪表、电气、矿山设备、阀门、执行机构、空压机、钢丝绳、备品备件等全品类服务。
+              深耕包钢体系 14 年以上，提供工业仪表、电气、矿山设备、阀门、执行机构、空压机、钢丝绳、备品备件等全品类服务。
             </p>
           </div>
 

@@ -54,6 +54,7 @@ export default function HomePage() {
         description="深耕包钢体系 14 年以上，为上游厂家提供投标代办、资质协调、送货验收、运维检修等全包服务；为包钢各分厂提供 24 小时响应、30 分钟到场的保姆式现场服务。"
         primaryCta={{ label: "合作咨询", href: "/contact" }}
         secondaryCta={{ label: "了解服务能力", href: "/services" }}
+        showLogo
       />
 
       <Section background="muted">
@@ -175,7 +176,7 @@ export default function HomePage() {
           ].map((brand) => (
             <div
               key={brand}
-              className="flex h-16 items-center justify-center rounded-lg border border-steel-200 bg-white px-6 text-sm font-semibold text-steel-500 shadow-sm md:px-8"
+              className="flex h-16 items-center justify-center rounded-lg border border-steel-200 bg-white px-6 text-sm font-semibold text-steel-500 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary-200 hover:text-primary md:px-8"
             >
               {brand}
             </div>
