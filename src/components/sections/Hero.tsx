@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { ReactNode } from "react";
+import { ReactNode, useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "@/lib/gsap";
 
 interface HeroProps {
   title: string;
@@ -21,6 +25,27 @@ export function Hero({
   showLogo = false,
   children,
 }: HeroProps) {
+  const scopeRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      const elements = gsap.utils.toArray<HTMLElement>(".hero-animate");
+      gsap.fromTo(
+        elements,
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power2.out",
+          stagger: 0.12,
+          delay: 0.15,
+        }
+      );
+    },
+    { scope: scopeRef }
+  );
+
   return (
     <section className="relative overflow-hidden bg-primary-950">
       <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(11,39,64,0.98)_0%,rgba(15,76,129,0.92)_50%,rgba(11,39,64,0.95)_100%)]" />
@@ -32,11 +57,11 @@ export function Hero({
         }}
       />
 
-      <div className="container-wide relative py-16 md:py-24 lg:py-32">
+      <div ref={scopeRef} className="container-wide relative py-16 md:py-24 lg:py-32">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div className="max-w-2xl">
             {showLogo && (
-              <div className="group mb-8 inline-flex items-center gap-4 rounded-xl bg-white/10 p-4 backdrop-blur-sm transition-all duration-500 hover:bg-white/15">
+              <div className="hero-animate opacity-0 group mb-8 inline-flex items-center gap-4 rounded-xl bg-white/10 p-4 backdrop-blur-sm transition-all duration-500 hover:bg-white/15">
                 <div className="relative h-16 w-40 shrink-0 transition-transform duration-500 group-hover:scale-105">
                   <Image
                     src="/images/logo.png"
@@ -53,17 +78,17 @@ export function Hero({
               </div>
             )}
 
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+            <p className="hero-animate opacity-0 text-sm font-semibold uppercase tracking-wider text-accent">
               {subtitle}
             </p>
-            <h1 className="mt-4 heading-xl text-white">{title}</h1>
+            <h1 className="hero-animate opacity-0 mt-4 heading-xl text-white">{title}</h1>
             {description && (
-              <p className="mt-6 text-lg leading-relaxed text-steel-200 md:text-xl">
+              <p className="hero-animate opacity-0 mt-6 text-lg leading-relaxed text-steel-200 md:text-xl">
                 {description}
               </p>
             )}
 
-            <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row">
+            <div className="hero-animate opacity-0 mt-10 flex flex-col items-start gap-4 sm:flex-row">
               {primaryCta && (
                 <Link href={primaryCta.href} className="btn-primary min-w-[160px]">
                   {primaryCta.label}
