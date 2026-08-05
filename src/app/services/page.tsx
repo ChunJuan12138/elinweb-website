@@ -84,10 +84,12 @@ export default function ServicesPage() {
               您只需专注生产和产品，我们来处理包钢市场的复杂事务。
             </p>
           </div>
-          <PlaceholderImage
-            label="投标代办与供应链协同场景图"
-            aspectRatio="aspect-[4/3]"
-          />
+         <PlaceholderImage
+           label="投标代办与供应链协同场景图"
+           aspectRatio="aspect-[4/3]"
+           variant="industrial"
+           imageSrc="/images/industrial/electrical-room.jpg"
+         />
         </div>
       </Section>
 
@@ -125,10 +127,12 @@ export default function ServicesPage() {
 
       <Section background="white">
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          <PlaceholderImage
-            label="包钢现场 24 小时服务响应场景图"
-            aspectRatio="aspect-[4/3]"
-          />
+         <PlaceholderImage
+           label="包钢现场 24 小时服务响应场景图"
+           aspectRatio="aspect-[4/3]"
+           variant="industrial"
+           imageSrc="/images/industrial/mining-truck.jpg"
+         />
           <div>
             <p className="text-sm font-semibold uppercase tracking-wider text-accent">
               下游服务
