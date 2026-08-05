@@ -62,9 +62,6 @@ export default function AdvantagesPage() {
             <p className="mt-4 body-lg">
               我们与震坤行、欧冶等平台有相似之处，但本质不同：他们侧重卖货，服务是附带；我们以服务为核心，卖货只是服务的一部分。
             </p>
-            <p className="mt-4 body-lg">
-              六大核心优势，构成了艺林在包头及周边工矿市场的竞争壁垒。
-            </p>
           </div>
         </div>
       </Section>
@@ -73,7 +70,6 @@ export default function AdvantagesPage() {
         <SectionHeader
           title="六大核心优势"
           subtitle="核心竞争力"
-          description="覆盖响应速度、专业能力、科研支撑、生态协同、全链条服务与价格透明。"
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {advantages.map((item) => (

@@ -12,7 +12,7 @@ const serviceScopes = [
   {
     title: "专业技术服务",
     description:
-      "电气、机械、自动化、仪表专业工程师团队，提供选型、安装指导、调试、故障诊断、改造升级，24 小时响应。",
+      "电气、机械、自动化、仪表专业工程师团队，选型、安装指导、调试、故障诊断、改造升级，24 小时响应。",
   },
   {
     title: "仪表与环保运维",
@@ -22,12 +22,12 @@ const serviceScopes = [
   {
     title: "物流与交付服务",
     description:
-      "到货验收、卸货协调、现场配送——交付的最后一公里。",
+      "到货验收、卸货协调、现场配送 —— 交付的最后一公里。",
   },
   {
     title: "售后与陪伴服务",
     description:
-      "现场问题响应、退换货协调、使用指导、备件补充——售后的最后一公里。",
+      "现场问题响应、退换货协调、使用指导、备件补充 —— 售后的最后一公里。",
   },
   {
     title: "工程协同",
@@ -37,7 +37,7 @@ const serviceScopes = [
 ];
 
 const serviceProcess = [
-  { title: "需求确认", description: "专人对接，明确现场需求与技术参数。" },
+  { title: "需求确认", description: "专人对接。" },
   { title: "选型报价", description: "多品牌比价，输出透明选型方案与报价。" },
   { title: "合同签订", description: "明确服务范围、交付标准与计价方式。" },
   { title: "供货交付", description: "协调物流与现场验收，完成最后一公里交付。" },
@@ -140,7 +140,6 @@ export default function BusinessPage() {
         <SectionHeader
           title="服务流程"
           subtitle="标准化服务路径"
-          description="每个环节都有专人负责，确保需求快速、准确地落地。"
           light
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

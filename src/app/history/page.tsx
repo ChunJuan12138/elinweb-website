@@ -44,9 +44,9 @@ export default function HistoryPage() {
             <p className="text-sm font-semibold uppercase tracking-wider text-accent">
               成长轨迹
             </p>
-            <h2 className="mt-3 heading-lg">十四年，只做一件事</h2>
+            <h2 className="mt-3 heading-lg">发展历程</h2>
             <p className="mt-4 body-lg">
-              从服务包钢体系开始，艺林逐步成长为覆盖多品类、多分厂的本土化工业供应链服务商。每一步都踩在现场需求上，每一次升级都为了让客户更省心。
+              从 2009 年起步到今天的生态协同，艺林用十余年沉淀服务工矿客户的真功夫。
             </p>
           </div>
           <PlaceholderImage

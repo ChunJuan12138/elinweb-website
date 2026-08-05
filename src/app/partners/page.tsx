@@ -7,7 +7,7 @@ const benefits = [
   {
     title: "本地贴身服务",
     description:
-      "我们在包头、在工矿现场，替您走完从出厂到客户现场、再到售后的最后这段路。",
+      "我们在包头、在工矿现场，替您走完最后这段路。",
   },
   {
     title: "设计院入口",
@@ -98,15 +98,6 @@ export default function PartnersPage() {
               description={item.description}
             />
           ))}
-        </div>
-      </Section>
-
-      <Section background="primary">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="heading-lg text-white">长期共赢合作</h2>
-          <p className="mt-6 text-lg leading-relaxed text-steel-200 md:text-xl">
-            我们愿与优质供应商、制造商建立长期共赢合作——您的产品+我们的本地服务，共同服务好每一个客户。
-          </p>
         </div>
       </Section>
     </>

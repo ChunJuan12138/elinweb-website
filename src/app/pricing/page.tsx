@@ -12,12 +12,12 @@ const pricingTiers = [
   {
     title: "第 2 层 · 技术服务",
     description:
-      "技术方案/选型/咨询按项目报价；到场安装+调试+培训按设备价值比例或包干；运维服务按年度合同（巡检/维保/应急响应）。",
+      "技术方案/选型/咨询：按项目报价。安装调试：到场安装+调试+培训，按设备价值比例或包干。运维服务：年度合同（巡检/维保/应急响应）。",
   },
   {
     title: "第 3 层 · 增值服务",
     description:
-      "应急响应 24h 到场、紧急备件，会员制或按次；驻场服务常驻客户现场，年度按月；备件托管为客户备件库代管，月度管理费。",
+      "应急响应：24h 到场、紧急备件，会员制或按次。驻场服务：常驻客户现场，年度按月。备件托管：客户备件库代管，月度管理费。",
   },
 ];
 
@@ -54,7 +54,7 @@ export default function PricingPage() {
             </p>
             <h2 className="mt-3 heading-lg">挣服务的钱，不卖信息差</h2>
             <p className="mt-4 body-lg">
-              我们不写死价格，而是写清计价方式，让客户看得懂、算得清。商品与服务分离计价，服务费明码标价。
+              我们不写死价格，而是写清计价方式。商品与服务分离计价，服务费明码标价。
             </p>
             <p className="mt-4 body-lg">
               具体以实际报价单/服务合同为准；大项目、年度框架合作欢迎面议。
@@ -73,7 +73,6 @@ export default function PricingPage() {
         <SectionHeader
           title="三层收费结构"
           subtitle="计价方式"
-          description="从产品供应到技术服务，再到保姆式增值服务，每一层都明码标价。"
         />
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {pricingTiers.map((item) => (
@@ -105,7 +104,6 @@ export default function PricingPage() {
         <SectionHeader
           title="对外标准表述"
           subtitle="标准话术"
-          description="面向客户的统一报价口径，确保沟通清晰、口径一致。"
         />
         <div className="mt-12 max-w-3xl mx-auto rounded-xl border border-steel-200 bg-white p-8 shadow-sm">
           <ul className="space-y-4">
@@ -135,7 +133,6 @@ export default function PricingPage() {
         <SectionHeader
           title="对内参考费率"
           subtitle="内部参考"
-          description="供内部快速估算与报价参考，最终以正式合同为准。"
           light
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

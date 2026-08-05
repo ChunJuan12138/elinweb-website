@@ -8,12 +8,12 @@ const capabilities = [
   {
     title: "设备类供应为核心",
     description:
-      "多品类覆盖——仪表、电气、机械等大类及细分领域，满足工矿企业多样化需求。",
+      "多品类覆盖——仪表、电气、机械等大类及细分领域。",
   },
   {
     title: "专业服务工程师团队",
     description:
-      "电气、机械、自动化、仪表各专业独立工程师，24 小时现场响应，让设备稳定运转。",
+      "电气、机械、自动化、仪表各专业独立工程师，24 小时现场响应。",
   },
   {
     title: "产学研合作",
@@ -28,8 +28,8 @@ const capabilities = [
 ];
 
 const stats = [
-  { value: "300+", label: "合作品牌厂商" },
-  { value: "5000万+", label: "年营收规模" },
+  { value: "300+", label: "余家国内外品牌厂商" },
+  { value: "5000万+", label: "年营收" },
   { value: "14+", label: "年服务沉淀" },
 ];
 
@@ -102,7 +102,6 @@ export default function CompanyPage() {
         <SectionHeader
           title="核心能力"
           subtitle="服务能力"
-          description="十余年深耕包钢及周边工矿市场，沉淀出四大核心能力。"
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
           {capabilities.map((item) => (
@@ -127,15 +126,6 @@ export default function CompanyPage() {
               description={item.description}
             />
           ))}
-        </div>
-      </Section>
-
-      <Section background="primary">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="heading-lg text-white">服务理念</h2>
-          <p className="mt-6 text-lg leading-relaxed text-steel-200 md:text-xl">
-            让客户专注生产与制造，交付与售后的最后一公里，交给艺林。我们与客户共生共长。
-          </p>
         </div>
       </Section>
     </>

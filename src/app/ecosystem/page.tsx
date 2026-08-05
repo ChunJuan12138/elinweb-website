@@ -65,7 +65,6 @@ export default function EcosystemPage() {
         <SectionHeader
           title="五大合作主体"
           subtitle="生态伙伴"
-          description="每一类伙伴都在各自环节提供专业能力，共同服务工矿客户。"
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {ecosystem.map((item) => (
@@ -90,15 +89,6 @@ export default function EcosystemPage() {
               description={item.description}
             />
           ))}
-        </div>
-      </Section>
-
-      <Section background="primary">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="heading-lg text-white">共建工业服务生态</h2>
-          <p className="mt-6 text-lg leading-relaxed text-steel-200 md:text-xl">
-            我们期待与更多设计院、工程单位、高校、供应商和客户建立深度合作，共同打造高效、透明、可持续的工业供应链生态。
-          </p>
         </div>
       </Section>
     </>
