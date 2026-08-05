@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #22252c;
+  --muted: #6b7586;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: var(--font-geist-sans), system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-geist-sans), system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .container-wide {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .heading-xl {
+    @apply text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  .heading-lg {
+    @apply text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl;
+  }
+
+  .heading-md {
+    @apply text-xl font-semibold tracking-tight text-foreground sm:text-2xl;
+  }
+
+  .body-lg {
+    @apply text-base leading-relaxed text-steel-600 md:text-lg;
+  }
+
+  .body-base {
+    @apply text-sm leading-relaxed text-steel-600 md:text-base;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white transition hover:bg-accent-600 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg border border-steel-300 bg-white px-6 py-3 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
