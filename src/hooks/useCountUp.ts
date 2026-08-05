@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
 import { prefersReducedMotion } from "@/lib/reducedMotion";
@@ -32,14 +32,13 @@ export function useCountUp<T extends HTMLElement>(options: UseCountUpOptions) {
 
   const ref = useRef<T>(null);
   const { number, suffix } = parseNumericPrefix(value);
-  const [displayValue, setDisplayValue] = useState(value);
-  const lastRenderedRef = useRef<string>(value);
 
   useGSAP(
     () => {
       if (!ref.current) return;
       if (prefersReducedMotion()) return;
 
+      const setText = gsap.quickSetter(ref.current, "textContent");
       const target = { value: 0 };
       gsap.fromTo(
         target,
@@ -55,11 +54,7 @@ export function useCountUp<T extends HTMLElement>(options: UseCountUpOptions) {
             once,
           },
           onUpdate: () => {
-            const next = `${Math.round(target.value)}${suffix}`;
-            if (next !== lastRenderedRef.current) {
-              lastRenderedRef.current = next;
-              setDisplayValue(next);
-            }
+            setText(`${Math.round(target.value)}${suffix}`);
           },
         }
       );
@@ -67,5 +62,5 @@ export function useCountUp<T extends HTMLElement>(options: UseCountUpOptions) {
     { scope: ref, dependencies: [value, number, suffix, duration, ease, start, once] }
   );
 
-  return [ref, displayValue] as const;
+  return [ref, value] as const;
 }

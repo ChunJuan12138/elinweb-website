@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, memo } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useCountUp } from "@/hooks/useCountUp";
 
@@ -10,8 +10,8 @@ interface StatCardProps {
   icon?: ReactNode;
 }
 
-export function StatCard({ value, label, icon }: StatCardProps) {
- const cardRef = useScrollReveal<HTMLDivElement>({ y: 40, duration: 0.6, start: "top 88%" });
+export const StatCard = memo(function StatCard({ value, label, icon }: StatCardProps) {
+  const cardRef = useScrollReveal<HTMLDivElement>({ y: 40, duration: 0.6, start: "top 88%" });
   const [valueRef, displayValue] = useCountUp<HTMLParagraphElement>({ value, duration: 2, start: "top 88%" });
 
   return (
@@ -26,4 +26,4 @@ export function StatCard({ value, label, icon }: StatCardProps) {
       <p className="relative mt-2 text-sm text-steel-300">{label}</p>
     </div>
   );
-}
+});
