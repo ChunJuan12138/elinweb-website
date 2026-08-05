@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useState } from "react";
 
 const navItems = [
-  { label: "首页", href: "/" },
   { label: "公司简介", href: "/company" },
   { label: "服务业务", href: "/business" },
   { label: "核心优势", href: "/advantages" },
@@ -13,7 +12,6 @@ const navItems = [
   { label: "供应商合作", href: "/partners" },
   { label: "生态网络", href: "/ecosystem" },
   { label: "发展历程", href: "/history" },
-  { label: "联系我们", href: "/contact" },
 ];
 
 export function Header() {
@@ -22,7 +20,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-steel-200 bg-white/95 shadow-sm backdrop-blur">
       <div className="container-wide flex h-20 items-center justify-between md:h-24">
-        <Link href="/" className="group flex items-center gap-4">
+        <Link href="/company" className="group flex items-center gap-4">
           <div className="relative flex h-[72px] w-[100px] items-center justify-center overflow-hidden rounded-lg bg-primary-50 transition-all duration-500 group-hover:bg-primary-100 md:h-[88px] md:w-[110px]">
             <div className="absolute inset-0 bg-[linear-gradient(110deg,transparent_25%,rgba(255,255,255,0.6)_50%,transparent_75%)] translate-x-[-100%] transition-transform duration-1000 group-hover:translate-x-[100%]" />
             <Image
@@ -39,7 +37,7 @@ export function Header() {
               艺林工业供应链
             </span>
             <span className="text-xs text-steel-500">
-              包钢本土化工业供应链全包服务商
+              包钢本土化工业供应链服务商
             </span>
           </div>
         </Link>
@@ -54,9 +52,6 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Link href="/contact" className="btn-primary">
-            合作咨询
-          </Link>
         </nav>
 
         <button
@@ -103,10 +98,6 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link href="/contact" className="btn-primary w-full text-center"
-            >
-              合作咨询
-            </Link>
           </div>
         </div>
       )}

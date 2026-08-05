@@ -1,16 +1,19 @@
 import Link from "next/link";
 
 const footerLinks = [
-  { label: "首页", href: "/" },
-  { label: "关于艺林", href: "/about" },
-  { label: "服务能力", href: "/services" },
-  { label: "联系我们", href: "/contact" },
+  { label: "公司简介", href: "/company" },
+  { label: "服务业务", href: "/business" },
+  { label: "核心优势", href: "/advantages" },
+  { label: "收费标准", href: "/pricing" },
+  { label: "供应商合作", href: "/partners" },
+  { label: "生态网络", href: "/ecosystem" },
+  { label: "发展历程", href: "/history" },
 ];
 
 const contactInfo = [
-  { label: "公司全称", value: "内蒙古艺林工业供应链科技有限公司" },
-  { label: "服务区域", value: "包钢集团各分厂及内蒙古工业市场" },
-  { label: "响应承诺", value: "24 小时响应 · 30 分钟到场" },
+  { label: "公司全称", value: "内蒙古艺林供应链科技有限责任公司" },
+  { label: "服务区域", value: "包头及包头周边工矿企业" },
+  { label: "服务理念", value: "让客户专注生产与制造" },
 ];
 
 export function Footer() {
@@ -22,9 +25,9 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <h3 className="text-xl font-bold">艺林工业供应链</h3>
-            <p className="mt-1 text-sm text-accent">最懂包钢的本土化工业供应链全包服务商</p>
+            <p className="mt-1 text-sm text-accent">包头本土化工业供应链服务商</p>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-steel-300">
-              深耕包钢体系 14 年以上，提供工业仪表、电气、矿山设备、阀门、执行机构、空压机、钢丝绳、备品备件等全品类服务。
+              立足包头、辐射包头周边工矿企业，连接上游制造与下游生产，让两端各自专注专业。
             </p>
           </div>
 
