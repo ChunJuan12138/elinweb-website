@@ -38,11 +38,11 @@ export function IndustrialBackground({
         />
       </div>
 
-      {/* readability overlay */}
+      {/* readability overlay - lighter for brighter industrial photos */}
       {showOverlay && (
         <>
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/[0.92] via-slate-950/[0.75] to-slate-900/50" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/[0.72] via-slate-900/[0.52] to-slate-800/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-slate-900/30" />
         </>
       )}
 

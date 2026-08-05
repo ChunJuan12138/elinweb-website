@@ -6,8 +6,13 @@ import { useState } from "react";
 
 const navItems = [
   { label: "首页", href: "/" },
-  { label: "关于艺林", href: "/about" },
-  { label: "服务能力", href: "/services" },
+  { label: "公司简介", href: "/company" },
+  { label: "服务业务", href: "/business" },
+  { label: "核心优势", href: "/advantages" },
+  { label: "收费标准", href: "/pricing" },
+  { label: "供应商合作", href: "/partners" },
+  { label: "生态网络", href: "/ecosystem" },
+  { label: "发展历程", href: "/history" },
   { label: "联系我们", href: "/contact" },
 ];
 
