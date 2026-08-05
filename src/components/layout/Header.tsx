@@ -17,16 +17,18 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-steel-200 bg-white/95 shadow-sm backdrop-blur">
       <div className="container-wide flex h-20 items-center justify-between md:h-24">
-        <Link href="/" className="flex items-center gap-4">
-          <div className="relative flex h-14 w-40 items-center justify-center md:h-16 md:w-48">
+        <Link href="/" className="group flex items-center gap-4">
+          <div className="relative flex h-[72px] w-[100px] items-center justify-center overflow-hidden rounded-lg bg-primary-50 transition-all duration-500 group-hover:bg-primary-100 md:h-[88px] md:w-[110px]">
+            <div className="absolute inset-0 bg-[linear-gradient(110deg,transparent_25%,rgba(255,255,255,0.6)_50%,transparent_75%)] translate-x-[-100%] transition-transform duration-1000 group-hover:translate-x-[100%]" />
             <Image
               src="/images/logo.png"
               alt="艺林工业供应链"
               fill
-              className="object-contain object-left"
+              className="object-contain p-1.5 transition-transform duration-500 group-hover:scale-105"
               priority
             />
           </div>
+
           <div className="hidden flex-col justify-center lg:flex">
             <span className="text-lg font-bold leading-tight text-primary md:text-xl">
               艺林工业供应链
@@ -42,7 +44,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="relative text-sm font-medium text-steel-700 transition hover:text-primary"
+              className="nav-link"
             >
               {item.label}
             </Link>

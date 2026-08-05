@@ -36,13 +36,13 @@ export function Hero({
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div className="max-w-2xl">
             {showLogo && (
-              <div className="mb-8 inline-flex items-center gap-4 rounded-xl bg-white/10 p-4 backdrop-blur-sm">
-                <div className="relative h-16 w-40 shrink-0">
+              <div className="group mb-8 inline-flex items-center gap-4 rounded-xl bg-white/10 p-4 backdrop-blur-sm transition-all duration-500 hover:bg-white/15">
+                <div className="relative h-16 w-40 shrink-0 transition-transform duration-500 group-hover:scale-105">
                   <Image
                     src="/images/logo.png"
                     alt="艺林工业供应链"
                     fill
-                    className="object-contain object-left"
+                    className="object-contain object-left drop-shadow-[0_0_10px_rgba(255,255,255,0.15)]"
                     priority
                   />
                 </div>
@@ -82,15 +82,20 @@ export function Hero({
 
           <div className="relative hidden lg:block">
             {children || (
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 shadow-2xl">
+              <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 shadow-2xl">
                 <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.05)_0%,transparent_50%)]" />
+                <div className="absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+                  style={{
+                    backgroundImage: `radial-gradient(circle at 50% 50%, rgba(194,58,37,0.15) 0%, transparent 60%)`,
+                  }}
+                />
                 <div className="relative flex h-full flex-col items-center justify-center text-center">
-                  <div className="relative h-24 w-56">
+                  <div className="relative h-28 w-64 transition-transform duration-700 group-hover:scale-110">
                     <Image
                       src="/images/logo.png"
                       alt="艺林工业供应链"
                       fill
-                      className="object-contain"
+                      className="object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                       priority
                     />
                   </div>
