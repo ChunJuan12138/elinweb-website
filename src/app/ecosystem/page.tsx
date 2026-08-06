@@ -2,7 +2,8 @@ import { Hero } from "@/components/sections/Hero";
 import { Section, SectionHeader } from "@/components/sections/Section";
 import { FeatureCard } from "@/components/cards/FeatureCard";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
-import { ScrollRevealContainer } from "@/components/animation/ScrollRevealContainer";
+import { StaggerReveal } from "@/components/animation/StaggerReveal";
+import { FadeInUp } from "@/components/animation/FadeInUp";
 
 const ecosystem = [
   {
@@ -40,35 +41,37 @@ export default function EcosystemPage() {
         subtitle="协同网络"
         description="设计院、工程单位、高校、供应商、客户共同构成艺林的工业服务生态圈。"
         primaryCta={{ label: "发展历程", href: "/history" }}
+        imageSrc="/images/industrial/steel-mill.jpg"
       />
 
       <Section background="white">
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          <PlaceholderImage
-            label="工业生态合作网络"
-            aspectRatio="aspect-[4/3]"
-            variant="industrial"
-            imageSrc="/images/industrial/steel-mill.jpg"
-          />
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent">
-              生态定位
-            </p>
-            <h2 className="mt-3 heading-lg">多方协同，全程落地</h2>
-            <p className="mt-4 body-lg">
-              艺林不是单一角色，而是连接设计院、工程单位、高校、供应商与客户的纽带。通过生态协同，我们能把大型项目从选型、供应、安装到检修运维全流程跑通。
-            </p>
-          </div>
+          <FadeInUp className="order-2 lg:order-1">
+            <PlaceholderImage
+              label="工业生态合作网络"
+              aspectRatio="aspect-[4/3]"
+              variant="industrial"
+              imageSrc="/images/industrial/steel-mill.jpg"
+            />
+          </FadeInUp>
+          <FadeInUp delay={0.15} className="order-1 lg:order-2">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+                生态定位
+              </p>
+              <h2 className="mt-3 heading-lg">多方协同，全程落地</h2>
+              <p className="mt-4 body-lg">
+                艺林不是单一角色，而是连接设计院、工程单位、高校、供应商与客户的纽带。通过生态协同，我们能把大型项目从选型、供应、安装到检修运维全流程跑通。
+              </p>
+            </div>
+          </FadeInUp>
         </div>
       </Section>
 
       <Section background="muted">
-        <SectionHeader
-          title="五大合作主体"
-          subtitle="生态伙伴"
-        />
+        <SectionHeader title="五大合作主体" subtitle="生态伙伴" />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <ScrollRevealContainer className="contents">
+          <StaggerReveal className="contents">
             {ecosystem.map((item) => (
               <FeatureCard
                 key={item.title}
@@ -91,7 +94,7 @@ export default function EcosystemPage() {
                 description={item.description}
               />
             ))}
-          </ScrollRevealContainer>
+          </StaggerReveal>
         </div>
       </Section>
     </>

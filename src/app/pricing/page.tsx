@@ -2,7 +2,8 @@ import { Hero } from "@/components/sections/Hero";
 import { Section, SectionHeader } from "@/components/sections/Section";
 import { FeatureCard } from "@/components/cards/FeatureCard";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
-import { ScrollRevealContainer } from "@/components/animation/ScrollRevealContainer";
+import { StaggerReveal } from "@/components/animation/StaggerReveal";
+import { FadeInUp } from "@/components/animation/FadeInUp";
 
 const pricingTiers = [
   {
@@ -45,38 +46,40 @@ export default function PricingPage() {
         subtitle="透明计价"
         description="本地化工业供应链服务商，主要挣服务的钱——不是差价平台，不是纯贸易商，是带着服务的供应链服务商。"
         primaryCta={{ label: "供应商合作", href: "/partners" }}
+        imageSrc="/images/industrial/steel-mill.jpg"
       />
 
       <Section background="white">
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent">
-              业态定位
-            </p>
-            <h2 className="mt-3 heading-lg">挣服务的钱，不卖信息差</h2>
-            <p className="mt-4 body-lg">
-              我们不写死价格，而是写清计价方式。商品与服务分离计价，服务费明码标价。
-            </p>
-            <p className="mt-4 body-lg">
-              具体以实际报价单/服务合同为准；大项目、年度框架合作欢迎面议。
-            </p>
-          </div>
-          <PlaceholderImage
-            label="工业供应链成本透明化"
-            aspectRatio="aspect-[4/3]"
-            variant="industrial"
-            imageSrc="/images/industrial/steel-mill.jpg"
-          />
+          <FadeInUp>
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+                业态定位
+              </p>
+              <h2 className="mt-3 heading-lg">挣服务的钱，不卖信息差</h2>
+              <p className="mt-4 body-lg">
+                我们不写死价格，而是写清计价方式。商品与服务分离计价，服务费明码标价。
+              </p>
+              <p className="mt-4 body-lg">
+                具体以实际报价单/服务合同为准；大项目、年度框架合作欢迎面议。
+              </p>
+            </div>
+          </FadeInUp>
+          <FadeInUp delay={0.15}>
+            <PlaceholderImage
+              label="工业供应链成本透明化"
+              aspectRatio="aspect-[4/3]"
+              variant="industrial"
+              imageSrc="/images/industrial/steel-mill.jpg"
+            />
+          </FadeInUp>
         </div>
       </Section>
 
       <Section background="muted">
-        <SectionHeader
-          title="三层收费结构"
-          subtitle="计价方式"
-        />
+        <SectionHeader title="三层收费结构" subtitle="计价方式" />
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          <ScrollRevealContainer className="contents">
+          <StaggerReveal className="contents">
             {pricingTiers.map((item) => (
               <FeatureCard
                 key={item.title}
@@ -99,56 +102,53 @@ export default function PricingPage() {
                 description={item.description}
               />
             ))}
-          </ScrollRevealContainer>
+          </StaggerReveal>
         </div>
       </Section>
 
       <Section background="white">
-        <SectionHeader
-          title="对外标准表述"
-          subtitle="标准话术"
-        />
-        <div className="mt-12 max-w-3xl mx-auto rounded-xl border border-steel-200 bg-white p-8 shadow-sm">
-          <ul className="space-y-4">
-            {externalStandards.map((item) => (
-              <li key={item} className="flex items-start gap-3">
-                <svg
-                  className="mt-1 h-5 w-5 shrink-0 text-accent"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                <span className="text-steel-700">{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <SectionHeader title="对外标准表述" subtitle="标准话术" />
+        <FadeInUp>
+          <div className="mx-auto mt-12 max-w-3xl rounded-xl border border-steel-200 bg-white p-8 shadow-sm">
+            <ul className="space-y-4">
+              {externalStandards.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <svg
+                    className="mt-1 h-5 w-5 shrink-0 text-accent"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span className="text-steel-700">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </FadeInUp>
       </Section>
 
       <Section background="primary">
-        <SectionHeader
-          title="对内参考费率"
-          subtitle="内部参考"
-          light
-        />
+        <SectionHeader title="对内参考费率" subtitle="内部参考" light />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {internalRates.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/10"
-            >
-              <p className="text-sm text-steel-300">{item.title}</p>
-              <p className="mt-2 text-2xl font-bold text-white md:text-3xl">{item.value}</p>
-              <p className="mt-2 text-xs text-steel-400">{item.note}</p>
-            </div>
-          ))}
+          <StaggerReveal className="contents">
+            {internalRates.map((item) => (
+              <div
+                key={item.title}
+                className="reveal group rounded-xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/10"
+              >
+                <p className="text-sm text-steel-300">{item.title}</p>
+                <p className="mt-2 text-2xl font-bold text-white md:text-3xl">{item.value}</p>
+                <p className="mt-2 text-xs text-steel-400">{item.note}</p>
+              </div>
+            ))}
+          </StaggerReveal>
         </div>
       </Section>
     </>

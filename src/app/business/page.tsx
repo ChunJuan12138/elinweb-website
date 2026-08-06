@@ -2,7 +2,8 @@ import { Hero } from "@/components/sections/Hero";
 import { Section, SectionHeader } from "@/components/sections/Section";
 import { FeatureCard } from "@/components/cards/FeatureCard";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
-import { ScrollRevealContainer } from "@/components/animation/ScrollRevealContainer";
+import { StaggerReveal } from "@/components/animation/StaggerReveal";
+import { FadeInUp } from "@/components/animation/FadeInUp";
 
 const serviceScopes = [
   {
@@ -54,28 +55,33 @@ export default function BusinessPage() {
         subtitle="服务与业务介绍"
         description="服务包钢等大型工矿企业及包头周边工矿客户，以及上游设备、材料生产制造企业。"
         primaryCta={{ label: "核心优势", href: "/advantages" }}
+        imageSrc="/images/industrial/pipes-valves.jpg"
       />
 
       <Section background="white">
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent">
-              服务对象
-            </p>
-            <h2 className="mt-3 heading-lg">连接上下游的本地化服务枢纽</h2>
-            <p className="mt-4 body-lg">
-              我们的服务对象包括包钢等大型工矿企业及包头周边工矿客户，同时也面向上游设备、材料生产制造企业。
-            </p>
-            <p className="mt-4 body-lg">
-              对下游客户，我们是随叫随到的现场服务团队；对上游厂家，我们是打通本地市场、走完最后一公里的可靠伙伴。
-            </p>
-          </div>
-          <PlaceholderImage
-            label="工业现场服务与交付"
-            aspectRatio="aspect-[4/3]"
-            variant="industrial"
-            imageSrc="/images/industrial/pipes-valves.jpg"
-          />
+          <FadeInUp>
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+                服务对象
+              </p>
+              <h2 className="mt-3 heading-lg">连接上下游的本地化服务枢纽</h2>
+              <p className="mt-4 body-lg">
+                我们的服务对象包括包钢等大型工矿企业及包头周边工矿客户，同时也面向上游设备、材料生产制造企业。
+              </p>
+              <p className="mt-4 body-lg">
+                对下游客户，我们是随叫随到的现场服务团队；对上游厂家，我们是打通本地市场、走完最后一公里的可靠伙伴。
+              </p>
+            </div>
+          </FadeInUp>
+          <FadeInUp delay={0.15}>
+            <PlaceholderImage
+              label="工业现场服务与交付"
+              aspectRatio="aspect-[4/3]"
+              variant="industrial"
+              imageSrc="/images/industrial/pipes-valves.jpg"
+            />
+          </FadeInUp>
         </div>
       </Section>
 
@@ -86,7 +92,7 @@ export default function BusinessPage() {
           description="从设备供应到技术服务，从物流交付到工程协同，覆盖工业供应链全链条。"
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <ScrollRevealContainer className="contents">
+          <StaggerReveal className="contents">
             {serviceScopes.map((item) => (
               <FeatureCard
                 key={item.title}
@@ -115,38 +121,38 @@ export default function BusinessPage() {
                 description={item.description}
               />
             ))}
-          </ScrollRevealContainer>
+          </StaggerReveal>
         </div>
       </Section>
 
       <Section background="white">
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          <PlaceholderImage
-            label="专业技术服务团队"
-            aspectRatio="aspect-[4/3]"
-            variant="industrial"
-            imageSrc="/images/industrial/electrical-room.jpg"
-          />
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent">
-              服务流程
-            </p>
-            <h2 className="mt-3 heading-lg">专人对接，全流程闭环</h2>
-            <p className="mt-4 body-lg">
-              需求确认 → 选型报价 → 合同签订 → 供货交付 → 验收确认 → 售后跟踪，全流程专人对接。
-            </p>
-          </div>
+          <FadeInUp className="order-2 lg:order-1">
+            <PlaceholderImage
+              label="专业技术服务团队"
+              aspectRatio="aspect-[4/3]"
+              variant="industrial"
+              imageSrc="/images/industrial/electrical-room.jpg"
+            />
+          </FadeInUp>
+          <FadeInUp delay={0.15} className="order-1 lg:order-2">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+                服务流程
+              </p>
+              <h2 className="mt-3 heading-lg">专人对接，全流程闭环</h2>
+              <p className="mt-4 body-lg">
+                需求确认 → 选型报价 → 合同签订 → 供货交付 → 验收确认 → 售后跟踪，全流程专人对接。
+              </p>
+            </div>
+          </FadeInUp>
         </div>
       </Section>
 
       <Section background="primary">
-        <SectionHeader
-          title="服务流程"
-          subtitle="标准化服务路径"
-          light
-        />
+        <SectionHeader title="服务流程" subtitle="标准化服务路径" light />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <ScrollRevealContainer className="contents">
+          <StaggerReveal className="contents">
             {serviceProcess.map((item, index) => (
               <FeatureCard
                 key={item.title}
@@ -157,7 +163,7 @@ export default function BusinessPage() {
                 description={item.description}
               />
             ))}
-          </ScrollRevealContainer>
+          </StaggerReveal>
         </div>
       </Section>
     </>

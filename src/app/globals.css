@@ -28,6 +28,15 @@
     font-weight: 700;
     letter-spacing: -0.02em;
   }
+
+  /* SSR / no-JS safety: animated elements visible before GSAP hydrates */
+  html:not(.gsap-ready) .hero-animate,
+  html:not(.gsap-ready) .reveal,
+  html:not(.gsap-ready) [data-count-up] {
+    opacity: 1 !important;
+    transform: none !important;
+    will-change: auto !important;
+  }
 }
 
 @layer components {
@@ -102,5 +111,25 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .animate-ken-burns {
+    animation: kenBurns 10s ease-in-out infinite alternate;
+  }
+
+  @keyframes kenBurns {
+    0% {
+      transform: scale(1) translate(0, 0);
+    }
+    100% {
+      transform: scale(1.1) translate(-1%, -1%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-ken-burns {
+      animation: none;
+      transform: scale(1);
+    }
   }
 }

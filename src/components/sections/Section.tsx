@@ -34,12 +34,14 @@ interface SectionProps {
   children: ReactNode;
   className?: string;
   background?: "white" | "muted" | "primary";
+  fullHeight?: boolean;
 }
 
 export function Section({
   children,
   className = "",
   background = "white",
+  fullHeight = true,
 }: SectionProps) {
   const bgClasses = {
     white: "bg-white",
@@ -48,7 +50,11 @@ export function Section({
   };
 
   return (
-    <section className={`section ${bgClasses[background]} ${className}`}>
+    <section
+      className={`section ${bgClasses[background]} ${
+        fullHeight ? "min-h-screen flex flex-col justify-center" : ""
+      } ${className}`}
+    >
       <div className="container-wide">{children}</div>
     </section>
   );

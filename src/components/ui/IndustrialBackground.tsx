@@ -11,6 +11,7 @@ interface IndustrialBackgroundProps {
   showOverlay?: boolean;
   imageSrc?: string;
   priority?: boolean;
+  kenBurns?: boolean;
 }
 
 export function IndustrialBackground({
@@ -21,8 +22,11 @@ export function IndustrialBackground({
   showOverlay = true,
   imageSrc = "/images/industrial/steel-mill.jpg",
   priority = false,
+  kenBurns = false,
 }: IndustrialBackgroundProps) {
-  const sceneTransform = blur
+  const sceneTransform = kenBurns
+    ? ""
+    : blur
     ? focused
       ? "scale-[1.03] opacity-100"
       : "scale-100 opacity-95"
@@ -31,7 +35,11 @@ export function IndustrialBackground({
   return (
     <div className={`absolute inset-0 overflow-hidden ${className}`}>
       <div
-        className={`absolute -inset-[5%] transition-all duration-700 ease-out will-change-transform ${sceneTransform}`}
+        className={`absolute -inset-[5%] will-change-transform ${sceneTransform} ${
+          kenBurns
+            ? "animate-ken-burns"
+            : "transition-all duration-700 ease-out"
+        }`}
         aria-hidden="true"
       >
         <Image

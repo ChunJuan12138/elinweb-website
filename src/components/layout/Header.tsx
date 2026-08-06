@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const navItems = [
   { label: "公司简介", href: "/company" },
@@ -16,12 +16,33 @@ const navItems = [
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-steel-200 bg-white/95 shadow-sm backdrop-blur">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "border-b border-steel-200 bg-white/95 shadow-md backdrop-blur"
+          : "border-b border-white/10 bg-white/80 shadow-sm backdrop-blur"
+      }`}
+    >
       <div className="container-wide flex h-20 items-center justify-between md:h-24">
         <Link href="/company" className="group flex items-center gap-4">
-          <div className="relative flex h-[72px] w-[100px] items-center justify-center overflow-hidden rounded-lg bg-primary-50 transition-all duration-500 group-hover:bg-primary-100 md:h-[88px] md:w-[110px]">
+          <div
+            className={`relative flex items-center justify-center overflow-hidden rounded-lg bg-primary-50 transition-all duration-500 group-hover:bg-primary-100 ${
+              scrolled ? "h-[56px] w-[80px] md:h-[64px] md:w-[90px]" : "h-[72px] w-[100px] md:h-[88px] md:w-[110px]"
+            }`}
+          >
             <div className="absolute inset-0 bg-[linear-gradient(110deg,transparent_25%,rgba(255,255,255,0.6)_50%,transparent_75%)] translate-x-[-100%] transition-transform duration-1000 group-hover:translate-x-[100%]" />
             <Image
               src="/images/logo.png"
@@ -33,10 +54,10 @@ export function Header() {
           </div>
 
           <div className="hidden flex-col justify-center lg:flex">
-            <span className="text-lg font-bold leading-tight text-primary md:text-xl">
+            <span className={`font-bold leading-tight transition-all duration-300 ${scrolled ? "text-lg text-primary md:text-xl" : "text-xl text-primary md:text-2xl"}`}>
               艺林工业供应链
             </span>
-            <span className="text-xs text-steel-500">
+            <span className={`transition-all duration-300 ${scrolled ? "text-[10px] text-steel-500" : "text-xs text-steel-500"}`}>
               包钢本土化工业供应链服务商
             </span>
           </div>
@@ -44,11 +65,7 @@ export function Header() {
 
         <nav className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="nav-link"
-            >
+            <Link key={item.href} href={item.href} className="nav-link">
               {item.label}
             </Link>
           ))}

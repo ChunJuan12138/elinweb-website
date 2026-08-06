@@ -2,7 +2,8 @@ import { Hero } from "@/components/sections/Hero";
 import { Section, SectionHeader } from "@/components/sections/Section";
 import { FeatureCard } from "@/components/cards/FeatureCard";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
-import { ScrollRevealContainer } from "@/components/animation/ScrollRevealContainer";
+import { StaggerReveal } from "@/components/animation/StaggerReveal";
+import { FadeInUp } from "@/components/animation/FadeInUp";
 
 const milestones = [
   {
@@ -37,25 +38,30 @@ export default function HistoryPage() {
         subtitle="成长轨迹"
         description="从 2009 年起步到今天的生态协同，艺林用十余年沉淀服务工矿客户的真功夫。"
         primaryCta={{ label: "了解我们", href: "/company" }}
+        imageSrc="/images/industrial/mining-truck.jpg"
       />
 
       <Section background="white">
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent">
-              成长轨迹
-            </p>
-            <h2 className="mt-3 heading-lg">发展历程</h2>
-            <p className="mt-4 body-lg">
-              从 2009 年起步到今天的生态协同，艺林用十余年沉淀服务工矿客户的真功夫。
-            </p>
-          </div>
-          <PlaceholderImage
-            label="工业发展时间线"
-            aspectRatio="aspect-[4/3]"
-            variant="industrial"
-            imageSrc="/images/industrial/mining-truck.jpg"
-          />
+          <FadeInUp>
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+                成长轨迹
+              </p>
+              <h2 className="mt-3 heading-lg">发展历程</h2>
+              <p className="mt-4 body-lg">
+                从 2009 年起步到今天的生态协同，艺林用十余年沉淀服务工矿客户的真功夫。
+              </p>
+            </div>
+          </FadeInUp>
+          <FadeInUp delay={0.15}>
+            <PlaceholderImage
+              label="工业发展时间线"
+              aspectRatio="aspect-[4/3]"
+              variant="industrial"
+              imageSrc="/images/industrial/mining-truck.jpg"
+            />
+          </FadeInUp>
         </div>
       </Section>
 
@@ -65,20 +71,20 @@ export default function HistoryPage() {
           subtitle="关键节点"
           description="四个关键节点，勾勒出艺林从起步到一体化服务体系的成长路径。"
         />
-        <div className="mt-12 relative">
+        <div className="relative mt-12">
           <div className="absolute left-8 top-0 bottom-0 w-px bg-steel-200 md:left-1/2 md:-ml-px" />
           <div className="space-y-12">
-            <ScrollRevealContainer className="contents" selector=".reveal">
+            <StaggerReveal selector=".reveal">
               {milestones.map((item, index) => (
                 <div
                   key={item.year}
-                  className={`relative flex flex-col gap-6 md:flex-row ${
+                  className={`reveal relative flex flex-col gap-6 md:flex-row ${
                     index % 2 === 0 ? "md:flex-row-reverse" : ""
                   }`}
                 >
                   <div className="hidden md:block md:flex-1 md:text-right" />
                   <div className="relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-md">
-                    <span className="text-sm font-bold leading-tight text-center">
+                    <span className="text-center text-sm font-bold leading-tight">
                       {item.year}
                     </span>
                   </div>
@@ -101,11 +107,12 @@ export default function HistoryPage() {
                       }
                       title={item.title}
                       description={item.description}
+                      animate={false}
                     />
                   </div>
                 </div>
               ))}
-            </ScrollRevealContainer>
+            </StaggerReveal>
           </div>
         </div>
       </Section>

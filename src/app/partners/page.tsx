@@ -2,7 +2,8 @@ import { Hero } from "@/components/sections/Hero";
 import { Section, SectionHeader } from "@/components/sections/Section";
 import { FeatureCard } from "@/components/cards/FeatureCard";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
-import { ScrollRevealContainer } from "@/components/animation/ScrollRevealContainer";
+import { StaggerReveal } from "@/components/animation/StaggerReveal";
+import { FadeInUp } from "@/components/animation/FadeInUp";
 
 const benefits = [
   {
@@ -45,28 +46,33 @@ export default function PartnersPage() {
         subtitle="上游合作"
         description="您专注制造，交付与售后的最后一公里，交给艺林。"
         primaryCta={{ label: "生态网络", href: "/ecosystem" }}
+        imageSrc="/images/industrial/machinery.jpg"
       />
 
       <Section background="white">
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent">
-              合作痛点
-            </p>
-            <h2 className="mt-3 heading-lg">您的产品走了十万八千里，最后一公里我们来跑</h2>
-            <p className="mt-4 body-lg">
-              您的产品从工厂出发，走了生产、质检、出厂，您全程专业。但从出厂到客户现场、再到售后，这最后一公里：物流配送、到货验收、现场问题、退换协调、使用指导……既耗精力又难覆盖。
-            </p>
-            <p className="mt-4 body-lg">
-              这一公里，正是我们的主场。
-            </p>
-          </div>
-          <PlaceholderImage
-            label="供应商合作与交付协同"
-            aspectRatio="aspect-[4/3]"
-            variant="industrial"
-            imageSrc="/images/industrial/machinery.jpg"
-          />
+          <FadeInUp>
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+                合作痛点
+              </p>
+              <h2 className="mt-3 heading-lg">您的产品走了十万八千里，最后一公里我们来跑</h2>
+              <p className="mt-4 body-lg">
+                您的产品从工厂出发，走了生产、质检、出厂，您全程专业。但从出厂到客户现场、再到售后，这最后一公里：物流配送、到货验收、现场问题、退换协调、使用指导……既耗精力又难覆盖。
+              </p>
+              <p className="mt-4 body-lg">
+                这一公里，正是我们的主场。
+              </p>
+            </div>
+          </FadeInUp>
+          <FadeInUp delay={0.15}>
+            <PlaceholderImage
+              label="供应商合作与交付协同"
+              aspectRatio="aspect-[4/3]"
+              variant="industrial"
+              imageSrc="/images/industrial/machinery.jpg"
+            />
+          </FadeInUp>
         </div>
       </Section>
 
@@ -77,7 +83,7 @@ export default function PartnersPage() {
           description="产品+本地服务，共同服务好每一个客户。"
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <ScrollRevealContainer className="contents">
+          <StaggerReveal className="contents">
             {benefits.map((item) => (
               <FeatureCard
                 key={item.title}
@@ -100,7 +106,7 @@ export default function PartnersPage() {
                 description={item.description}
               />
             ))}
-          </ScrollRevealContainer>
+          </StaggerReveal>
         </div>
       </Section>
     </>

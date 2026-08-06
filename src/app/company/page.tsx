@@ -2,8 +2,9 @@ import { Hero } from "@/components/sections/Hero";
 import { Section, SectionHeader } from "@/components/sections/Section";
 import { FeatureCard } from "@/components/cards/FeatureCard";
 import { StatCard } from "@/components/cards/StatCard";
-import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
-import { ScrollRevealContainer } from "@/components/animation/ScrollRevealContainer";
+import Image from "next/image";
+import { StaggerReveal } from "@/components/animation/StaggerReveal";
+import { FadeInUp } from "@/components/animation/FadeInUp";
 import { CountUpContainer } from "@/components/animation/CountUpContainer";
 
 const capabilities = [
@@ -43,28 +44,38 @@ export default function CompanyPage() {
         subtitle="关于艺林"
         description="我们是一家本地化工业供应链服务商——立足包头、辐射包头周边工矿企业，连接上游制造与下游生产，让两端各自专注专业。"
         primaryCta={{ label: "服务业务", href: "/business" }}
+        imageSrc="/images/industrial/steel-mill.jpg"
       />
 
       <Section background="white">
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent">
-              定位
-            </p>
-            <h2 className="mt-3 heading-lg">本地化工业供应链服务商</h2>
-            <p className="mt-4 body-lg">
-              我们与震坤行、欧冶等平台有相似之处，但本质不同：他们侧重卖货，服务是附带；我们以服务为核心，卖货只是服务的一部分。
-            </p>
-            <p className="mt-4 body-lg">
-              让客户专注生产与制造，交付与售后的最后一公里，交给艺林。我们与客户共生共长。
-            </p>
-          </div>
-          <PlaceholderImage
-            label="工业设备与供应链服务"
-            aspectRatio="aspect-[4/3]"
-            variant="industrial"
-            imageSrc="/images/industrial/machinery.jpg"
-          />
+          <FadeInUp className="order-2 lg:order-1">
+            <div className="mx-auto flex max-w-[450px] items-center justify-center rounded-2xl bg-primary-50 p-8">
+              <div className="relative aspect-square w-full max-w-[450px]">
+                <Image
+                  src="/images/logo.png"
+                  alt="艺林工业供应链 Logo"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 1024px) 100vw, 450px"
+                />
+              </div>
+            </div>
+          </FadeInUp>
+          <FadeInUp delay={0.15} className="order-1 lg:order-2">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+                定位
+              </p>
+              <h2 className="mt-3 heading-lg">本地化工业供应链服务商</h2>
+              <p className="mt-4 body-lg">
+                我们与震坤行、欧冶等平台有相似之处，但本质不同：他们侧重卖货，服务是附带；我们以服务为核心，卖货只是服务的一部分。
+              </p>
+              <p className="mt-4 body-lg">
+                让客户专注生产与制造，交付与售后的最后一公里，交给艺林。我们与客户共生共长。
+              </p>
+            </div>
+          </FadeInUp>
         </div>
       </Section>
 
@@ -76,7 +87,7 @@ export default function CompanyPage() {
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-3">
           <CountUpContainer className="contents">
-            <ScrollRevealContainer className="contents">
+            <StaggerReveal className="contents">
               {stats.map((item) => (
                 <StatCard
                   key={item.label}
@@ -99,18 +110,15 @@ export default function CompanyPage() {
                   }
                 />
               ))}
-            </ScrollRevealContainer>
+            </StaggerReveal>
           </CountUpContainer>
         </div>
       </Section>
 
       <Section background="white">
-        <SectionHeader
-          title="核心能力"
-          subtitle="服务能力"
-        />
+        <SectionHeader title="核心能力" subtitle="服务能力" />
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
-          <ScrollRevealContainer className="contents">
+          <StaggerReveal className="contents">
             {capabilities.map((item) => (
               <FeatureCard
                 key={item.title}
@@ -133,7 +141,7 @@ export default function CompanyPage() {
                 description={item.description}
               />
             ))}
-          </ScrollRevealContainer>
+          </StaggerReveal>
         </div>
       </Section>
     </>

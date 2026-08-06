@@ -2,7 +2,8 @@ import { Hero } from "@/components/sections/Hero";
 import { Section, SectionHeader } from "@/components/sections/Section";
 import { FeatureCard } from "@/components/cards/FeatureCard";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
-import { ScrollRevealContainer } from "@/components/animation/ScrollRevealContainer";
+import { StaggerReveal } from "@/components/animation/StaggerReveal";
+import { FadeInUp } from "@/components/animation/FadeInUp";
 
 const advantages = [
   {
@@ -45,35 +46,37 @@ export default function AdvantagesPage() {
         subtitle="为什么选择我们"
         description="十余年的本地化沉淀，让我们成为工矿企业值得信赖的工业供应链合作伙伴。"
         primaryCta={{ label: "收费标准", href: "/pricing" }}
+        imageSrc="/images/industrial/mining-truck.jpg"
       />
 
       <Section background="white">
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          <PlaceholderImage
-            label="包钢现场服务"
-            aspectRatio="aspect-[4/3]"
-            variant="industrial"
-            imageSrc="/images/industrial/mining-truck.jpg"
-          />
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent">
-              差异化价值
-            </p>
-            <h2 className="mt-3 heading-lg">不是卖货，是做服务</h2>
-            <p className="mt-4 body-lg">
-              我们与震坤行、欧冶等平台有相似之处，但本质不同：他们侧重卖货，服务是附带；我们以服务为核心，卖货只是服务的一部分。
-            </p>
-          </div>
+          <FadeInUp className="order-2 lg:order-1">
+            <PlaceholderImage
+              label="包钢现场服务"
+              aspectRatio="aspect-[4/3]"
+              variant="industrial"
+              imageSrc="/images/industrial/mining-truck.jpg"
+            />
+          </FadeInUp>
+          <FadeInUp delay={0.15} className="order-1 lg:order-2">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+                差异化价值
+              </p>
+              <h2 className="mt-3 heading-lg">不是卖货，是做服务</h2>
+              <p className="mt-4 body-lg">
+                我们与震坤行、欧冶等平台有相似之处，但本质不同：他们侧重卖货，服务是附带；我们以服务为核心，卖货只是服务的一部分。
+              </p>
+            </div>
+          </FadeInUp>
         </div>
       </Section>
 
       <Section background="muted">
-        <SectionHeader
-          title="六大核心优势"
-          subtitle="核心竞争力"
-        />
+        <SectionHeader title="六大核心优势" subtitle="核心竞争力" />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <ScrollRevealContainer className="contents">
+          <StaggerReveal className="contents">
             {advantages.map((item) => (
               <FeatureCard
                 key={item.title}
@@ -96,7 +99,7 @@ export default function AdvantagesPage() {
                 description={item.description}
               />
             ))}
-          </ScrollRevealContainer>
+          </StaggerReveal>
         </div>
       </Section>
     </>
