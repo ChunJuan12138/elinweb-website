@@ -44,11 +44,12 @@ export function IndustrialBackground({
       >
         <Image
           src={imageSrc}
-          alt="工业场景背景"
+          alt=""
           fill
           className="object-cover"
           priority={priority}
           sizes="100vw"
+          loading={priority ? "eager" : "lazy"}
         />
       </div>
 

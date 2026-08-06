@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 const navItems = [
   { label: "关于艺林", href: "/company" },
   { label: "服务业务", href: "/business" },
+  { label: "核心优势", href: "/advantages" },
+  { label: "收费标准", href: "/pricing" },
   { label: "合作生态", href: "/ecosystem" },
   { label: "发展历程", href: "/history" },
 ];

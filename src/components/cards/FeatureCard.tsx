@@ -12,15 +12,22 @@ interface FeatureCardProps {
 }
 
 export function FeatureCard({ icon, title, description, animate = true, batch = true }: FeatureCardProps) {
-  const ref = useScrollReveal<HTMLDivElement>({ y: 48, duration: 0.7, start: "top 88%", enabled: animate && !batch });
+  // When batched inside StaggerReveal, the parent drives the animation; otherwise
+  // useScrollReveal handles the per-card reveal.
+  const ref = useScrollReveal<HTMLDivElement>({
+    y: 48,
+    duration: 0.7,
+    start: "top 88%",
+    enabled: animate && !batch,
+  });
 
   const baseClass =
     "feature-card group relative overflow-hidden rounded-xl border border-accent/60 bg-white/10 p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:bg-white/15 hover:shadow-lg md:p-8";
 
-  const className = animate && batch
-    ? `feature-card reveal opacity-0 ${baseClass}`
-    : animate
-    ? `opacity-0 ${baseClass}`
+  const className = animate
+    ? batch
+      ? `feature-card reveal opacity-0 ${baseClass}`
+      : `opacity-0 ${baseClass}`
     : baseClass;
 
   return (

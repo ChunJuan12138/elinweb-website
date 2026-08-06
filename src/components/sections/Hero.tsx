@@ -19,6 +19,7 @@ interface HeroProps {
   imageSrc?: string;
   logoSrc?: string;
   logoAlt?: string;
+  logoPlain?: boolean;
 }
 
 export function Hero({
@@ -31,6 +32,7 @@ export function Hero({
   imageSrc,
   logoSrc,
   logoAlt,
+  logoPlain = false,
 }: HeroProps) {
   const scopeRef = useRef<HTMLDivElement>(null);
   const [focused, setFocused] = useState(false);
@@ -166,14 +168,18 @@ export function Hero({
             <FadeInUp
               direction="up"
               delay={0.2}
-              className="relative mx-auto aspect-square w-full max-w-[360px] overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 shadow-lg backdrop-blur-sm"
+              className={
+                logoPlain
+                  ? "relative mx-auto aspect-square w-full max-w-[360px] overflow-hidden md:max-w-[420px] lg:max-w-[520px]"
+                  : "relative mx-auto aspect-square w-full max-w-[360px] overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 shadow-lg backdrop-blur-sm"
+              }
             >
               <Image
                 src={logoSrc}
                 alt={logoAlt || ""}
                 fill
-                className="object-contain p-6"
-                sizes="(max-width: 1024px) 280px, 360px"
+                className="object-contain p-4 drop-shadow-2xl"
+                sizes="(max-width: 768px) 360px, (max-width: 1024px) 420px, 520px"
                 priority
               />
             </FadeInUp>

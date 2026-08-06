@@ -12,6 +12,9 @@ const footerLinks = [
 
 const contactInfo = [
   { label: "公司全称", value: "内蒙古艺林供应链科技有限责任公司" },
+  { label: "电话", value: "0472-2110904", href: "tel:04722110904" },
+  { label: "邮箱", value: "yuanzhongke@elincom.cn", href: "mailto:yuanzhongke@elincom.cn" },
+  { label: "地址", value: "包头市昆都仑区包钢中桥停车场北" },
   { label: "服务区域", value: "包头及包头周边工矿企业" },
   { label: "服务理念", value: "让客户专注生产与制造" },
 ];
@@ -57,7 +60,16 @@ export function Footer() {
               {contactInfo.map((item) => (
                 <li key={item.label} className="text-sm text-steel-200">
                   <span className="block text-xs text-steel-400">{item.label}</span>
-                  {item.value}
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      className="transition hover:text-white hover:underline"
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    item.value
+                  )}
                 </li>
               ))}
             </ul>
@@ -66,7 +78,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
           <p className="text-xs text-steel-400">
-            © {currentYear} 内蒙古艺林工业供应链科技有限公司. 保留所有权利.
+            © {currentYear} 内蒙古艺林供应链科技有限责任公司. 保留所有权利.
           </p>
           <p className="text-xs text-steel-500">
             本网站仅用于企业展示，具体合作以正式合同为准。
