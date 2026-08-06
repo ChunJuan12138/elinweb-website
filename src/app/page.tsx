@@ -2,10 +2,11 @@ import { Hero } from "@/components/sections/Hero";
 import { Section, SectionHeader } from "@/components/sections/Section";
 import { FeatureCard } from "@/components/cards/FeatureCard";
 import { StatCard } from "@/components/cards/StatCard";
-import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import { StaggerReveal } from "@/components/animation/StaggerReveal";
 import { FadeInUp } from "@/components/animation/FadeInUp";
 import { CountUpContainer } from "@/components/animation/CountUpContainer";
+import Image from "next/image";
+import Link from "next/link";
 
 const stats = [
   { value: "300+", label: "余家国内外品牌厂商" },
@@ -52,32 +53,45 @@ export default function HomePage() {
         background="image"
         imageSrc="/images/industrial/machinery.jpg"
         fullHeight={false}
+        className="py-20 md:py-28"
       >
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp>
             <div>
-              <p className="inline-block rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
+              <p className="inline-block rounded-full border border-accent/60 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
                 关于艺林
               </p>
               <h2 className="mt-4 heading-lg text-white">公司简介</h2>
               <p className="mt-4 body-lg text-steel-200">
                 我们是一家本地化工业供应链服务商——立足包头、辐射包头周边工矿企业，连接上游制造与下游生产，让两端各自专注专业。
               </p>
+              <div className="mt-8">
+                <Link
+                  href="/business"
+                  className="inline-flex items-center justify-center rounded-lg bg-accent px-8 py-3 text-base font-semibold text-white shadow-md transition-colors hover:bg-accent/90"
+                >
+                  服务业务
+                </Link>
+              </div>
             </div>
           </FadeInUp>
-          <FadeInUp delay={0.15}>
-            <PlaceholderImage
-              label="工业设备与供应链服务"
-              aspectRatio="aspect-[4/3]"
-              variant="industrial"
-              imageSrc="/images/industrial/machinery.jpg"
-            />
+          <FadeInUp delay={0.15} className="flex items-center justify-center">
+            <div className="relative aspect-square w-full max-w-[450px] overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg backdrop-blur-sm">
+              <Image
+                src="/images/logo.png"
+                alt="艺林工业供应链"
+                fill
+                className="object-contain p-4"
+                sizes="(max-width: 1024px) 100vw, 450px"
+                priority
+              />
+            </div>
           </FadeInUp>
         </div>
 
         <FadeInUp>
           <div className="mt-12 rounded-xl border border-white/10 bg-white/10 p-6 shadow-sm backdrop-blur-sm md:p-8">
-            <p className="inline-block rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
+            <p className="inline-block rounded-full border border-accent/60 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
               定位
             </p>
             <h3 className="mt-4 text-2xl font-bold text-white md:text-3xl">

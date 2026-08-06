@@ -96,7 +96,7 @@ export function Hero({
       >
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div className="max-w-2xl">
-            <p className="hero-animate opacity-0 inline-block rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
+            <p className="hero-animate opacity-0 inline-block rounded-full border border-accent/60 bg-accent/10 px-4 py-1.5 text-[25px] font-bold uppercase tracking-wider text-accent backdrop-blur-sm">
               {subtitle}
             </p>
             <h1 className="hero-animate opacity-0 mt-4 heading-xl text-white drop-shadow-lg">
