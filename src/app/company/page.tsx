@@ -119,26 +119,27 @@ function CapabilityCard({
   icon: ReactNode;
 }) {
   return (
-    <div className="group flex flex-col overflow-hidden rounded-xl border border-accent/60 bg-white/10 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:bg-white/15 hover:shadow-lg">
-      <div className="relative aspect-[16/10] overflow-hidden">
+    <div className="group flex h-full min-h-[420px] flex-col overflow-hidden rounded-xl border border-accent/60 bg-white/10 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:bg-white/15 hover:shadow-lg">
+      <div className="relative h-[48%] min-h-[180px] overflow-hidden border-b border-white/20">
         <Image
           src={image}
           alt={title}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary-950/60 via-transparent to-transparent" />
       </div>
-      <div className="flex flex-1 flex-col p-6 md:p-8">
-        <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-white/10 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
-          {icon}
+      <div className="flex flex-1 flex-col justify-between p-5 md:p-6">
+        <div>
+          <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
+            {icon}
+          </div>
+          <h3 className="mt-4 text-lg font-semibold text-white">{title}</h3>
+          <p className="mt-3 text-sm leading-relaxed text-steel-300">
+            {description}
+          </p>
         </div>
-        <h3 className="mt-5 text-lg font-semibold text-white">{title}</h3>
-        <p className="mt-3 flex-1 text-sm leading-relaxed text-steel-300">
-          {description}
-        </p>
       </div>
     </div>
   );
