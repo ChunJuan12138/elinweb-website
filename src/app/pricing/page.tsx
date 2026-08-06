@@ -121,7 +121,7 @@ export default function PricingPage() {
       >
         <SectionHeader title="对外标准表述" subtitle="标准话术" />
         <FadeInUp>
-          <div className="mx-auto mt-12 max-w-3xl rounded-xl border border-white/10 bg-white/10 p-8 shadow-sm backdrop-blur-sm">
+          <div className="mx-auto mt-12 max-w-3xl rounded-xl border border-accent/60 bg-white/10 p-8 shadow-sm backdrop-blur-sm">
             <ul className="space-y-4">
               {externalStandards.map((item) => (
                 <li key={item} className="flex items-start gap-3">
@@ -158,7 +158,7 @@ export default function PricingPage() {
             {internalRates.map((item) => (
               <div
                 key={item.title}
-                className="reveal group rounded-xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/10"
+                className="reveal group rounded-xl border border-accent/60 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:bg-white/10"
               >
                 <p className="text-sm text-steel-300">{item.title}</p>
                 <p className="mt-2 text-2xl font-bold text-white md:text-3xl">{item.value}</p>

@@ -39,7 +39,7 @@ export const StatCard = memo(function StatCard({
         ref={cardRef}
         className={`${
           batch ? "reveal opacity-0" : "opacity-0"
-        } stat-card group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/10`}
+        } stat-card group relative overflow-hidden rounded-xl border border-accent/60 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:bg-white/10`}
       >
         <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-accent/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         {icon && (

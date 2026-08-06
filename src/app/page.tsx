@@ -76,7 +76,7 @@ export default function HomePage() {
             </div>
           </FadeInUp>
           <FadeInUp delay={0.15} className="flex items-center justify-center">
-            <div className="relative aspect-square w-full max-w-[450px] overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg backdrop-blur-sm">
+            <div className="relative aspect-square w-full max-w-[450px] overflow-hidden rounded-2xl border border-accent/60 bg-white/5 p-6 shadow-lg backdrop-blur-sm">
               <Image
                 src="/images/logo.png"
                 alt="艺林工业供应链"
@@ -90,7 +90,7 @@ export default function HomePage() {
         </div>
 
         <FadeInUp>
-          <div className="mt-12 rounded-xl border border-white/10 bg-white/10 p-6 shadow-sm backdrop-blur-sm md:p-8">
+          <div className="mt-12 rounded-xl border border-accent/60 bg-white/10 p-6 shadow-sm backdrop-blur-sm md:p-8">
             <p className="inline-block rounded-full border border-accent/60 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
               定位
             </p>
