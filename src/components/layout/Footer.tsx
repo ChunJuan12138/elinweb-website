@@ -66,7 +66,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
           <p className="text-xs text-steel-400">
-            © {currentYear} 内蒙古艺林工业供应链科技有限公司. 保留所有权利.
+            © {currentYear} 内蒙古艺林供应链科技有限责任公司. 保留所有权利.
           </p>
           <p className="text-xs text-steel-500">
             本网站仅用于企业展示，具体合作以正式合同为准。

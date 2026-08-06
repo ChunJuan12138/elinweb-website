@@ -26,7 +26,7 @@ export function SectionHeader({
   );
 }
 
-type BackgroundType = "white" | "muted" | "primary" | "solid-primary" | "image";
+type BackgroundType = "image" | "solid-primary";
 
 interface SectionProps {
   children: ReactNode;
@@ -48,15 +48,14 @@ const overlayClasses = {
 export function Section({
   children,
   className = "",
-  background = "white",
+  background = "image",
   fullHeight = true,
   imageSrc = "/images/industrial/steel-mill.jpg",
   overlay = "medium",
   imageClassName = "",
   id,
 }: SectionProps) {
-  const useImage =
-    background === "white" || background === "muted" || background === "image";
+  const useImage = background === "image";
 
   return (
     <section
@@ -72,30 +71,18 @@ export function Section({
           <div className={`absolute -inset-[5%] ${imageClassName}`}>
             <Image
               src={imageSrc}
-              alt="工业场景背景"
+              alt=""
               fill
               className="object-cover"
               sizes="100vw"
               priority={false}
+              loading="lazy"
             />
           </div>
           {/* readability overlay */}
           <div className={`absolute inset-0 ${overlayClasses[overlay]}`} />
           <div className="absolute inset-0 bg-gradient-to-t from-primary-950/40 via-transparent to-primary-900/20" />
         </div>
-      )}
-
-      {background === "primary" && (
-        <div
-          className="absolute inset-0 opacity-10"
-          aria-hidden="true"
-          style={{
-            backgroundImage: `url("${imageSrc}")`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            filter: "blur(8px) brightness(0.4)",
-          }}
-        />
       )}
 
       <div className="container-wide relative z-10">{children}</div>

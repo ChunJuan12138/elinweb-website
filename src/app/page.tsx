@@ -4,6 +4,7 @@ import { FeatureCard } from "@/components/cards/FeatureCard";
 import { StaggerReveal } from "@/components/animation/StaggerReveal";
 import { FadeInUp } from "@/components/animation/FadeInUp";
 import { CountUpContainer } from "@/components/animation/CountUpContainer";
+import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -168,6 +169,7 @@ export default function HomePage() {
        imageSrc="/images/industrial/steel-mill.jpg"
        logoSrc="/images/logo.png"
        logoAlt="艺林工业供应链"
+       logoPlain
      />
 
       <Section
@@ -290,22 +292,57 @@ export default function HomePage() {
               无论您是下游工矿企业需要设备供应与现场服务，还是上游制造商希望打通包头市场，欢迎与我们联系，专人对接。
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link
-                href="mailto:contact@yilin-supply.com"
+              <a
+                href="tel:04722110904"
                 className="btn-primary min-w-[180px]"
               >
-                发送邮件
-              </Link>
-              <Link
-                href="tel:+864720000000"
+                0472-2110904
+              </a>
+              <a
+                href="mailto:yuanzhongke@elincom.cn"
                 className="btn-secondary min-w-[180px]"
               >
-                电话咨询
-              </Link>
+                yuanzhongke@elincom.cn
+              </a>
             </div>
-            <p className="mt-6 text-sm text-steel-400">
-              24 小时现场响应 · 服务费明码标价
+            <p className="mt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-steel-300">
+              <span>电话</span>
+              <a
+                href="tel:04722110904"
+                className="text-white transition-colors hover:text-accent"
+              >
+                0472-2110904
+              </a>
+              <span className="hidden sm:inline" aria-hidden="true">
+                |
+              </span>
+              <span>邮箱</span>
+              <a
+                href="mailto:yuanzhongke@elincom.cn"
+                className="text-white transition-colors hover:text-accent"
+              >
+                yuanzhongke@elincom.cn
+              </a>
+              <span className="hidden sm:inline" aria-hidden="true">
+                |
+              </span>
+              <span>地址 包头市昆都仑区包钢中桥停车场北</span>
             </p>
+            <div className="mt-8">
+              <a
+                href="https://uri.amap.com/search?keyword=%E5%8C%85%E5%A4%B4%E5%B8%82%E6%98%86%E9%83%BD%E4%BB%91%E5%8C%BA%E5%8C%85%E9%92%A2%E4%B8%AD%E6%A1%A5%E5%81%9C%E8%BD%A6%E5%9C%BA%E5%8C%97"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block w-full max-w-2xl"
+                aria-label="在地图中查看公司位置"
+              >
+                <PlaceholderImage
+                  label="公司位置地图"
+                  aspectRatio="aspect-video"
+                  variant="industrial"
+                />
+              </a>
+            </div>
           </div>
         </FadeInUp>
       </Section>
