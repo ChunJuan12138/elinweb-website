@@ -49,18 +49,22 @@ export default function PartnersPage() {
         imageSrc="/images/industrial/machinery.jpg"
       />
 
-      <Section background="white">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/steel-mill.jpg"
+        fullHeight={false}
+      >
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp>
             <div>
               <p className="text-sm font-semibold uppercase tracking-wider text-accent">
                 合作痛点
               </p>
-              <h2 className="mt-3 heading-lg">您的产品走了十万八千里，最后一公里我们来跑</h2>
-              <p className="mt-4 body-lg">
+              <h2 className="mt-3 heading-lg text-white">您的产品走了十万八千里，最后一公里我们来跑</h2>
+              <p className="mt-4 body-lg text-steel-200">
                 您的产品从工厂出发，走了生产、质检、出厂，您全程专业。但从出厂到客户现场、再到售后，这最后一公里：物流配送、到货验收、现场问题、退换协调、使用指导……既耗精力又难覆盖。
               </p>
-              <p className="mt-4 body-lg">
+              <p className="mt-4 body-lg text-steel-200">
                 这一公里，正是我们的主场。
               </p>
             </div>
@@ -76,7 +80,11 @@ export default function PartnersPage() {
         </div>
       </Section>
 
-      <Section background="muted">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/pipes-valves.jpg"
+        overlay="heavy"
+      >
         <SectionHeader
           title="与艺林合作，您将获得"
           subtitle="合作收益"

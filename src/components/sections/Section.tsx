@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import Image from "next/image";
 
 interface SectionHeaderProps {
   title: string;
@@ -13,7 +14,7 @@ export function SectionHeader({
   subtitle,
   description,
   centered = true,
-  light = false,
+  light = true,
 }: SectionHeaderProps) {
   return (
     <div className={centered ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
@@ -30,32 +31,76 @@ export function SectionHeader({
   );
 }
 
+type BackgroundType = "white" | "muted" | "primary" | "image";
+
 interface SectionProps {
   children: ReactNode;
   className?: string;
-  background?: "white" | "muted" | "primary";
+  background?: BackgroundType;
   fullHeight?: boolean;
+  imageSrc?: string;
+  overlay?: "light" | "medium" | "heavy";
+  imageClassName?: string;
 }
+
+const overlayClasses = {
+  light: "bg-slate-950/55",
+  medium: "bg-slate-950/70",
+  heavy: "bg-slate-950/82",
+};
 
 export function Section({
   children,
   className = "",
   background = "white",
   fullHeight = true,
+  imageSrc = "/images/industrial/steel-mill.jpg",
+  overlay = "medium",
+  imageClassName = "",
 }: SectionProps) {
-  const bgClasses = {
-    white: "bg-white",
-    muted: "bg-steel-50",
-    primary: "bg-primary-950",
-  };
+  const useImage = background === "white" || background === "muted" || background === "image";
 
   return (
     <section
-      className={`section ${bgClasses[background]} ${
+      className={`group relative overflow-hidden ${
         fullHeight ? "min-h-screen flex flex-col justify-center" : ""
-      } ${className}`}
+      } ${useImage ? "text-white" : ""} ${className}`}
     >
-      <div className="container-wide">{children}</div>
+      {useImage && (
+        <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+          <div
+            className={`absolute -inset-[5%] ${imageClassName}`}
+            style={{ filter: "blur(8px) brightness(0.7)" }}
+          >
+            <Image
+              src={imageSrc}
+              alt="工业场景背景"
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority={false}
+            />
+          </div>
+          {/* readability overlay */}
+          <div className={`absolute inset-0 ${overlayClasses[overlay]}`} />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-slate-900/20" />
+        </div>
+      )}
+
+      {background === "primary" && (
+        <div
+          className="absolute inset-0 opacity-10"
+          aria-hidden="true"
+          style={{
+            backgroundImage: `url("${imageSrc}")`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: "blur(8px) brightness(0.4)",
+          }}
+        />
+      )}
+
+      <div className="container-wide relative z-10">{children}</div>
     </section>
   );
 }

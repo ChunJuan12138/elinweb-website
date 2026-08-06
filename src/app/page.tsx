@@ -48,21 +48,25 @@ export default function HomePage() {
         imageSrc="/images/industrial/steel-mill.jpg"
       />
 
-      <Section background="white">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/machinery.jpg"
+        fullHeight={false}
+      >
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp>
             <div>
               <p className="text-sm font-semibold uppercase tracking-wider text-accent">
                 公司简介
               </p>
-              <h2 className="mt-3 heading-lg">以服务为核心的工业供应链服务商</h2>
-              <p className="mt-4 body-lg">
+              <h2 className="mt-3 heading-lg text-white">以服务为核心的工业供应链服务商</h2>
+              <p className="mt-4 body-lg text-steel-200">
                 我们是一家本地化工业供应链服务商——立足包头、辐射包头周边工矿企业，连接上游制造与下游生产，让两端各自专注专业。
               </p>
-              <p className="mt-4 body-lg">
+              <p className="mt-4 body-lg text-steel-200">
                 我们与震坤行、欧冶等平台有相似之处，但本质不同：他们侧重卖货，服务是附带；我们以服务为核心，卖货只是服务的一部分。
               </p>
-              <p className="mt-4 body-lg">
+              <p className="mt-4 body-lg text-steel-200">
                 让客户专注生产与制造，交付与售后的最后一公里，交给艺林。我们与客户共生共长。
               </p>
             </div>
@@ -78,7 +82,11 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section background="muted">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/electrical-room.jpg"
+        overlay="heavy"
+      >
         <SectionHeader
           title="公司沿革与规模实力"
           subtitle="发展历程"
@@ -114,7 +122,11 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section background="white">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/pipes-valves.jpg"
+        fullHeight={false}
+      >
         <SectionHeader
           title="核心能力"
           subtitle="服务能力"

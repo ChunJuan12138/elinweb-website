@@ -47,10 +47,14 @@ export default function CompanyPage() {
         imageSrc="/images/industrial/steel-mill.jpg"
       />
 
-      <Section background="white">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/machinery.jpg"
+        fullHeight={false}
+      >
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp className="order-2 lg:order-1">
-            <div className="mx-auto flex max-w-[450px] items-center justify-center rounded-2xl bg-primary-50 p-8">
+            <div className="mx-auto flex max-w-[450px] items-center justify-center rounded-2xl bg-white/10 p-8 backdrop-blur-sm">
               <div className="relative aspect-square w-full max-w-[450px]">
                 <Image
                   src="/images/logo.png"
@@ -67,11 +71,11 @@ export default function CompanyPage() {
               <p className="text-sm font-semibold uppercase tracking-wider text-accent">
                 定位
               </p>
-              <h2 className="mt-3 heading-lg">本地化工业供应链服务商</h2>
-              <p className="mt-4 body-lg">
+              <h2 className="mt-3 heading-lg text-white">本地化工业供应链服务商</h2>
+              <p className="mt-4 body-lg text-steel-200">
                 我们与震坤行、欧冶等平台有相似之处，但本质不同：他们侧重卖货，服务是附带；我们以服务为核心，卖货只是服务的一部分。
               </p>
-              <p className="mt-4 body-lg">
+              <p className="mt-4 body-lg text-steel-200">
                 让客户专注生产与制造，交付与售后的最后一公里，交给艺林。我们与客户共生共长。
               </p>
             </div>
@@ -79,7 +83,11 @@ export default function CompanyPage() {
         </div>
       </Section>
 
-      <Section background="muted">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/electrical-room.jpg"
+        overlay="heavy"
+      >
         <SectionHeader
           title="公司沿革与规模实力"
           subtitle="发展历程"
@@ -115,7 +123,11 @@ export default function CompanyPage() {
         </div>
       </Section>
 
-      <Section background="white">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/pipes-valves.jpg"
+        fullHeight={false}
+      >
         <SectionHeader title="核心能力" subtitle="服务能力" />
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
           <StaggerReveal className="contents">

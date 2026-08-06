@@ -49,7 +49,11 @@ export default function AdvantagesPage() {
         imageSrc="/images/industrial/mining-truck.jpg"
       />
 
-      <Section background="white">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/steel-mill.jpg"
+        fullHeight={false}
+      >
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp className="order-2 lg:order-1">
             <PlaceholderImage
@@ -64,8 +68,8 @@ export default function AdvantagesPage() {
               <p className="text-sm font-semibold uppercase tracking-wider text-accent">
                 差异化价值
               </p>
-              <h2 className="mt-3 heading-lg">不是卖货，是做服务</h2>
-              <p className="mt-4 body-lg">
+              <h2 className="mt-3 heading-lg text-white">不是卖货，是做服务</h2>
+              <p className="mt-4 body-lg text-steel-200">
                 我们与震坤行、欧冶等平台有相似之处，但本质不同：他们侧重卖货，服务是附带；我们以服务为核心，卖货只是服务的一部分。
               </p>
             </div>
@@ -73,7 +77,11 @@ export default function AdvantagesPage() {
         </div>
       </Section>
 
-      <Section background="muted">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/pipes-valves.jpg"
+        overlay="heavy"
+      >
         <SectionHeader title="六大核心优势" subtitle="核心竞争力" />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <StaggerReveal className="contents">

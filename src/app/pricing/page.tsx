@@ -49,18 +49,22 @@ export default function PricingPage() {
         imageSrc="/images/industrial/steel-mill.jpg"
       />
 
-      <Section background="white">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/machinery.jpg"
+        fullHeight={false}
+      >
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp>
             <div>
               <p className="text-sm font-semibold uppercase tracking-wider text-accent">
                 业态定位
               </p>
-              <h2 className="mt-3 heading-lg">挣服务的钱，不卖信息差</h2>
-              <p className="mt-4 body-lg">
+              <h2 className="mt-3 heading-lg text-white">挣服务的钱，不卖信息差</h2>
+              <p className="mt-4 body-lg text-steel-200">
                 我们不写死价格，而是写清计价方式。商品与服务分离计价，服务费明码标价。
               </p>
-              <p className="mt-4 body-lg">
+              <p className="mt-4 body-lg text-steel-200">
                 具体以实际报价单/服务合同为准；大项目、年度框架合作欢迎面议。
               </p>
             </div>
@@ -76,7 +80,11 @@ export default function PricingPage() {
         </div>
       </Section>
 
-      <Section background="muted">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/electrical-room.jpg"
+        overlay="heavy"
+      >
         <SectionHeader title="三层收费结构" subtitle="计价方式" />
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           <StaggerReveal className="contents">
@@ -106,10 +114,14 @@ export default function PricingPage() {
         </div>
       </Section>
 
-      <Section background="white">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/pipes-valves.jpg"
+        fullHeight={false}
+      >
         <SectionHeader title="对外标准表述" subtitle="标准话术" />
         <FadeInUp>
-          <div className="mx-auto mt-12 max-w-3xl rounded-xl border border-steel-200 bg-white p-8 shadow-sm">
+          <div className="mx-auto mt-12 max-w-3xl rounded-xl border border-white/10 bg-white/10 p-8 shadow-sm backdrop-blur-sm">
             <ul className="space-y-4">
               {externalStandards.map((item) => (
                 <li key={item} className="flex items-start gap-3">
@@ -126,7 +138,7 @@ export default function PricingPage() {
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span className="text-steel-700">{item}</span>
+                  <span className="text-steel-200">{item}</span>
                 </li>
               ))}
             </ul>
@@ -134,7 +146,11 @@ export default function PricingPage() {
         </FadeInUp>
       </Section>
 
-      <Section background="primary">
+      <Section
+        background="primary"
+        imageSrc="/images/industrial/mining-truck.jpg"
+        fullHeight={false}
+      >
         <SectionHeader title="对内参考费率" subtitle="内部参考" light />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <StaggerReveal className="contents">

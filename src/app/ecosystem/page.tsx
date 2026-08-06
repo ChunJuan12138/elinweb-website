@@ -44,7 +44,11 @@ export default function EcosystemPage() {
         imageSrc="/images/industrial/steel-mill.jpg"
       />
 
-      <Section background="white">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/electrical-room.jpg"
+        fullHeight={false}
+      >
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp className="order-2 lg:order-1">
             <PlaceholderImage
@@ -59,8 +63,8 @@ export default function EcosystemPage() {
               <p className="text-sm font-semibold uppercase tracking-wider text-accent">
                 生态定位
               </p>
-              <h2 className="mt-3 heading-lg">多方协同，全程落地</h2>
-              <p className="mt-4 body-lg">
+              <h2 className="mt-3 heading-lg text-white">多方协同，全程落地</h2>
+              <p className="mt-4 body-lg text-steel-200">
                 艺林不是单一角色，而是连接设计院、工程单位、高校、供应商与客户的纽带。通过生态协同，我们能把大型项目从选型、供应、安装到检修运维全流程跑通。
               </p>
             </div>
@@ -68,7 +72,11 @@ export default function EcosystemPage() {
         </div>
       </Section>
 
-      <Section background="muted">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/pipes-valves.jpg"
+        overlay="heavy"
+      >
         <SectionHeader title="五大合作主体" subtitle="生态伙伴" />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <StaggerReveal className="contents">

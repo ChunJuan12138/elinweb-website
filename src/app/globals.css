@@ -61,11 +61,11 @@
   }
 
   .body-lg {
-    @apply text-base leading-relaxed text-steel-600 md:text-lg;
+    @apply text-base leading-relaxed text-steel-200 md:text-lg;
   }
 
   .body-base {
-    @apply text-sm leading-relaxed text-steel-600 md:text-base;
+    @apply text-sm leading-relaxed text-steel-300 md:text-base;
   }
 
   .btn-primary {

@@ -41,15 +41,19 @@ export default function HistoryPage() {
         imageSrc="/images/industrial/mining-truck.jpg"
       />
 
-      <Section background="white">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/steel-mill.jpg"
+        fullHeight={false}
+      >
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp>
             <div>
               <p className="text-sm font-semibold uppercase tracking-wider text-accent">
                 成长轨迹
               </p>
-              <h2 className="mt-3 heading-lg">发展历程</h2>
-              <p className="mt-4 body-lg">
+              <h2 className="mt-3 heading-lg text-white">发展历程</h2>
+              <p className="mt-4 body-lg text-steel-200">
                 从 2009 年起步到今天的生态协同，艺林用十余年沉淀服务工矿客户的真功夫。
               </p>
             </div>
@@ -65,14 +69,18 @@ export default function HistoryPage() {
         </div>
       </Section>
 
-      <Section background="muted">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/electrical-room.jpg"
+        overlay="heavy"
+      >
         <SectionHeader
           title="发展时间线"
           subtitle="关键节点"
           description="四个关键节点，勾勒出艺林从起步到一体化服务体系的成长路径。"
         />
         <div className="relative mt-12">
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-steel-200 md:left-1/2 md:-ml-px" />
+          <div className="absolute left-8 top-0 bottom-0 w-px bg-white/20 md:left-1/2 md:-ml-px" />
           <div className="space-y-12">
             <StaggerReveal selector=".reveal">
               {milestones.map((item, index) => (
@@ -83,7 +91,7 @@ export default function HistoryPage() {
                   }`}
                 >
                   <div className="hidden md:block md:flex-1 md:text-right" />
-                  <div className="relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-md">
+                  <div className="relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-accent text-white shadow-md">
                     <span className="text-center text-sm font-bold leading-tight">
                       {item.year}
                     </span>

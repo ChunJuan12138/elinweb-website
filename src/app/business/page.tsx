@@ -58,18 +58,22 @@ export default function BusinessPage() {
         imageSrc="/images/industrial/pipes-valves.jpg"
       />
 
-      <Section background="white">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/machinery.jpg"
+        fullHeight={false}
+      >
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp>
             <div>
               <p className="text-sm font-semibold uppercase tracking-wider text-accent">
                 服务对象
               </p>
-              <h2 className="mt-3 heading-lg">连接上下游的本地化服务枢纽</h2>
-              <p className="mt-4 body-lg">
+              <h2 className="mt-3 heading-lg text-white">连接上下游的本地化服务枢纽</h2>
+              <p className="mt-4 body-lg text-steel-200">
                 我们的服务对象包括包钢等大型工矿企业及包头周边工矿客户，同时也面向上游设备、材料生产制造企业。
               </p>
-              <p className="mt-4 body-lg">
+              <p className="mt-4 body-lg text-steel-200">
                 对下游客户，我们是随叫随到的现场服务团队；对上游厂家，我们是打通本地市场、走完最后一公里的可靠伙伴。
               </p>
             </div>
@@ -85,7 +89,11 @@ export default function BusinessPage() {
         </div>
       </Section>
 
-      <Section background="muted">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/electrical-room.jpg"
+        overlay="heavy"
+      >
         <SectionHeader
           title="业务范围"
           subtitle="六大业务板块"
@@ -125,7 +133,11 @@ export default function BusinessPage() {
         </div>
       </Section>
 
-      <Section background="white">
+      <Section
+        background="image"
+        imageSrc="/images/industrial/steel-mill.jpg"
+        fullHeight={false}
+      >
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp className="order-2 lg:order-1">
             <PlaceholderImage
@@ -140,8 +152,8 @@ export default function BusinessPage() {
               <p className="text-sm font-semibold uppercase tracking-wider text-accent">
                 服务流程
               </p>
-              <h2 className="mt-3 heading-lg">专人对接，全流程闭环</h2>
-              <p className="mt-4 body-lg">
+              <h2 className="mt-3 heading-lg text-white">专人对接，全流程闭环</h2>
+              <p className="mt-4 body-lg text-steel-200">
                 需求确认 → 选型报价 → 合同签订 → 供货交付 → 验收确认 → 售后跟踪，全流程专人对接。
               </p>
             </div>
@@ -149,7 +161,11 @@ export default function BusinessPage() {
         </div>
       </Section>
 
-      <Section background="primary">
+      <Section
+        background="primary"
+        imageSrc="/images/industrial/mining-truck.jpg"
+        fullHeight={false}
+      >
         <SectionHeader title="服务流程" subtitle="标准化服务路径" light />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <StaggerReveal className="contents">
