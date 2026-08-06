@@ -5,24 +5,35 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
 import { prefersReducedMotion } from "@/lib/reducedMotion";
 
+type RevealDirection = "up" | "down" | "left" | "right";
+
 interface StaggerRevealProps {
   children: ReactNode;
   className?: string;
   childSelector?: string;
   selector?: string;
-  y?: number;
+  direction?: RevealDirection;
+  distance?: number;
   duration?: number;
   stagger?: number;
   start?: string;
   once?: boolean;
 }
 
+const directionOffset: Record<RevealDirection, { x: number; y: number }> = {
+  up: { x: 0, y: 1 },
+  down: { x: 0, y: -1 },
+  left: { x: 1, y: 0 },
+  right: { x: -1, y: 0 },
+};
+
 export function StaggerReveal({
   children,
   className = "",
   childSelector = ".reveal",
   selector,
-  y = 40,
+  direction = "up",
+  distance = 40,
   duration = 0.7,
   stagger = 0.08,
   start = "top 85%",
@@ -31,18 +42,19 @@ export function StaggerReveal({
   const ref = useRef<HTMLDivElement>(null);
 
   const targetSelector = selector || childSelector;
+  const offset = directionOffset[direction];
 
   useGSAP(
     () => {
       if (!ref.current) return;
 
       const targets = gsap.utils.toArray<HTMLElement>(
-        ref.current.querySelectorAll(targetSelector)
+        ref.current.querySelectorAll(targetSelector),
       );
       if (targets.length === 0) return;
 
       if (prefersReducedMotion()) {
-        gsap.set(targets, { y: 0, opacity: 1, willChange: "auto" });
+        gsap.set(targets, { x: 0, y: 0, opacity: 1, willChange: "auto" });
         return;
       }
 
@@ -50,8 +62,9 @@ export function StaggerReveal({
 
       gsap.fromTo(
         targets,
-        { y, opacity: 0 },
+        { x: offset.x * distance, y: offset.y * distance, opacity: 0 },
         {
+          x: 0,
           y: 0,
           opacity: 1,
           duration,
@@ -65,10 +78,10 @@ export function StaggerReveal({
           onComplete: () => {
             gsap.set(targets, { willChange: "auto" });
           },
-        }
+        },
       );
     },
-    { scope: ref }
+    { scope: ref },
   );
 
   return (

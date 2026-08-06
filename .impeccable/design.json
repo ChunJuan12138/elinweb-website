@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-06T00:00:00.000Z",
+  "title": "Design System: 艺林工业供应链",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "包头蓝",
+        "canonical": "#0f4c81",
+        "tonalRamp": [
+          "#0b2740",
+          "#113f68",
+          "#0f4c81",
+          "#1a549f",
+          "#1f69c4",
+          "#3486e6",
+          "#5aa4f7",
+          "#91c6ff"
+        ]
+      },
+      "accent": {
+        "role": "accent",
+        "displayName": "高炉红",
+        "canonical": "#c23a25",
+        "tonalRamp": [
+          "#3d110d",
+          "#71281e",
+          "#88291c",
+          "#a42d1d",
+          "#c23a25",
+          "#e35946",
+          "#ef816e",
+          "#f6afa3"
+        ]
+      },
+      "steel": {
+        "role": "neutral",
+        "displayName": "钢灰",
+        "canonical": "#535b64",
+        "tonalRamp": [
+          "#2b2e33",
+          "#484e56",
+          "#535b64",
+          "#616b76",
+          "#77828f",
+          "#8b96a3",
+          "#a7b0ba",
+          "#c6ccd3"
+        ]
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "白",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#f7f8f9",
+          "#eef0f2",
+          "#dfe2e6",
+          "#c6ccd3",
+          "#a7b0ba",
+          "#8b96a3",
+          "#77828f",
+          "#ffffff"
+        ]
+      },
+      "foreground": {
+        "role": "neutral",
+        "displayName": "前景深灰",
+        "canonical": "#22252c",
+        "tonalRamp": [
+          "#0b0c0e",
+          "#16181c",
+          "#22252c",
+          "#3d414a",
+          "#535b64",
+          "#6b7586",
+          "#8b96a3",
+          "#a7b0ba"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero 主标题，白色，带文字阴影。"
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section 标题。"
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "卡片标题、小标题。"
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "正文段落，深色背景上使用钢灰。"
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Section 红色标签 pill。"
+      }
+    },
+    "shadows": [
+      {
+        "name": "sm",
+        "value": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        "purpose": "按钮、小元素 resting 态。"
+      },
+      {
+        "name": "md",
+        "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+        "purpose": "滚动后的 Header、Hero CTA 按钮。"
+      },
+      {
+        "name": "lg",
+        "value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+        "purpose": "卡片悬停态、重要容器。"
+      }
+    ],
+    "motion": [
+      {
+        "name": "duration-fast",
+        "value": "200ms",
+        "purpose": "按钮、卡片悬停态的快速反馈。"
+      },
+      {
+        "name": "duration-base",
+        "value": "300ms",
+        "purpose": "导航下划线、边框、背景的过渡。"
+      },
+      {
+        "name": "duration-slow",
+        "value": "500ms",
+        "purpose": "tech-glow、logo 扫光等氛围动效。"
+      },
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Tailwind 默认过渡曲线，用于大多数状态变化。"
+      },
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0, 0, 0.2, 1)",
+        "purpose": "IndustrialBackground 聚焦缩放、Header 状态切换。"
+      },
+      {
+        "name": "ken-burns",
+        "value": "10s ease-in-out infinite alternate",
+        "purpose": "Hero 背景图的缓慢平移缩放，尊重 prefers-reduced-motion。"
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "页面主要行动按钮，红色 accent 背景。",
+      "html": "<button class=\"ds-btn-primary\">主要按钮</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; background-color: #c23a25; padding: 12px 24px; font-size: 0.875rem; font-weight: 600; color: #ffffff; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); transition: all 200ms; border: none; cursor: pointer; } .ds-btn-primary:hover { transform: translateY(-2px); background-color: #a42d1d; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #c23a25; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Hero 次级行动按钮，毛玻璃风格。",
+      "html": "<button class=\"ds-btn-secondary\">次要按钮</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); background-color: rgba(255,255,255,0.1); padding: 12px 24px; font-size: 0.875rem; font-weight: 600; color: #ffffff; backdrop-filter: blur(4px); transition: all 200ms; cursor: pointer; } .ds-btn-secondary:hover { transform: translateY(-2px); background-color: rgba(255,255,255,0.2); } .ds-btn-secondary:focus-visible { outline: none; box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px rgba(255,255,255,0.3); }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "用于浅色背景上的次要选择。",
+      "html": "<button class=\"ds-btn-outline\">边框按钮</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; border: 1px solid #c6ccd3; background-color: #ffffff; padding: 12px 24px; font-size: 0.875rem; font-weight: 600; color: #22252c; transition: all 200ms; cursor: pointer; } .ds-btn-outline:hover { transform: translateY(-2px); border-color: #0f4c81; color: #0f4c81; } .ds-btn-outline:focus-visible { outline: none; box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #0f4c81; }"
+    },
+    {
+      "name": "Feature Card",
+      "kind": "card",
+      "refersTo": "feature-card",
+      "description": "核心能力展示卡片，玻璃态边框 accent 红。",
+      "html": "<div class=\"ds-feature-card\"><div class=\"ds-feature-icon\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"/></svg></div><h3 class=\"ds-feature-title\">卡片标题</h3><p class=\"ds-feature-desc\">卡片描述文字，说明具体服务能力。</p></div>",
+      "css": ".ds-feature-card { position: relative; overflow: hidden; border-radius: 12px; border: 1px solid rgba(194,58,37,0.6); background-color: rgba(255,255,255,0.1); padding: 24px; backdrop-filter: blur(4px); box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); transition: all 300ms; } .ds-feature-card:hover { transform: translateY(-4px); border-color: #c23a25; background-color: rgba(255,255,255,0.15); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); } .ds-feature-icon { display: inline-flex; height: 48px; width: 48px; align-items: center; justify-content: center; border-radius: 8px; background-color: rgba(255,255,255,0.1); color: #c23a25; transition: all 300ms; } .ds-feature-card:hover .ds-feature-icon { background-color: #c23a25; color: #ffffff; } .ds-feature-title { margin-top: 20px; font-size: 1.125rem; font-weight: 600; color: #ffffff; } .ds-feature-desc { margin-top: 12px; font-size: 0.875rem; line-height: 1.75; color: #c6ccd3; }"
+    },
+    {
+      "name": "Stat Card",
+      "kind": "card",
+      "refersTo": "stat-card",
+      "description": "数据展示卡片，数字醒目，居中排列。",
+      "html": "<div class=\"ds-stat-card\"><div class=\"ds-stat-icon\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z\"/></svg></div><p class=\"ds-stat-value\">300+</p><p class=\"ds-stat-label\">余家国内外品牌厂商</p></div>",
+      "css": ".ds-stat-card { position: relative; overflow: hidden; border-radius: 12px; border: 1px solid rgba(194,58,37,0.6); background-color: rgba(255,255,255,0.05); padding: 24px; text-align: center; backdrop-filter: blur(4px); transition: all 300ms; } .ds-stat-card:hover { transform: translateY(-4px); border-color: #c23a25; background-color: rgba(255,255,255,0.1); } .ds-stat-icon { margin: 0 auto 16px; display: inline-flex; height: 40px; width: 40px; align-items: center; justify-content: center; border-radius: 9999px; background-color: rgba(194,58,37,0.2); color: #c23a25; transition: all 300ms; } .ds-stat-card:hover .ds-stat-icon { background-color: #c23a25; color: #ffffff; } .ds-stat-value { position: relative; font-size: 2rem; font-weight: 700; color: #ffffff; } .ds-stat-label { position: relative; margin-top: 8px; font-size: 0.875rem; color: #c6ccd3; }"
+    },
+    {
+      "name": "Section Label Pill",
+      "kind": "chip",
+      "refersTo": "label-pill",
+      "description": "红色半透明 pill，用于 Section 副标题或标签。",
+      "html": "<span class=\"ds-label-pill\">关于艺林</span>",
+      "css": ".ds-label-pill { display: inline-block; border-radius: 9999px; border: 1px solid rgba(194,58,37,0.6); background-color: rgba(194,58,37,0.1); padding: 4px 16px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #c23a25; backdrop-filter: blur(4px); }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "顶部导航链接，hover 时底部红线展开。",
+      "html": "<a href=\"#\" class=\"ds-nav-link\">服务业务</a>",
+      "css": ".ds-nav-link { position: relative; font-size: 0.875rem; font-weight: 500; color: #616b76; transition: color 300ms; text-decoration: none; } .ds-nav-link::after { content: \"\"; position: absolute; bottom: -4px; left: 0; height: 2px; width: 0; background-color: #c23a25; transition: width 300ms; } .ds-nav-link:hover { color: #0f4c81; } .ds-nav-link:hover::after { width: 100%; }"
+    },
+    {
+      "name": "Header",
+      "kind": "nav",
+      "refersTo": "header",
+      "description": "固定顶部导航栏，滚动前后有状态变化。",
+      "html": "<header class=\"ds-header\"><div class=\"ds-header-inner\"><a href=\"#\" class=\"ds-logo\"><div class=\"ds-logo-box\"></div><span class=\"ds-logo-text\">艺林工业供应链</span></a></div></header>",
+      "css": ".ds-header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; border-bottom: 1px solid rgba(255,255,255,0.1); background-color: rgba(255,255,255,0.8); backdrop-filter: blur(8px); box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); transition: all 300ms; } .ds-header.scrolled { border-bottom-color: #dfe2e6; background-color: rgba(255,255,255,0.95); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); } .ds-header-inner { margin: 0 auto; max-width: 80rem; padding: 0 1rem; display: flex; height: 80px; align-items: center; justify-content: space-between; } @media (min-width: 768px) { .ds-header-inner { height: 96px; padding: 0 1.5rem; } } .ds-logo { display: flex; align-items: center; gap: 16px; text-decoration: none; } .ds-logo-box { position: relative; overflow: hidden; border-radius: 8px; background-color: #eff7ff; width: 100px; height: 72px; transition: all 500ms; } .ds-logo:hover .ds-logo-box { background-color: #dbecff; } .ds-logo-text { font-size: 1.25rem; font-weight: 700; color: #0f4c81; }"
+    },
+    {
+      "name": "Timeline Card",
+      "kind": "card",
+      "refersTo": "timeline-card",
+      "description": "发展历程时间线节点卡片，左侧/中央圆形节点，右侧 Feature Card。",
+      "html": "<div class=\"ds-timeline-item\"><div class=\"ds-timeline-node\">2010</div><div class=\"ds-timeline-card\"><h3 class=\"ds-timeline-title\">注册成立</h3><p class=\"ds-timeline-desc\">注册包头市艺林贸易有限责任公司，正式以企业主体开展工业供应链服务。</p></div></div>",
+      "css": ".ds-timeline-item { display: flex; align-items: flex-start; gap: 24px; } .ds-timeline-node { position: relative; z-index: 10; display: flex; height: 64px; width: 64px; flex-shrink: 0; align-items: center; justify-content: center; border-radius: 9999px; background-color: #c23a25; color: #ffffff; font-size: 0.875rem; font-weight: 700; text-align: center; line-height: 1.2; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); } .ds-timeline-card { flex: 1; border-radius: 12px; border: 1px solid rgba(194,58,37,0.6); background-color: rgba(255,255,255,0.1); padding: 24px; backdrop-filter: blur(4px); transition: all 300ms; } .ds-timeline-card:hover { transform: translateY(-4px); border-color: #c23a25; background-color: rgba(255,255,255,0.15); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); } .ds-timeline-title { font-size: 1.125rem; font-weight: 600; color: #ffffff; } .ds-timeline-desc { margin-top: 8px; font-size: 0.875rem; line-height: 1.75; color: #c6ccd3; }"
+    },
+    {
+      "name": "Rate Card",
+      "kind": "card",
+      "refersTo": "rate-card",
+      "description": "收费标准页的对内参考费率卡片，居中强调数值。",
+      "html": "<div class=\"ds-rate-card\"><p class=\"ds-rate-label\">产品供应服务费</p><p class=\"ds-rate-value\">5%-10%</p><p class=\"ds-rate-note\">震坤行 13%，我们更低因服务更好</p></div>",
+      "css": ".ds-rate-card { border-radius: 12px; border: 1px solid rgba(194,58,37,0.6); background-color: rgba(255,255,255,0.05); padding: 24px; text-align: center; backdrop-filter: blur(4px); transition: all 300ms; } .ds-rate-card:hover { transform: translateY(-4px); border-color: #c23a25; background-color: rgba(255,255,255,0.1); } .ds-rate-label { font-size: 0.875rem; color: #c6ccd3; } .ds-rate-value { margin-top: 8px; font-size: 1.5rem; font-weight: 700; color: #ffffff; } @media (min-width: 768px) { .ds-rate-value { font-size: 1.875rem; } } .ds-rate-note { margin-top: 8px; font-size: 0.75rem; color: #8b96a3; }"
+    },
+    {
+      "name": "Check List",
+      "kind": "input",
+      "refersTo": "list-item",
+      "description": "外层玻璃容器包裹的勾选列表，用于对外标准表述或服务承诺。",
+      "html": "<div class=\"ds-check-list\"><div class=\"ds-check-item\"><svg class=\"ds-check-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M5 13l4 4L19 7\"/></svg><span class=\"ds-check-text\">产品供应：多品牌比价，透明报价，明示服务费率</span></div></div>",
+      "css": ".ds-check-list { border-radius: 12px; border: 1px solid rgba(194,58,37,0.6); background-color: rgba(255,255,255,0.1); padding: 32px; backdrop-filter: blur(4px); } .ds-check-item { display: flex; align-items: flex-start; gap: 12px; } .ds-check-icon { margin-top: 2px; height: 20px; width: 20px; flex-shrink: 0; color: #c23a25; } .ds-check-text { font-size: 1rem; line-height: 1.75; color: #dfe2e6; }"
+    },
+    {
+      "name": "Placeholder Image",
+      "kind": "custom",
+      "refersTo": "placeholder-image",
+      "description": "工业场景图片占位组件，industrial 变体使用虚化实景背景。",
+      "html": "<div class=\"ds-placeholder-industrial\"><div class=\"ds-placeholder-icon\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z\"/></svg></div><p class=\"ds-placeholder-title\">工业现场服务与交付</p><p class=\"ds-placeholder-hint\">图片占位，后续替换</p></div>",
+      "css": ".ds-placeholder-industrial { position: relative; display: flex; aspect-ratio: 4 / 3; align-items: center; justify-content: center; overflow: hidden; border-radius: 12px; background: linear-gradient(135deg, rgba(15,76,129,0.8), rgba(11,39,64,0.9)); color: #ffffff; text-align: center; padding: 24px; } .ds-placeholder-icon { display: inline-flex; height: 48px; width: 48px; align-items: center; justify-content: center; border-radius: 9999px; background-color: rgba(255,255,255,0.1); color: #ffffff; box-shadow: 0 0 0 1px rgba(255,255,255,0.2); transition: all 300ms; } .ds-placeholder-industrial:hover .ds-placeholder-icon { transform: scale(1.1); background-color: rgba(255,255,255,0.15); } .ds-placeholder-title { margin-top: 12px; font-size: 0.875rem; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.3); } .ds-placeholder-hint { margin-top: 4px; font-size: 0.75rem; color: #c6ccd3; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "钢铁与承诺",
+    "overview": "艺林的视觉世界建立在两种工业意象的张力之上：钢铁的冷静、厚重、可依赖；承诺的炽烈、在场、说到做到。深蓝色如同设备与秩序，锚定专业感；红色 accent 像现场响应的信号灯，只在关键处出现。整体不是卖货平台的喧闹，而是一家扎根包头工矿现场的服务商的稳重气场。界面以虚化工业实景为背景、玻璃态卡片为信息层，营造\"在现场却不嘈杂\"的沉浸感。动效克制，服务于可读与可信；排版紧凑有力，信息密度符合工业客户快速扫读的习惯。",
+    "keyCharacteristics": [
+      "工业实景图 + 深色遮罩 + 玻璃卡片，构成默认的信息层级",
+      "红色 accent 小面积、高聚焦，用于标签、边框、主按钮和悬停反馈",
+      "深蓝 primary 承担品牌识别、链接、页脚等稳定角色",
+      "几何无衬线字体，负字距标题，制造工业精度感",
+      "过渡动画以 200–300ms 的位移/透明度变化为主，避免炫技"
+    ],
+    "rules": [
+      { "name": "The Red Ration Rule", "body": "红色 accent 只出现在 ≤10% 的屏幕面积：一个 pill、一条边框、一个按钮、一个悬停点。它的稀缺是其力量来源。", "section": "colors" },
+      { "name": "The One Background Rule", "body": "每个 Section 只使用一张虚化工业实景图作为背景；禁止纯色白/灰背景块打断沉浸感。", "section": "colors" },
+      { "name": "The Shadow-First Legibility Rule", "body": "在工业实景上的白色文字必须带文字阴影（drop-shadow-md/drop-shadow-lg），不能仅靠遮罩层保证对比度。", "section": "typography" },
+      { "name": "The Glass Layer Rule", "body": "信息必须落在半透明毛玻璃卡片（bg-white/5 至 bg-white/15，backdrop-blur-sm，border-accent/60）上，不能直接贴在实景背景上。", "section": "elevation" }
+    ],
+    "dos": [
+      "Do 使用虚化工业实景图作为每个 Section 的背景，并叠加深色遮罩。",
+      "Do 把关键信息放在半透明毛玻璃卡片上，边框使用 border-accent/60。",
+      "Do 保持红色 accent 的小面积、高聚焦用法：标签、按钮、悬停反馈、图标反转。",
+      "Do 为实景背景上的白色文字添加文字阴影。",
+      "Do 使用 Geist Sans 全站，标题加粗并带 -0.02em 字距。"
+    ],
+    "donts": [
+      "Don't 使用纯白或纯灰的纯色背景作为 Section 主背景。",
+      "Don't 把红色 accent 用于大面积填充或背景。",
+      "Don't 让文字直接贴在未处理的工业照片上。",
+      "Don't 在中文标题上强行应用英文负字距；中文保持默认字距。",
+      "Don't 添加与工业稳重感冲突的活泼插画或卡通元素。"
+    ]
+  }
+}

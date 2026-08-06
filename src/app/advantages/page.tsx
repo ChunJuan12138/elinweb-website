@@ -33,8 +33,7 @@ const advantages = [
   },
   {
     title: "服务透明",
-    description:
-      "商品与服务分离计价，服务费明码标价，让客户看得懂、算得清。",
+    description: "商品与服务分离计价，服务费明码标价，让客户看得懂、算得清。",
   },
 ];
 
@@ -43,7 +42,6 @@ export default function AdvantagesPage() {
     <>
       <Hero
         title="核心优势"
-        subtitle="为什么选择我们"
         description="十余年的本地化沉淀，让我们成为工矿企业值得信赖的工业供应链合作伙伴。"
         primaryCta={{ label: "收费标准", href: "/pricing" }}
         imageSrc="/images/industrial/mining-truck.jpg"
@@ -65,10 +63,7 @@ export default function AdvantagesPage() {
           </FadeInUp>
           <FadeInUp delay={0.15} className="order-1 lg:order-2">
             <div>
-              <p className="inline-block rounded-full border border-accent/60 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
-                差异化价值
-              </p>
-              <h2 className="mt-3 heading-lg text-white">不是卖货，是做服务</h2>
+              <h2 className="heading-lg text-white">不是卖货，是做服务</h2>
               <p className="mt-4 body-lg text-steel-200">
                 我们与震坤行、欧冶等平台有相似之处，但本质不同：他们侧重卖货，服务是附带；我们以服务为核心，卖货只是服务的一部分。
               </p>
@@ -82,9 +77,8 @@ export default function AdvantagesPage() {
         imageSrc="/images/industrial/pipes-valves.jpg"
         overlay="heavy"
       >
-        <SectionHeader title="六大核心优势" subtitle="核心竞争力" />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <StaggerReveal className="contents">
+        <SectionHeader title="六大核心优势" />
+        <StaggerReveal className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {advantages.map((item) => (
               <FeatureCard
                 key={item.title}
@@ -108,7 +102,6 @@ export default function AdvantagesPage() {
               />
             ))}
           </StaggerReveal>
-        </div>
       </Section>
     </>
   );

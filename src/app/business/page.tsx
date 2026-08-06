@@ -23,8 +23,7 @@ const serviceScopes = [
   },
   {
     title: "物流与交付服务",
-    description:
-      "到货验收、卸货协调、现场配送 —— 交付的最后一公里。",
+    description: "到货验收、卸货协调、现场配送 —— 交付的最后一公里。",
   },
   {
     title: "售后与陪伴服务",
@@ -42,7 +41,10 @@ const serviceProcess = [
   { title: "需求确认", description: "专人对接。" },
   { title: "选型报价", description: "多品牌比价，输出透明选型方案与报价。" },
   { title: "合同签订", description: "明确服务范围、交付标准与计价方式。" },
-  { title: "供货交付", description: "协调物流与现场验收，完成最后一公里交付。" },
+  {
+    title: "供货交付",
+    description: "协调物流与现场验收，完成最后一公里交付。",
+  },
   { title: "验收确认", description: "按合同标准验收，确保质量与数量闭环。" },
   { title: "售后跟踪", description: "持续跟踪使用状态，快速响应后续需求。" },
 ];
@@ -52,7 +54,6 @@ export default function BusinessPage() {
     <>
       <Hero
         title="服务业务"
-        subtitle="服务与业务介绍"
         description="服务包钢等大型工矿企业及包头周边工矿客户，以及上游设备、材料生产制造企业。"
         primaryCta={{ label: "核心优势", href: "/advantages" }}
         imageSrc="/images/industrial/pipes-valves.jpg"
@@ -66,10 +67,9 @@ export default function BusinessPage() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp>
             <div>
-              <p className="inline-block rounded-full border border-accent/60 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
-                服务对象
-              </p>
-              <h2 className="mt-3 heading-lg text-white">连接上下游的本地化服务枢纽</h2>
+              <h2 className="heading-lg text-white">
+                连接上下游的本地化服务枢纽
+              </h2>
               <p className="mt-4 body-lg text-steel-200">
                 我们的服务对象包括包钢等大型工矿企业及包头周边工矿客户，同时也面向上游设备、材料生产制造企业。
               </p>
@@ -96,11 +96,9 @@ export default function BusinessPage() {
       >
         <SectionHeader
           title="业务范围"
-          subtitle="六大业务板块"
           description="从设备供应到技术服务，从物流交付到工程协同，覆盖工业供应链全链条。"
         />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <StaggerReveal className="contents">
+        <StaggerReveal className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {serviceScopes.map((item) => (
               <FeatureCard
                 key={item.title}
@@ -130,7 +128,6 @@ export default function BusinessPage() {
               />
             ))}
           </StaggerReveal>
-        </div>
       </Section>
 
       <Section
@@ -149,12 +146,10 @@ export default function BusinessPage() {
           </FadeInUp>
           <FadeInUp delay={0.15} className="order-1 lg:order-2">
             <div>
-              <p className="inline-block rounded-full border border-accent/60 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
-                服务流程
-              </p>
-              <h2 className="mt-3 heading-lg text-white">专人对接，全流程闭环</h2>
+              <h2 className="heading-lg text-white">专人对接，全流程闭环</h2>
               <p className="mt-4 body-lg text-steel-200">
-                需求确认 → 选型报价 → 合同签订 → 供货交付 → 验收确认 → 售后跟踪，全流程专人对接。
+                需求确认 → 选型报价 → 合同签订 → 供货交付 → 验收确认 →
+                售后跟踪，全流程专人对接。
               </p>
             </div>
           </FadeInUp>
@@ -167,21 +162,21 @@ export default function BusinessPage() {
         overlay="heavy"
         fullHeight={false}
       >
-        <SectionHeader title="服务流程" subtitle="标准化服务路径" light />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <StaggerReveal className="contents">
+        <SectionHeader title="服务流程" light />
+        <StaggerReveal className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {serviceProcess.map((item, index) => (
               <FeatureCard
                 key={item.title}
                 icon={
-                  <span className="text-lg font-bold">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="text-lg font-bold">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
                 }
                 title={item.title}
                 description={item.description}
               />
             ))}
           </StaggerReveal>
-        </div>
       </Section>
     </>
   );

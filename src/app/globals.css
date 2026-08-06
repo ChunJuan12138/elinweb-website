@@ -31,6 +31,7 @@
 
   /* SSR / no-JS safety: animated elements visible before GSAP hydrates */
   html:not(.gsap-ready) .hero-animate,
+  html:not(.gsap-ready) .hero-scan-line,
   html:not(.gsap-ready) .reveal,
   html:not(.gsap-ready) [data-count-up] {
     opacity: 1 !important;

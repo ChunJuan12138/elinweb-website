@@ -32,7 +32,11 @@ const externalStandards = [
 ];
 
 const internalRates = [
-  { title: "产品供应服务费", value: "5%-10%", note: "震坤行 13%，我们更低因服务更好" },
+  {
+    title: "产品供应服务费",
+    value: "5%-10%",
+    note: "震坤行 13%，我们更低因服务更好",
+  },
   { title: "技术服务", value: "按项目", note: "根据复杂度和工作量报价" },
   { title: "运维服务", value: "年度", note: "巡检/维保/应急响应打包" },
   { title: "应急/驻场/托管", value: "协商", note: "根据服务频次与深度定价" },
@@ -43,7 +47,6 @@ export default function PricingPage() {
     <>
       <Hero
         title="收费标准"
-        subtitle="透明计价"
         description="本地化工业供应链服务商，主要挣服务的钱——不是差价平台，不是纯贸易商，是带着服务的供应链服务商。"
         primaryCta={{ label: "供应商合作", href: "/partners" }}
         imageSrc="/images/industrial/steel-mill.jpg"
@@ -57,10 +60,7 @@ export default function PricingPage() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp>
             <div>
-              <p className="inline-block rounded-full border border-accent/60 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
-                业态定位
-              </p>
-              <h2 className="mt-3 heading-lg text-white">挣服务的钱，不卖信息差</h2>
+              <h2 className="heading-lg text-white">挣服务的钱，不卖信息差</h2>
               <p className="mt-4 body-lg text-steel-200">
                 我们不写死价格，而是写清计价方式。商品与服务分离计价，服务费明码标价。
               </p>
@@ -85,9 +85,8 @@ export default function PricingPage() {
         imageSrc="/images/industrial/electrical-room.jpg"
         overlay="heavy"
       >
-        <SectionHeader title="三层收费结构" subtitle="计价方式" />
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          <StaggerReveal className="contents">
+        <SectionHeader title="三层收费结构" />
+        <StaggerReveal className="mt-12 grid gap-6 lg:grid-cols-3">
             {pricingTiers.map((item) => (
               <FeatureCard
                 key={item.title}
@@ -111,7 +110,6 @@ export default function PricingPage() {
               />
             ))}
           </StaggerReveal>
-        </div>
       </Section>
 
       <Section
@@ -119,7 +117,7 @@ export default function PricingPage() {
         imageSrc="/images/industrial/pipes-valves.jpg"
         fullHeight={false}
       >
-        <SectionHeader title="对外标准表述" subtitle="标准话术" />
+        <SectionHeader title="对外标准表述" />
         <FadeInUp>
           <div className="mx-auto mt-12 max-w-3xl rounded-xl border border-accent/60 bg-white/10 p-8 shadow-sm backdrop-blur-sm">
             <ul className="space-y-4">
@@ -152,21 +150,21 @@ export default function PricingPage() {
         overlay="heavy"
         fullHeight={false}
       >
-        <SectionHeader title="对内参考费率" subtitle="内部参考" light />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <StaggerReveal className="contents">
+        <SectionHeader title="对内参考费率" light />
+        <StaggerReveal className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {internalRates.map((item) => (
               <div
                 key={item.title}
                 className="reveal group rounded-xl border border-accent/60 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:bg-white/10"
               >
                 <p className="text-sm text-steel-300">{item.title}</p>
-                <p className="mt-2 text-2xl font-bold text-white md:text-3xl">{item.value}</p>
+                <p className="mt-2 text-2xl font-bold text-white md:text-3xl">
+                  {item.value}
+                </p>
                 <p className="mt-2 text-xs text-steel-400">{item.note}</p>
               </div>
             ))}
           </StaggerReveal>
-        </div>
       </Section>
     </>
   );

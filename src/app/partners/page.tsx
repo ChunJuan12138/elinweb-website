@@ -8,8 +8,7 @@ import { FadeInUp } from "@/components/animation/FadeInUp";
 const benefits = [
   {
     title: "本地贴身服务",
-    description:
-      "我们在包头、在工矿现场，替您走完最后这段路。",
+    description: "我们在包头、在工矿现场，替您走完最后这段路。",
   },
   {
     title: "设计院入口",
@@ -28,13 +27,11 @@ const benefits = [
   },
   {
     title: "高校科研支撑",
-    description:
-      "与内蒙古科技大学产学研合作，技术问题有研究力量兜底。",
+    description: "与内蒙古科技大学产学研合作，技术问题有研究力量兜底。",
   },
   {
     title: "长期稳定回款",
-    description:
-      "服务对象为包钢等大型工矿企业，资质正规、信用良好。",
+    description: "服务对象为包钢等大型工矿企业，资质正规、信用良好。",
   },
 ];
 
@@ -43,7 +40,6 @@ export default function PartnersPage() {
     <>
       <Hero
         title="供应商合作邀请"
-        subtitle="上游合作"
         description="您专注制造，交付与售后的最后一公里，交给艺林。"
         primaryCta={{ label: "生态网络", href: "/ecosystem" }}
         imageSrc="/images/industrial/machinery.jpg"
@@ -57,10 +53,9 @@ export default function PartnersPage() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp>
             <div>
-              <p className="inline-block rounded-full border border-accent/60 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
-                合作痛点
-              </p>
-              <h2 className="mt-3 heading-lg text-white">您的产品走了十万八千里，最后一公里我们来跑</h2>
+              <h2 className="heading-lg text-white">
+                您的产品走了十万八千里，最后一公里我们来跑
+              </h2>
               <p className="mt-4 body-lg text-steel-200">
                 您的产品从工厂出发，走了生产、质检、出厂，您全程专业。但从出厂到客户现场、再到售后，这最后一公里：物流配送、到货验收、现场问题、退换协调、使用指导……既耗精力又难覆盖。
               </p>
@@ -87,11 +82,9 @@ export default function PartnersPage() {
       >
         <SectionHeader
           title="与艺林合作，您将获得"
-          subtitle="合作收益"
           description="产品+本地服务，共同服务好每一个客户。"
         />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <StaggerReveal className="contents">
+        <StaggerReveal className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {benefits.map((item) => (
               <FeatureCard
                 key={item.title}
@@ -115,7 +108,6 @@ export default function PartnersPage() {
               />
             ))}
           </StaggerReveal>
-        </div>
       </Section>
     </>
   );

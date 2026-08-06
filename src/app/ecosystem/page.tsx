@@ -23,13 +23,11 @@ const ecosystem = [
   },
   {
     title: "供应商",
-    description:
-      "300 余家品牌厂商——设备、材料稳定供应。",
+    description: "300 余家品牌厂商——设备、材料稳定供应。",
   },
   {
     title: "客户",
-    description:
-      "包钢等大型工矿企业及包头周边工矿——十余年服务沉淀。",
+    description: "包钢等大型工矿企业及包头周边工矿——十余年服务沉淀。",
   },
 ];
 
@@ -38,7 +36,6 @@ export default function EcosystemPage() {
     <>
       <Hero
         title="生态合作网络"
-        subtitle="协同网络"
         description="设计院、工程单位、高校、供应商、客户共同构成艺林的工业服务生态圈。"
         primaryCta={{ label: "发展历程", href: "/history" }}
         imageSrc="/images/industrial/steel-mill.jpg"
@@ -60,10 +57,7 @@ export default function EcosystemPage() {
           </FadeInUp>
           <FadeInUp delay={0.15} className="order-1 lg:order-2">
             <div>
-              <p className="inline-block rounded-full border border-accent/60 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
-                生态定位
-              </p>
-              <h2 className="mt-3 heading-lg text-white">多方协同，全程落地</h2>
+              <h2 className="heading-lg text-white">多方协同，全程落地</h2>
               <p className="mt-4 body-lg text-steel-200">
                 艺林不是单一角色，而是连接设计院、工程单位、高校、供应商与客户的纽带。通过生态协同，我们能把大型项目从选型、供应、安装到检修运维全流程跑通。
               </p>
@@ -77,9 +71,8 @@ export default function EcosystemPage() {
         imageSrc="/images/industrial/pipes-valves.jpg"
         overlay="heavy"
       >
-        <SectionHeader title="五大合作主体" subtitle="生态伙伴" />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <StaggerReveal className="contents">
+        <SectionHeader title="五大合作主体" />
+        <StaggerReveal className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {ecosystem.map((item) => (
               <FeatureCard
                 key={item.title}
@@ -103,7 +96,6 @@ export default function EcosystemPage() {
               />
             ))}
           </StaggerReveal>
-        </div>
       </Section>
     </>
   );

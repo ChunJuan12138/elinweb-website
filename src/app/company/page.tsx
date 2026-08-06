@@ -10,13 +10,11 @@ import { CountUpContainer } from "@/components/animation/CountUpContainer";
 const capabilities = [
   {
     title: "设备类供应为核心",
-    description:
-      "多品类覆盖——仪表、电气、机械等大类及细分领域。",
+    description: "多品类覆盖——仪表、电气、机械等大类及细分领域。",
   },
   {
     title: "专业服务工程师团队",
-    description:
-      "电气、机械、自动化、仪表各专业独立工程师，24 小时现场响应。",
+    description: "电气、机械、自动化、仪表各专业独立工程师，24 小时现场响应。",
   },
   {
     title: "产学研合作",
@@ -41,7 +39,6 @@ export default function CompanyPage() {
     <>
       <Hero
         title="公司简介"
-        subtitle="关于艺林"
         description="我们是一家本地化工业供应链服务商——立足包头、辐射包头周边工矿企业，连接上游制造与下游生产，让两端各自专注专业。"
         primaryCta={{ label: "服务业务", href: "/business" }}
         imageSrc="/images/industrial/steel-mill.jpg"
@@ -68,10 +65,7 @@ export default function CompanyPage() {
           </FadeInUp>
           <FadeInUp delay={0.15} className="order-1 lg:order-2">
             <div>
-              <p className="inline-block rounded-full border border-accent/60 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
-                定位
-              </p>
-              <h2 className="mt-4 heading-lg text-white">本地化工业供应链服务商</h2>
+              <h2 className="heading-lg text-white">本地化工业供应链服务商</h2>
               <p className="mt-4 body-lg text-steel-200">
                 我们与震坤行、欧冶等平台有相似之处，但本质不同：他们侧重卖货，服务是附带；我们以服务为核心，卖货只是服务的一部分。
               </p>
@@ -90,37 +84,34 @@ export default function CompanyPage() {
       >
         <SectionHeader
           title="公司沿革与规模实力"
-          subtitle="发展历程"
           description="2009 年起步开展业务，2010 年注册包头市艺林贸易有限责任公司；历经十余年发展，现以内蒙古艺林供应链科技有限责任公司为主体公司运营。"
         />
-        <div className="mt-12 grid gap-6 sm:grid-cols-3">
-          <CountUpContainer className="contents">
-            <StaggerReveal className="contents">
-              {stats.map((item) => (
-                <StatCard
-                  key={item.label}
-                  value={item.value}
-                  label={item.label}
-                  icon={
-                    <svg
-                      className="h-5 w-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  }
-                />
-              ))}
-            </StaggerReveal>
-          </CountUpContainer>
-        </div>
+        <CountUpContainer>
+          <StaggerReveal className="mt-12 grid gap-6 sm:grid-cols-3">
+            {stats.map((item) => (
+              <StatCard
+                key={item.label}
+                value={item.value}
+                label={item.label}
+                icon={
+                  <svg
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                }
+              />
+            ))}
+          </StaggerReveal>
+        </CountUpContainer>
       </Section>
 
       <Section
@@ -128,9 +119,8 @@ export default function CompanyPage() {
         imageSrc="/images/industrial/pipes-valves.jpg"
         fullHeight={false}
       >
-        <SectionHeader title="核心能力" subtitle="服务能力" />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
-          <StaggerReveal className="contents">
+        <SectionHeader title="核心能力" />
+        <StaggerReveal className="mt-12 grid gap-6 sm:grid-cols-2">
             {capabilities.map((item) => (
               <FeatureCard
                 key={item.title}
@@ -154,7 +144,6 @@ export default function CompanyPage() {
               />
             ))}
           </StaggerReveal>
-        </div>
       </Section>
     </>
   );

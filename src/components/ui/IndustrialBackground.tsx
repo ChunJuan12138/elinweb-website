@@ -55,8 +55,8 @@ export function IndustrialBackground({
       {/* readability overlay - lighter for brighter industrial photos */}
       {showOverlay && (
         <>
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/[0.72] via-slate-900/[0.52] to-slate-800/35" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-slate-900/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-950/[0.72] via-primary-900/[0.52] to-primary-800/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-950/55 via-transparent to-primary-900/30" />
         </>
       )}
 

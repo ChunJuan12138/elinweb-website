@@ -5,20 +5,31 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
 import { prefersReducedMotion } from "@/lib/reducedMotion";
 
+type RevealDirection = "up" | "down" | "left" | "right";
+
 interface FadeInUpProps {
   children: ReactNode;
   className?: string;
-  y?: number;
+  direction?: RevealDirection;
+  distance?: number;
   duration?: number;
   delay?: number;
   start?: string;
   once?: boolean;
 }
 
+const directionOffset: Record<RevealDirection, { x: number; y: number }> = {
+  up: { x: 0, y: 1 },
+  down: { x: 0, y: -1 },
+  left: { x: 1, y: 0 },
+  right: { x: -1, y: 0 },
+};
+
 export function FadeInUp({
   children,
   className = "",
-  y = 40,
+  direction = "up",
+  distance = 40,
   duration = 0.7,
   delay = 0,
   start = "top 85%",
@@ -26,12 +37,14 @@ export function FadeInUp({
 }: FadeInUpProps) {
   const ref = useRef<HTMLDivElement>(null);
 
+  const offset = directionOffset[direction];
+
   useGSAP(
     () => {
       if (!ref.current) return;
 
       if (prefersReducedMotion()) {
-        gsap.set(ref.current, { y: 0, opacity: 1, willChange: "auto" });
+        gsap.set(ref.current, { x: 0, y: 0, opacity: 1, willChange: "auto" });
         return;
       }
 
@@ -39,8 +52,9 @@ export function FadeInUp({
 
       gsap.fromTo(
         ref.current,
-        { y, opacity: 0 },
+        { x: offset.x * distance, y: offset.y * distance, opacity: 0 },
         {
+          x: 0,
           y: 0,
           opacity: 1,
           duration,
@@ -54,10 +68,10 @@ export function FadeInUp({
           onComplete: () => {
             gsap.set(ref.current, { willChange: "auto" });
           },
-        }
+        },
       );
     },
-    { scope: ref }
+    { scope: ref },
   );
 
   return (

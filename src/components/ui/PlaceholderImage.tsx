@@ -57,7 +57,7 @@ export function PlaceholderImage({
       className={`relative flex items-center justify-center overflow-hidden rounded-xl border-2 border-dashed border-steel-300 bg-steel-50 ${aspectRatio} ${className}`}
     >
       <div className="text-center px-6">
-        <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-steel-200 text-steel-500">
+        <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-steel-200 text-steel-700">
           <svg
             className="h-6 w-6"
             fill="none"
@@ -72,8 +72,8 @@ export function PlaceholderImage({
             />
           </svg>
         </div>
-        <p className="text-sm font-medium text-steel-500">{label}</p>
-        <p className="mt-1 text-xs text-steel-400">图片占位，后续替换</p>
+        <p className="text-sm font-medium text-steel-700">{label}</p>
+        <p className="mt-1 text-xs text-steel-700">图片占位，后续替换</p>
       </div>
     </div>
   );

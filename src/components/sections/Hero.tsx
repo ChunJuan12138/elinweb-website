@@ -3,30 +3,34 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
+import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 import { prefersReducedMotion } from "@/lib/reducedMotion";
 import { IndustrialBackground } from "@/components/ui/IndustrialBackground";
+import { FadeInUp } from "@/components/animation/FadeInUp";
 
 interface HeroProps {
   title: string;
-  subtitle: string;
   description?: string;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   fullHeight?: boolean;
   kenBurns?: boolean;
   imageSrc?: string;
+  logoSrc?: string;
+  logoAlt?: string;
 }
 
 export function Hero({
   title,
-  subtitle,
   description,
   primaryCta,
   secondaryCta,
   fullHeight = true,
   kenBurns = true,
   imageSrc,
+  logoSrc,
+  logoAlt,
 }: HeroProps) {
   const scopeRef = useRef<HTMLDivElement>(null);
   const [focused, setFocused] = useState(false);
@@ -41,7 +45,7 @@ export function Hero({
           setFocused(true);
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
 
     observer.observe(el);
@@ -50,25 +54,58 @@ export function Hero({
 
   useGSAP(
     () => {
-      const elements = gsap.utils.toArray<HTMLElement>(".hero-animate");
-      gsap.set(elements, { willChange: "transform, opacity" });
-      gsap.fromTo(
-        elements,
-        { y: 40, opacity: 0 },
+      if (prefersReducedMotion()) {
+        gsap.set(".hero-animate", { y: 0, opacity: 1 });
+        gsap.set(".hero-scan-line", { scaleX: 1 });
+        return;
+      }
+
+      const animateElements = gsap.utils.toArray<HTMLElement>(".hero-animate");
+      gsap.set(animateElements, { willChange: "transform, opacity" });
+
+      const tl = gsap.timeline({
+        onComplete: () => {
+          gsap.set(animateElements, { willChange: "auto" });
+        },
+      });
+
+      // Steel imprint: title arrives with weight and slight compression release
+      tl.fromTo(
+        ".hero-title",
+        { y: 60, opacity: 0, scale: 0.98 },
         {
           y: 0,
           opacity: 1,
-          duration: prefersReducedMotion() ? 0.1 : 0.9,
-          ease: "power2.out",
-          stagger: 0.14,
-          delay: 0.15,
-          onComplete: () => {
-            gsap.set(elements, { willChange: "auto" });
-          },
-        }
+          scale: 1,
+          duration: 0.9,
+          ease: "power3.out",
+        },
+      );
+
+      // Inspection scan line draws beneath the title
+      tl.fromTo(
+        ".hero-scan-line",
+        { scaleX: 0, opacity: 0 },
+        { scaleX: 1, opacity: 1, duration: 0.7, ease: "power2.inOut" },
+        "-=0.35",
+      );
+
+      // Supporting elements follow
+      tl.fromTo(
+        ".hero-body",
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" },
+        "-=0.4",
+      );
+
+      tl.fromTo(
+        ".hero-actions",
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" },
+        "-=0.45",
       );
     },
-    { scope: scopeRef }
+    { scope: scopeRef },
   );
 
   return (
@@ -96,21 +133,22 @@ export function Hero({
       >
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div className="max-w-2xl">
-            <p className="hero-animate opacity-0 inline-block rounded-full border border-accent/60 bg-accent/10 px-4 py-1.5 text-[25px] font-bold uppercase tracking-wider text-accent backdrop-blur-sm">
-              {subtitle}
-            </p>
-            <h1 className="hero-animate opacity-0 mt-4 heading-xl text-white drop-shadow-lg">
-              {title}
-            </h1>
+            <div className="hero-title hero-animate opacity-0">
+              <h1 className="heading-xl text-white drop-shadow-lg">{title}</h1>
+              <div className="hero-scan-line mt-4 h-1 w-24 origin-left rounded-full bg-accent opacity-0" />
+            </div>
             {description && (
-              <p className="hero-animate opacity-0 mt-6 text-lg leading-relaxed text-steel-200 md:text-xl drop-shadow-md">
+              <p className="hero-body hero-animate opacity-0 mt-6 text-lg leading-relaxed text-steel-200 md:text-xl drop-shadow-md">
                 {description}
               </p>
             )}
 
-            <div className="hero-animate opacity-0 mt-10 flex flex-col items-start gap-4 sm:flex-row">
+            <div className="hero-actions hero-animate opacity-0 mt-10 flex flex-col items-start gap-4 sm:flex-row">
               {primaryCta && (
-                <Link href={primaryCta.href} className="btn-primary min-w-[160px]">
+                <Link
+                  href={primaryCta.href}
+                  className="btn-primary min-w-[160px]"
+                >
                   {primaryCta.label}
                 </Link>
               )}
@@ -124,6 +162,22 @@ export function Hero({
               )}
             </div>
           </div>
+          {logoSrc && (
+            <FadeInUp
+              direction="up"
+              delay={0.2}
+              className="relative mx-auto aspect-square w-full max-w-[360px] overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 shadow-lg backdrop-blur-sm"
+            >
+              <Image
+                src={logoSrc}
+                alt={logoAlt || ""}
+                fill
+                className="object-contain p-6"
+                sizes="(max-width: 1024px) 280px, 360px"
+                priority
+              />
+            </FadeInUp>
+          )}
         </div>
       </div>
     </section>

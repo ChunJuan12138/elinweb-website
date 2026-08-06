@@ -53,8 +53,6 @@ export function CountUpContainer({
         return { el, number, suffix, obj: { value: 0 } };
       });
 
-      gsap.set(elements, { willChange: "transform, opacity" });
-
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ref.current,

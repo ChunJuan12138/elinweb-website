@@ -5,14 +5,13 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navItems = [
-  { label: "公司简介", href: "/company" },
+  { label: "关于艺林", href: "/company" },
   { label: "服务业务", href: "/business" },
-  { label: "核心优势", href: "/advantages" },
-  { label: "收费标准", href: "/pricing" },
-  { label: "供应商合作", href: "/partners" },
-  { label: "生态网络", href: "/ecosystem" },
+  { label: "合作生态", href: "/ecosystem" },
   { label: "发展历程", href: "/history" },
 ];
+
+const contactCta = { label: "联系我们", href: "/#contact" };
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -37,7 +36,7 @@ export function Header() {
       }`}
     >
       <div className="container-wide flex h-20 items-center justify-between md:h-24">
-        <Link href="/company" className="group flex items-center gap-4">
+        <Link href="/" className="group flex items-center gap-4">
           <div
             className={`relative flex items-center justify-center overflow-hidden rounded-lg bg-primary-50 transition-all duration-500 group-hover:bg-primary-100 ${
               scrolled ? "h-[56px] w-[80px] md:h-[64px] md:w-[90px]" : "h-[72px] w-[100px] md:h-[88px] md:w-[110px]"
@@ -57,7 +56,7 @@ export function Header() {
             <span className={`font-bold leading-tight transition-all duration-300 ${scrolled ? "text-lg text-primary md:text-xl" : "text-xl text-primary md:text-2xl"}`}>
               艺林工业供应链
             </span>
-            <span className={`transition-all duration-300 ${scrolled ? "text-[10px] text-steel-500" : "text-xs text-steel-500"}`}>
+            <span className="text-xs text-steel-700 transition-all duration-300">
               包钢本土化工业供应链服务商
             </span>
           </div>
@@ -69,6 +68,12 @@ export function Header() {
               {item.label}
             </Link>
           ))}
+          <Link
+            href={contactCta.href}
+            className="btn-primary px-5 py-2.5 text-sm"
+          >
+            {contactCta.label}
+          </Link>
         </nav>
 
         <button
@@ -76,6 +81,7 @@ export function Header() {
           className="inline-flex items-center justify-center rounded-md p-2 text-steel-700 lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="切换导航"
+          aria-expanded={mobileOpen}
         >
           <svg
             className="h-6 w-6"
@@ -115,6 +121,13 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+            <Link
+              href={contactCta.href}
+              className="btn-primary mt-2 text-center"
+              onClick={() => setMobileOpen(false)}
+            >
+              {contactCta.label}
+            </Link>
           </div>
         </div>
       )}
