@@ -178,7 +178,7 @@ export function Hero({
                 src={logoSrc}
                 alt={logoAlt || ""}
                 fill
-                className="object-contain p-6"
+                className="object-contain p-4 drop-shadow-2xl"
                 sizes="(max-width: 768px) 360px, (max-width: 1024px) 420px, 520px"
                 priority
               />
