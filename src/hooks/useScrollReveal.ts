@@ -41,6 +41,8 @@ export function useScrollReveal<T extends HTMLElement>(
         return;
       }
 
+      gsap.set(ref.current, { willChange: "transform, opacity" });
+
       gsap.fromTo(
         ref.current,
         { y, opacity },
@@ -54,6 +56,9 @@ export function useScrollReveal<T extends HTMLElement>(
             trigger: ref.current,
             start,
             once,
+          },
+          onComplete: () => {
+            gsap.set(ref.current, { willChange: "auto" });
           },
         }
       );

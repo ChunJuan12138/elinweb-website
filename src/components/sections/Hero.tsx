@@ -44,6 +44,7 @@ export function Hero({
   useGSAP(
     () => {
       const elements = gsap.utils.toArray<HTMLElement>(".hero-animate");
+      gsap.set(elements, { willChange: "transform, opacity" });
       gsap.fromTo(
         elements,
         { y: 30, opacity: 0 },
@@ -54,6 +55,9 @@ export function Hero({
           ease: "power2.out",
           stagger: 0.12,
           delay: 0.15,
+          onComplete: () => {
+            gsap.set(elements, { willChange: "auto" });
+          },
         }
       );
     },
@@ -67,7 +71,7 @@ export function Hero({
       onFocus={() => setFocused(true)}
       tabIndex={-1}
     >
-      <IndustrialBackground blur focused={focused} />
+      <IndustrialBackground blur focused={focused} priority />
 
       <div ref={scopeRef} className="container-wide relative py-16 md:py-24 lg:py-32">
         <div className="grid items-center gap-12 lg:grid-cols-2">

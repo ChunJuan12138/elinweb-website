@@ -2,6 +2,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Section, SectionHeader } from "@/components/sections/Section";
 import { FeatureCard } from "@/components/cards/FeatureCard";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
+import { ScrollRevealContainer } from "@/components/animation/ScrollRevealContainer";
 
 const milestones = [
   {
@@ -67,42 +68,44 @@ export default function HistoryPage() {
         <div className="mt-12 relative">
           <div className="absolute left-8 top-0 bottom-0 w-px bg-steel-200 md:left-1/2 md:-ml-px" />
           <div className="space-y-12">
-            {milestones.map((item, index) => (
-              <div
-                key={item.year}
-                className={`relative flex flex-col gap-6 md:flex-row ${
-                  index % 2 === 0 ? "md:flex-row-reverse" : ""
-                }`}
-              >
-                <div className="hidden md:block md:flex-1 md:text-right" />
-                <div className="relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-md">
-                  <span className="text-sm font-bold leading-tight text-center">
-                    {item.year}
-                  </span>
+            <ScrollRevealContainer className="contents" selector=".reveal">
+              {milestones.map((item, index) => (
+                <div
+                  key={item.year}
+                  className={`relative flex flex-col gap-6 md:flex-row ${
+                    index % 2 === 0 ? "md:flex-row-reverse" : ""
+                  }`}
+                >
+                  <div className="hidden md:block md:flex-1 md:text-right" />
+                  <div className="relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-md">
+                    <span className="text-sm font-bold leading-tight text-center">
+                      {item.year}
+                    </span>
+                  </div>
+                  <div className="flex-1">
+                    <FeatureCard
+                      icon={
+                        <svg
+                          className="h-6 w-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                      }
+                      title={item.title}
+                      description={item.description}
+                    />
+                  </div>
                 </div>
-                <div className="flex-1">
-                  <FeatureCard
-                    icon={
-                      <svg
-                        className="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    }
-                    title={item.title}
-                    description={item.description}
-                  />
-                </div>
-              </div>
-            ))}
+              ))}
+            </ScrollRevealContainer>
           </div>
         </div>
       </Section>

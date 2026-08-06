@@ -9,8 +9,12 @@
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
+  /* Native smooth scrolling conflicts with GSAP ScrollTrigger. Only enable it
+     when JavaScript is disabled so anchor links still behave nicely. */
+  @media (scripting: none) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   body {

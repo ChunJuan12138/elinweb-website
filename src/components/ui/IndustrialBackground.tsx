@@ -10,6 +10,7 @@ interface IndustrialBackgroundProps {
   children?: ReactNode;
   showOverlay?: boolean;
   imageSrc?: string;
+  priority?: boolean;
 }
 
 export function IndustrialBackground({
@@ -19,13 +20,18 @@ export function IndustrialBackground({
   children,
   showOverlay = true,
   imageSrc = "/images/industrial/steel-mill.jpg",
+  priority = false,
 }: IndustrialBackgroundProps) {
-  const sceneBlur = blur && !focused ? "blur-[3px] scale-105" : "blur-0 scale-100";
+  const sceneTransform = blur
+    ? focused
+      ? "scale-[1.03] opacity-100"
+      : "scale-100 opacity-95"
+    : "scale-100 opacity-100";
 
   return (
     <div className={`absolute inset-0 overflow-hidden ${className}`}>
       <div
-        className={`absolute -inset-[5%] transition-all duration-700 ease-out ${sceneBlur}`}
+        className={`absolute -inset-[5%] transition-all duration-700 ease-out will-change-transform ${sceneTransform}`}
         aria-hidden="true"
       >
         <Image
@@ -33,7 +39,7 @@ export function IndustrialBackground({
           alt="工业场景背景"
           fill
           className="object-cover"
-          priority
+          priority={priority}
           sizes="100vw"
         />
       </div>

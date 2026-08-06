@@ -3,6 +3,8 @@ import { Section, SectionHeader } from "@/components/sections/Section";
 import { FeatureCard } from "@/components/cards/FeatureCard";
 import { StatCard } from "@/components/cards/StatCard";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
+import { ScrollRevealContainer } from "@/components/animation/ScrollRevealContainer";
+import { CountUpContainer } from "@/components/animation/CountUpContainer";
 
 const capabilities = [
   {
@@ -73,28 +75,32 @@ export default function CompanyPage() {
           description="2009 年起步开展业务，2010 年注册包头市艺林贸易有限责任公司；历经十余年发展，现以内蒙古艺林供应链科技有限责任公司为主体公司运营。"
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-3">
-          {stats.map((item) => (
-            <StatCard
-              key={item.label}
-              value={item.value}
-              label={item.label}
-              icon={
-                <svg
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              }
-            />
-          ))}
+          <CountUpContainer className="contents">
+            <ScrollRevealContainer className="contents">
+              {stats.map((item) => (
+                <StatCard
+                  key={item.label}
+                  value={item.value}
+                  label={item.label}
+                  icon={
+                    <svg
+                      className="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  }
+                />
+              ))}
+            </ScrollRevealContainer>
+          </CountUpContainer>
         </div>
       </Section>
 
@@ -104,28 +110,30 @@ export default function CompanyPage() {
           subtitle="服务能力"
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
-          {capabilities.map((item) => (
-            <FeatureCard
-              key={item.title}
-              icon={
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                  />
-                </svg>
-              }
-              title={item.title}
-              description={item.description}
-            />
-          ))}
+          <ScrollRevealContainer className="contents">
+            {capabilities.map((item) => (
+              <FeatureCard
+                key={item.title}
+                icon={
+                  <svg
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+                    />
+                  </svg>
+                }
+                title={item.title}
+                description={item.description}
+              />
+            ))}
+          </ScrollRevealContainer>
         </div>
       </Section>
     </>
