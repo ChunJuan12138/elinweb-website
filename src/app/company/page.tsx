@@ -68,10 +68,10 @@ export default function CompanyPage() {
           </FadeInUp>
           <FadeInUp delay={0.15} className="order-1 lg:order-2">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+              <p className="inline-block rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
                 定位
               </p>
-              <h2 className="mt-3 heading-lg text-white">本地化工业供应链服务商</h2>
+              <h2 className="mt-4 heading-lg text-white">本地化工业供应链服务商</h2>
               <p className="mt-4 body-lg text-steel-200">
                 我们与震坤行、欧冶等平台有相似之处，但本质不同：他们侧重卖货，服务是附带；我们以服务为核心，卖货只是服务的一部分。
               </p>

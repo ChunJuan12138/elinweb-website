@@ -57,7 +57,7 @@ export default function PricingPage() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp>
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+              <p className="inline-block rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
                 业态定位
               </p>
               <h2 className="mt-3 heading-lg text-white">挣服务的钱，不卖信息差</h2>
@@ -147,8 +147,9 @@ export default function PricingPage() {
       </Section>
 
       <Section
-        background="primary"
+        background="image"
         imageSrc="/images/industrial/mining-truck.jpg"
+        overlay="heavy"
         fullHeight={false}
       >
         <SectionHeader title="对内参考费率" subtitle="内部参考" light />

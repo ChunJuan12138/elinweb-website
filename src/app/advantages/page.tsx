@@ -65,7 +65,7 @@ export default function AdvantagesPage() {
           </FadeInUp>
           <FadeInUp delay={0.15} className="order-1 lg:order-2">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+              <p className="inline-block rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
                 差异化价值
               </p>
               <h2 className="mt-3 heading-lg text-white">不是卖货，是做服务</h2>

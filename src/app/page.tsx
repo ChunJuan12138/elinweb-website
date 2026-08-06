@@ -56,18 +56,12 @@ export default function HomePage() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp>
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-accent">
-                公司简介
+              <p className="inline-block rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
+                关于艺林
               </p>
-              <h2 className="mt-3 heading-lg text-white">以服务为核心的工业供应链服务商</h2>
+              <h2 className="mt-4 heading-lg text-white">公司简介</h2>
               <p className="mt-4 body-lg text-steel-200">
                 我们是一家本地化工业供应链服务商——立足包头、辐射包头周边工矿企业，连接上游制造与下游生产，让两端各自专注专业。
-              </p>
-              <p className="mt-4 body-lg text-steel-200">
-                我们与震坤行、欧冶等平台有相似之处，但本质不同：他们侧重卖货，服务是附带；我们以服务为核心，卖货只是服务的一部分。
-              </p>
-              <p className="mt-4 body-lg text-steel-200">
-                让客户专注生产与制造，交付与售后的最后一公里，交给艺林。我们与客户共生共长。
               </p>
             </div>
           </FadeInUp>
@@ -80,6 +74,23 @@ export default function HomePage() {
             />
           </FadeInUp>
         </div>
+
+        <FadeInUp>
+          <div className="mt-12 rounded-xl border border-white/10 bg-white/10 p-6 shadow-sm backdrop-blur-sm md:p-8">
+            <p className="inline-block rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
+              定位
+            </p>
+            <h3 className="mt-4 text-2xl font-bold text-white md:text-3xl">
+              本地化工业供应链服务商
+            </h3>
+            <p className="mt-4 body-lg text-steel-200">
+              我们与震坤行、欧冶等平台有相似之处，但本质不同：他们侧重卖货，服务是附带；我们以服务为核心，卖货只是服务的一部分。
+            </p>
+            <p className="mt-4 body-lg text-steel-200">
+              让客户专注生产与制造，交付与售后的最后一公里，交给艺林。我们与客户共生共长。
+            </p>
+          </div>
+        </FadeInUp>
       </Section>
 
       <Section

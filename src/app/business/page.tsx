@@ -66,7 +66,7 @@ export default function BusinessPage() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp>
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+              <p className="inline-block rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
                 服务对象
               </p>
               <h2 className="mt-3 heading-lg text-white">连接上下游的本地化服务枢纽</h2>
@@ -149,7 +149,7 @@ export default function BusinessPage() {
           </FadeInUp>
           <FadeInUp delay={0.15} className="order-1 lg:order-2">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+              <p className="inline-block rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm sm:text-sm">
                 服务流程
               </p>
               <h2 className="mt-3 heading-lg text-white">专人对接，全流程闭环</h2>
@@ -162,8 +162,9 @@ export default function BusinessPage() {
       </Section>
 
       <Section
-        background="primary"
+        background="image"
         imageSrc="/images/industrial/mining-truck.jpg"
+        overlay="heavy"
         fullHeight={false}
       >
         <SectionHeader title="服务流程" subtitle="标准化服务路径" light />
