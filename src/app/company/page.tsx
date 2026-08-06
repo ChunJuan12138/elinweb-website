@@ -1,30 +1,103 @@
 import { Hero } from "@/components/sections/Hero";
 import { Section, SectionHeader } from "@/components/sections/Section";
-import { FeatureCard } from "@/components/cards/FeatureCard";
 import { StatCard } from "@/components/cards/StatCard";
 import Image from "next/image";
 import { StaggerReveal } from "@/components/animation/StaggerReveal";
 import { FadeInUp } from "@/components/animation/FadeInUp";
 import { CountUpContainer } from "@/components/animation/CountUpContainer";
+import type { ReactNode } from "react";
 
-const capabilities = [
+const capabilities: {
+  title: string;
+  description: string;
+  image: string;
+  icon: ReactNode;
+}[] = [
   {
     title: "设备类供应为核心",
-    description: "多品类覆盖——仪表、电气、机械等大类及细分领域。",
+    description:
+      "多品类覆盖——仪表、电气、机械等大类及细分领域，依托稳定供应商网络与本地仓储能力，为工矿企业提供及时、可靠的设备与备品备件供应。",
+    image: "/images/svc-supply.jpg",
+    icon: (
+      <svg
+        className="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+        />
+      </svg>
+    ),
   },
   {
     title: "专业服务工程师团队",
-    description: "电气、机械、自动化、仪表各专业独立工程师，24 小时现场响应。",
+    description:
+      "电气、机械、自动化、仪表各专业独立工程师，提供选型、安装指导、调试、故障诊断与改造升级，24 小时现场响应。",
+    image: "/images/svc-tech.jpg",
+    icon: (
+      <svg
+        className="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"
+        />
+      </svg>
+    ),
   },
   {
     title: "产学研合作",
     description:
-      "与内蒙古科技大学机械工程学院、自动化与电气工程学院深度合作，技术服务有科研支撑。",
+      "与内蒙古科技大学机械工程学院、自动化与电气工程学院深度合作，将科研能力转化为现场技术支撑，疑难问题有研究团队兜底。",
+    image: "/images/svc-env.jpg",
+    icon: (
+      <svg
+        className="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path d="M12 14l9-5-9-5-9 5 9 5z" />
+        <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+        />
+      </svg>
+    ),
   },
   {
     title: "生态协同",
     description:
       "与中冶赛迪、中冶京诚、中冶东方、首钢国际、包钢设计院等设计院，上海宝冶、中国二冶、内蒙古环投、包钢西创建设、包钢综企等工程单位深度合作，大型项目全程协同。",
+    image: "/images/svc-eng.jpg",
+    icon: (
+      <svg
+        className="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+        />
+      </svg>
+    ),
   },
 ];
 
@@ -33,6 +106,43 @@ const stats = [
   { value: "5000万+", label: "年营收" },
   { value: "14+", label: "年服务沉淀" },
 ];
+
+function CapabilityCard({
+  title,
+  description,
+  image,
+  icon,
+}: {
+  title: string;
+  description: string;
+  image: string;
+  icon: ReactNode;
+}) {
+  return (
+    <div className="group flex flex-col overflow-hidden rounded-xl border border-accent/60 bg-white/10 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:bg-white/15 hover:shadow-lg">
+      <div className="relative aspect-[16/10] overflow-hidden">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary-950/60 via-transparent to-transparent" />
+      </div>
+      <div className="flex flex-1 flex-col p-6 md:p-8">
+        <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-white/10 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
+          {icon}
+        </div>
+        <h3 className="mt-5 text-lg font-semibold text-white">{title}</h3>
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-steel-300">
+          {description}
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export default function CompanyPage() {
   return (
@@ -115,35 +225,20 @@ export default function CompanyPage() {
       </Section>
 
       <Section
+        id="capabilities"
         background="image"
         imageSrc="/images/industrial/pipes-valves.jpg"
         fullHeight={false}
       >
-        <SectionHeader title="核心能力" />
+        <SectionHeader
+          title="核心能力"
+          description="十四年本地化沉淀，构建起设备供应、专业团队、科研支撑与生态协同四位一体的服务能力。"
+        />
         <StaggerReveal className="mt-12 grid gap-6 sm:grid-cols-2">
-            {capabilities.map((item) => (
-              <FeatureCard
-                key={item.title}
-                icon={
-                  <svg
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                    />
-                  </svg>
-                }
-                title={item.title}
-                description={item.description}
-              />
-            ))}
-          </StaggerReveal>
+          {capabilities.map((item) => (
+            <CapabilityCard key={item.title} {...item} />
+          ))}
+        </StaggerReveal>
       </Section>
     </>
   );
