@@ -133,4 +133,47 @@
       transform: scale(1);
     }
   }
+
+  /* Partner logo marquee */
+  .animate-logo-marquee {
+    animation: logoMarquee 60s linear infinite;
+  }
+
+  .animate-logo-marquee-reverse {
+    animation: logoMarqueeReverse 60s linear infinite;
+  }
+
+  @keyframes logoMarquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes logoMarqueeReverse {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-logo-marquee,
+    .animate-logo-marquee-reverse {
+      animation: none;
+    }
+  }
+
+  /* Chinese first-line indentation */
+  .indent-first-line {
+    text-indent: 2em;
+  }
+
+  .indent-first-line::first-line {
+    text-indent: 2em;
+  }
 }

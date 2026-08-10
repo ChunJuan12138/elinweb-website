@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 import { gsap } from "@/lib/gsap";
@@ -11,7 +11,8 @@ import { FadeInUp } from "@/components/animation/FadeInUp";
 
 interface HeroProps {
   title: string;
-  description?: string;
+  subtitle?: string;
+  description?: ReactNode;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   fullHeight?: boolean;
@@ -20,10 +21,12 @@ interface HeroProps {
   logoSrc?: string;
   logoAlt?: string;
   logoPlain?: boolean;
+  children?: ReactNode;
 }
 
 export function Hero({
   title,
+  subtitle,
   description,
   primaryCta,
   secondaryCta,
@@ -33,6 +36,7 @@ export function Hero({
   logoSrc,
   logoAlt,
   logoPlain = false,
+  children,
 }: HeroProps) {
   const scopeRef = useRef<HTMLDivElement>(null);
   const [focused, setFocused] = useState(false);
@@ -137,12 +141,17 @@ export function Hero({
           <div className="max-w-2xl">
             <div className="hero-title hero-animate opacity-0">
               <h1 className="heading-xl text-white drop-shadow-lg">{title}</h1>
+              {subtitle && (
+                <h2 className="heading-lg mt-4 text-white drop-shadow-lg">
+                  {subtitle}
+                </h2>
+              )}
               <div className="hero-scan-line mt-4 h-1 w-24 origin-left rounded-full bg-accent opacity-0" />
             </div>
             {description && (
-              <p className="hero-body hero-animate opacity-0 mt-6 text-lg leading-relaxed text-steel-200 md:text-xl drop-shadow-md">
+              <div className="hero-body hero-animate opacity-0 mt-6 text-lg leading-relaxed text-steel-200 md:text-xl drop-shadow-md">
                 {description}
-              </p>
+              </div>
             )}
 
             <div className="hero-actions hero-animate opacity-0 mt-10 flex flex-col items-start gap-4 sm:flex-row">
@@ -185,6 +194,12 @@ export function Hero({
             </FadeInUp>
           )}
         </div>
+
+        {children && (
+          <div className="hero-bottom-content mt-12 w-full">
+            {children}
+          </div>
+        )}
       </div>
     </section>
   );

@@ -1,9 +1,15 @@
 import { Hero } from "@/components/sections/Hero";
+import { PartnerLogoWall } from "@/components/sections/PartnerLogoWall";
 import { Section, SectionHeader } from "@/components/sections/Section";
 import { FeatureCard } from "@/components/cards/FeatureCard";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import { StaggerReveal } from "@/components/animation/StaggerReveal";
 import { FadeInUp } from "@/components/animation/FadeInUp";
+import { readdirSync } from "fs";
+import { join } from "path";
+
+const logoDir = join(process.cwd(), "public/images/other_company_logos");
+const partnerLogos = readdirSync(logoDir);
 
 const ecosystem = [
   {
@@ -96,6 +102,20 @@ export default function EcosystemPage() {
               />
             ))}
           </StaggerReveal>
+      </Section>
+
+      <Section
+        background="image"
+        imageSrc="/images/industrial/machinery.jpg"
+        fullHeight={false}
+      >
+        <SectionHeader
+          title="合作厂商"
+          description="十余年沉淀，与 300 余家国内外品牌厂商建立稳定合作。"
+        />
+        <div className="mt-12">
+          <PartnerLogoWall logos={partnerLogos} />
+        </div>
       </Section>
     </>
   );

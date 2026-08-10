@@ -3,7 +3,6 @@ import { Section, SectionHeader } from "@/components/sections/Section";
 import { StatCard } from "@/components/cards/StatCard";
 import Image from "next/image";
 import { StaggerReveal } from "@/components/animation/StaggerReveal";
-import { FadeInUp } from "@/components/animation/FadeInUp";
 import { CountUpContainer } from "@/components/animation/CountUpContainer";
 import type { ReactNode } from "react";
 
@@ -150,43 +149,26 @@ export default function CompanyPage() {
     <>
       <Hero
         title="公司简介"
-        description="我们是一家本地化工业供应链服务商——立足包头、辐射包头周边工矿企业，连接上游制造与下游生产，让两端各自专注专业。"
+        subtitle="本地化工业供应链服务商"
+        description={
+          <>
+            <p className="indent-first-line">
+              我们是一家本地化工业供应链服务商——立足包头、辐射包头周边工矿企业，连接上游制造与下游生产，让两端各自专注专业。
+            </p>
+            <p className="mt-4 indent-first-line">
+              我们与震坤行、欧冶等平台有相似之处，但本质不同：他们侧重卖货，服务是附带；我们以服务为核心，卖货只是服务的一部分。
+            </p>
+            <p className="mt-4 indent-first-line">
+              让客户专注生产与制造，交付与售后的最后一公里，交给艺林。我们与客户共生共长。
+            </p>
+          </>
+        }
         primaryCta={{ label: "服务业务", href: "/business" }}
         imageSrc="/images/industrial/steel-mill.jpg"
+        logoSrc="/images/logo.png"
+        logoAlt="艺林工业供应链 Logo"
+        logoPlain
       />
-
-      <Section
-        background="image"
-        imageSrc="/images/industrial/machinery.jpg"
-        fullHeight={false}
-      >
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <FadeInUp className="order-2 lg:order-1">
-            <div className="mx-auto flex max-w-[450px] items-center justify-center rounded-2xl bg-white/10 p-8 backdrop-blur-sm">
-              <div className="relative aspect-square w-full max-w-[450px]">
-                <Image
-                  src="/images/logo.png"
-                  alt="艺林工业供应链 Logo"
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 1024px) 100vw, 450px"
-                />
-              </div>
-            </div>
-          </FadeInUp>
-          <FadeInUp delay={0.15} className="order-1 lg:order-2">
-            <div>
-              <h2 className="heading-lg text-white">本地化工业供应链服务商</h2>
-              <p className="mt-4 body-lg text-steel-200">
-                我们与震坤行、欧冶等平台有相似之处，但本质不同：他们侧重卖货，服务是附带；我们以服务为核心，卖货只是服务的一部分。
-              </p>
-              <p className="mt-4 body-lg text-steel-200">
-                让客户专注生产与制造，交付与售后的最后一公里，交给艺林。我们与客户共生共长。
-              </p>
-            </div>
-          </FadeInUp>
-        </div>
-      </Section>
 
       <Section
         background="image"
