@@ -173,7 +173,6 @@ export default function CompanyPage() {
       <Section
         background="image"
         imageSrc="/images/industrial/electrical-room.jpg"
-        overlay="heavy"
       >
         <SectionHeader
           title="公司沿革与规模实力"

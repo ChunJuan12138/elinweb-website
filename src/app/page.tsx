@@ -4,7 +4,7 @@ import { FeatureCard } from "@/components/cards/FeatureCard";
 import { StaggerReveal } from "@/components/animation/StaggerReveal";
 import { FadeInUp } from "@/components/animation/FadeInUp";
 import { CountUpContainer } from "@/components/animation/CountUpContainer";
-import Image from "next/image";
+import { RandomFadeImage } from "@/components/ui/RandomFadeImage";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -72,7 +72,7 @@ const capabilities: { title: string; description: string; icon: ReactNode }[] =
   [
     {
       title: "设备类供应为核心",
-      description: "多品类覆盖——仪表、电气、机械等大类及细分领域。",
+      description: "仪表、电气、机械等多品类覆盖，满足工矿企业一站式采购需求。",
       icon: (
         <svg
           className="h-6 w-6"
@@ -97,7 +97,7 @@ const capabilities: { title: string; description: string; icon: ReactNode }[] =
     {
       title: "专业服务工程师团队",
       description:
-        "电气、机械、自动化、仪表各专业独立工程师，24 小时现场响应。",
+        "电气、机械、自动化、仪表各专业工程师，7×24 小时现场响应。",
       icon: (
         <svg
           className="h-6 w-6"
@@ -117,7 +117,7 @@ const capabilities: { title: string; description: string; icon: ReactNode }[] =
     {
       title: "产学研合作",
       description:
-        "与内蒙古科技大学机械工程学院、自动化与电气工程学院深度合作，技术服务有科研支撑。",
+        "与内蒙古科技大学深度合作，技术服务有科研支撑。",
       icon: (
         <svg
           className="h-6 w-6"
@@ -139,7 +139,7 @@ const capabilities: { title: string; description: string; icon: ReactNode }[] =
     {
       title: "生态协同",
       description:
-        "与中冶赛迪、中冶京诚、中冶东方、首钢国际、包钢设计院等设计院，上海宝冶、中国二冶、内蒙古环投、包钢西创建设、包钢综企等工程单位深度合作，大型项目全程协同。",
+        "与中冶赛迪、中冶京诚、包钢设计院等深度合作，大型项目全程协同。",
       icon: (
         <svg
           className="h-6 w-6"
@@ -215,7 +215,6 @@ export default function HomePage() {
       <Section
         background="image"
         imageSrc="/images/industrial/electrical-room.jpg"
-        overlay="heavy"
       >
         <SectionHeader
           title="公司沿革与规模实力"
@@ -261,11 +260,11 @@ export default function HomePage() {
         fullHeight={false}
       >
         <SectionHeader title="核心能力" />
-        <StaggerReveal selector=".bento-card" direction="up" distance={30} className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {capabilities.map((item, index) => (
+        <StaggerReveal selector=".bento-card" direction="up" distance={30} className="mt-12 grid auto-rows-fr gap-6 sm:grid-cols-2">
+            {capabilities.map((item) => (
               <div
                 key={item.title}
-                className={`bento-card ${index === 0 ? "lg:col-span-2" : ""}`}
+                className="bento-card h-full"
               >
                 <FeatureCard
                   icon={item.icon}
@@ -336,14 +335,15 @@ export default function HomePage() {
                 className="group relative inline-block w-full max-w-2xl overflow-hidden rounded-xl border border-accent/60 bg-white/5 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-lg"
                 aria-label="在地图中查看公司位置"
               >
-                <div className="relative aspect-video w-full">
-                  <Image
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <RandomFadeImage
                     src="/images/map.jpg"
                     alt="公司位置地图（点击在高德地图中打开导航）"
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    className="h-full w-full transition-transform duration-500 group-hover:scale-[1.03]"
                     sizes="(max-width: 768px) 100vw, 672px"
-                    loading="lazy"
+                    minDelay={0.3}
+                    maxDelay={1.5}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary-950/70 via-transparent to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">

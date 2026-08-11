@@ -34,16 +34,10 @@ interface SectionProps {
   background?: BackgroundType;
   fullHeight?: boolean;
   imageSrc?: string;
-  overlay?: "light" | "medium" | "heavy";
   imageClassName?: string;
+  imageBlur?: boolean;
   id?: string;
 }
-
-const overlayClasses = {
-  light: "bg-primary-950/55",
-  medium: "bg-primary-950/70",
-  heavy: "bg-primary-950/82",
-};
 
 export function Section({
   children,
@@ -51,8 +45,8 @@ export function Section({
   background = "image",
   fullHeight = true,
   imageSrc = "/images/industrial/steel-mill.jpg",
-  overlay = "medium",
   imageClassName = "",
+  imageBlur = true,
   id,
 }: SectionProps) {
   const useImage = background === "image";
@@ -68,7 +62,7 @@ export function Section({
     >
       {useImage && (
         <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-          <div className={`absolute -inset-[5%] ${imageClassName}`}>
+          <div className={`absolute -inset-[5%] ${imageBlur ? "blur-sm" : ""} ${imageClassName}`}>
             <Image
               src={imageSrc}
               alt=""
@@ -79,9 +73,6 @@ export function Section({
               loading="lazy"
             />
           </div>
-          {/* readability overlay */}
-          <div className={`absolute inset-0 ${overlayClasses[overlay]}`} />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary-950/40 via-transparent to-primary-900/20" />
         </div>
       )}
 

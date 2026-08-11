@@ -78,7 +78,6 @@ export default function PartnersPage() {
       <Section
         background="image"
         imageSrc="/images/industrial/pipes-valves.jpg"
-        overlay="heavy"
       >
         <SectionHeader
           title="与艺林合作，您将获得"

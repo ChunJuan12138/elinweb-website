@@ -12,6 +12,7 @@ interface IndustrialBackgroundProps {
   imageSrc?: string;
   priority?: boolean;
   kenBurns?: boolean;
+  imageBlur?: boolean;
 }
 
 export function IndustrialBackground({
@@ -23,6 +24,7 @@ export function IndustrialBackground({
   imageSrc = "/images/industrial/steel-mill.jpg",
   priority = false,
   kenBurns = false,
+  imageBlur = true,
 }: IndustrialBackgroundProps) {
   const sceneTransform = kenBurns
     ? ""
@@ -39,7 +41,7 @@ export function IndustrialBackground({
           kenBurns
             ? "animate-ken-burns"
             : "transition-all duration-700 ease-out"
-        }`}
+        } ${imageBlur ? "blur-sm" : ""}`}
         aria-hidden="true"
       >
         <Image

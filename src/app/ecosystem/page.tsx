@@ -75,7 +75,6 @@ export default function EcosystemPage() {
       <Section
         background="image"
         imageSrc="/images/industrial/pipes-valves.jpg"
-        overlay="heavy"
       >
         <SectionHeader title="五大合作主体" />
         <StaggerReveal className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

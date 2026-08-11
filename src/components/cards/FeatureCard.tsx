@@ -22,7 +22,7 @@ export function FeatureCard({ icon, title, description, animate = true, batch = 
   });
 
   const baseClass =
-    "feature-card group relative overflow-hidden rounded-xl border border-accent/60 bg-white/10 p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:bg-white/15 hover:shadow-lg md:p-8";
+    "feature-card group relative h-full overflow-hidden rounded-xl border border-accent/60 bg-white/10 p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:bg-white/15 hover:shadow-lg md:p-8";
 
   const className = animate
     ? batch

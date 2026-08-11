@@ -83,7 +83,6 @@ export default function PricingPage() {
       <Section
         background="image"
         imageSrc="/images/industrial/electrical-room.jpg"
-        overlay="heavy"
       >
         <SectionHeader title="三层收费结构" />
         <StaggerReveal className="mt-12 grid gap-6 lg:grid-cols-3">
@@ -147,7 +146,6 @@ export default function PricingPage() {
       <Section
         background="image"
         imageSrc="/images/industrial/mining-truck.jpg"
-        overlay="heavy"
         fullHeight={false}
       >
         <SectionHeader title="对内参考费率" light />

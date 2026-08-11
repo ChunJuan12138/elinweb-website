@@ -35,6 +35,7 @@ export function PlaceholderImage({
               focused={focused}
               showOverlay={false}
               imageSrc={imageSrc}
+              imageBlur={false}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary-950/70 via-primary-950/20 to-transparent" />
             <div className="relative z-10 px-6 pb-6 text-center">
@@ -45,7 +46,7 @@ export function PlaceholderImage({
           </>
         ) : (
           <>
-            <IndustrialBackground blur focused={focused} showOverlay imageSrc={imageSrc} />
+            <IndustrialBackground blur focused={focused} showOverlay imageSrc={imageSrc} imageBlur={false} />
             <div className="relative z-10 px-6 text-center">
               <div className="mx-auto mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/20 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-white/15">
                 <svg

@@ -206,7 +206,6 @@ export default function BusinessPage() {
         id="services"
         background="image"
         imageSrc="/images/industrial/electrical-room.jpg"
-        overlay="heavy"
         fullHeight={false}
       >
         <SectionHeader

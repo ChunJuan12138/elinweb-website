@@ -70,7 +70,6 @@ export default function HistoryPage() {
       <Section
         background="image"
         imageSrc="/images/industrial/electrical-room.jpg"
-        overlay="heavy"
       >
         <SectionHeader
           title="发展时间线"
