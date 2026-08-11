@@ -59,12 +59,12 @@ export default function PricingPage() {
       >
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp>
-            <div>
-              <h2 className="heading-lg text-white">挣服务的钱，不卖信息差</h2>
-              <p className="mt-4 body-lg text-steel-200">
+            <div className="rounded-xl border border-accent/60 bg-white/10 p-6 shadow-sm backdrop-blur-sm md:p-8 lg:p-10">
+              <h2 className="heading-lg text-white drop-shadow-md">挣服务的钱，不卖信息差</h2>
+              <p className="mt-4 body-lg text-steel-200 drop-shadow-md">
                 我们不写死价格，而是写清计价方式。商品与服务分离计价，服务费明码标价。
               </p>
-              <p className="mt-4 body-lg text-steel-200">
+              <p className="mt-4 body-lg text-steel-200 drop-shadow-md">
                 具体以实际报价单/服务合同为准；大项目、年度框架合作欢迎面议。
               </p>
             </div>

@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
 import { Section, SectionHeader } from "@/components/sections/Section";
+import { ContactSection } from "@/components/sections/ContactSection";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import { StaggerReveal } from "@/components/animation/StaggerReveal";
 import { FadeInUp } from "@/components/animation/FadeInUp";
@@ -179,14 +180,14 @@ export default function BusinessPage() {
       >
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp>
-            <div>
-              <h2 className="heading-lg text-white">
+            <div className="rounded-xl border border-accent/60 bg-white/10 p-6 shadow-sm backdrop-blur-sm md:p-8 lg:p-10">
+              <h2 className="heading-lg text-white drop-shadow-md">
                 连接上下游的本地化服务枢纽
               </h2>
-              <p className="mt-4 body-lg text-steel-200">
+              <p className="mt-4 body-lg text-steel-200 drop-shadow-md">
                 我们的服务对象包括包钢等大型工矿企业及包头周边工矿客户，同时也面向上游设备、材料生产制造企业。
               </p>
-              <p className="mt-4 body-lg text-steel-200">
+              <p className="mt-4 body-lg text-steel-200 drop-shadow-md">
                 对下游客户，我们是随叫随到的现场服务团队；对上游厂家，我们是打通本地市场、走完最后一公里的可靠伙伴。
               </p>
             </div>
@@ -241,60 +242,7 @@ export default function BusinessPage() {
         </FadeInUp>
       </Section>
 
-      <Section
-        id="contact"
-        background="solid-primary"
-        fullHeight={false}
-        className="py-20 md:py-28"
-      >
-        <FadeInUp direction="up" distance={30}>
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="heading-lg text-white">
-              让交付与售后的最后一公里，交给艺林
-            </h2>
-            <p className="mt-4 body-lg text-steel-200">
-              无论您是下游工矿企业需要设备供应与现场服务，还是上游制造商希望打通包头市场，欢迎与我们联系，专人对接。
-            </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a
-                href="tel:04722110904"
-                className="btn-primary min-w-[180px]"
-              >
-                0472-2110904
-              </a>
-              <a
-                href="mailto:yuanzhongke@elincom.cn"
-                className="btn-secondary min-w-[180px]"
-              >
-                yuanzhongke@elincom.cn
-              </a>
-            </div>
-            <p className="mt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-steel-300">
-              <span>电话</span>
-              <a
-                href="tel:04722110904"
-                className="text-white transition-colors hover:text-accent"
-              >
-                0472-2110904
-              </a>
-              <span className="hidden sm:inline" aria-hidden="true">
-                |
-              </span>
-              <span>邮箱</span>
-              <a
-                href="mailto:yuanzhongke@elincom.cn"
-                className="text-white transition-colors hover:text-accent"
-              >
-                yuanzhongke@elincom.cn
-              </a>
-              <span className="hidden sm:inline" aria-hidden="true">
-                |
-              </span>
-              <span>地址 包头市昆都仑区包钢中桥停车场北</span>
-            </p>
-          </div>
-        </FadeInUp>
-      </Section>
+      <ContactSection showMap={false} />
     </>
   );
 }

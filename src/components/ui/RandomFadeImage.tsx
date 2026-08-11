@@ -28,17 +28,18 @@ export function RandomFadeImage({
   minDelay = 0,
   maxDelay = 2,
 }: RandomFadeImageProps) {
-  const [delay, setDelay] = useState(0);
+  const [ready, setReady] = useState(false);
+  const delay = Math.random() * (maxDelay - minDelay) + minDelay;
 
   useEffect(() => {
-    setDelay(Math.random() * (maxDelay - minDelay) + minDelay);
-  }, [minDelay, maxDelay]);
+    setReady(true);
+  }, []);
 
   return (
     <div
       className={`transition-opacity duration-1000 ease-in ${className}`}
       style={{
-        opacity: delay > 0 ? 1 : 0,
+        opacity: ready ? 1 : 0,
         transitionDelay: `${delay}s`,
       }}
     >

@@ -62,9 +62,9 @@ export default function EcosystemPage() {
             />
           </FadeInUp>
           <FadeInUp delay={0.15} className="order-1 lg:order-2">
-            <div>
-              <h2 className="heading-lg text-white">多方协同，全程落地</h2>
-              <p className="mt-4 body-lg text-steel-200">
+            <div className="rounded-xl border border-accent/60 bg-white/10 p-6 shadow-sm backdrop-blur-sm md:p-8 lg:p-10">
+              <h2 className="heading-lg text-white drop-shadow-md">多方协同，全程落地</h2>
+              <p className="mt-4 body-lg text-steel-200 drop-shadow-md">
                 艺林不是单一角色，而是连接设计院、工程单位、高校、供应商与客户的纽带。通过生态协同，我们能把大型项目从选型、供应、安装到检修运维全流程跑通。
               </p>
             </div>

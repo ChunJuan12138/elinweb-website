@@ -48,9 +48,9 @@ export default function HistoryPage() {
       >
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp>
-            <div>
-              <h2 className="heading-lg text-white">发展历程</h2>
-              <p className="mt-4 body-lg text-steel-200">
+            <div className="rounded-xl border border-accent/60 bg-white/10 p-6 shadow-sm backdrop-blur-sm md:p-8 lg:p-10">
+              <h2 className="heading-lg text-white drop-shadow-md">发展历程</h2>
+              <p className="mt-4 body-lg text-steel-200 drop-shadow-md">
                 从 2009
                 年起步到今天的生态协同，艺林用十余年沉淀服务工矿客户的真功夫。
               </p>

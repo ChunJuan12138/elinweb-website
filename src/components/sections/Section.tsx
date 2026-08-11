@@ -16,9 +16,9 @@ export function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <div className={centered ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
-      <h2 className={`heading-lg ${light ? "text-white" : ""}`}>{title}</h2>
+      <h2 className={`heading-lg ${light ? "text-white drop-shadow-md" : ""}`}>{title}</h2>
       {description && (
-        <p className={`mt-4 body-lg ${light ? "text-steel-200" : ""}`}>
+        <p className={`mt-4 body-lg ${light ? "text-steel-200 drop-shadow-md" : ""}`}>
           {description}
         </p>
       )}
@@ -73,6 +73,8 @@ export function Section({
               loading="lazy"
             />
           </div>
+          {/* readability overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-950/40 via-transparent to-primary-900/20" />
         </div>
       )}
 

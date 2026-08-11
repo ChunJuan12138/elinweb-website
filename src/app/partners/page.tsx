@@ -52,14 +52,14 @@ export default function PartnersPage() {
       >
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <FadeInUp>
-            <div>
-              <h2 className="heading-lg text-white">
+            <div className="rounded-xl border border-accent/60 bg-white/10 p-6 shadow-sm backdrop-blur-sm md:p-8 lg:p-10">
+              <h2 className="heading-lg text-white drop-shadow-md">
                 您的产品走了十万八千里，最后一公里我们来跑
               </h2>
-              <p className="mt-4 body-lg text-steel-200">
+              <p className="mt-4 body-lg text-steel-200 drop-shadow-md">
                 您的产品从工厂出发，走了生产、质检、出厂，您全程专业。但从出厂到客户现场、再到售后，这最后一公里：物流配送、到货验收、现场问题、退换协调、使用指导……既耗精力又难覆盖。
               </p>
-              <p className="mt-4 body-lg text-steel-200">
+              <p className="mt-4 body-lg text-steel-200 drop-shadow-md">
                 这一公里，正是我们的主场。
               </p>
             </div>

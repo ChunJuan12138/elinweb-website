@@ -62,9 +62,9 @@ export default function AdvantagesPage() {
             />
           </FadeInUp>
           <FadeInUp delay={0.15} className="order-1 lg:order-2">
-            <div>
-              <h2 className="heading-lg text-white">不是卖货，是做服务</h2>
-              <p className="mt-4 body-lg text-steel-200">
+            <div className="rounded-xl border border-accent/60 bg-white/10 p-6 shadow-sm backdrop-blur-sm md:p-8 lg:p-10">
+              <h2 className="heading-lg text-white drop-shadow-md">不是卖货，是做服务</h2>
+              <p className="mt-4 body-lg text-steel-200 drop-shadow-md">
                 我们与震坤行、欧冶等平台有相似之处，但本质不同：他们侧重卖货，服务是附带；我们以服务为核心，卖货只是服务的一部分。
               </p>
             </div>
