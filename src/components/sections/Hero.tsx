@@ -18,6 +18,7 @@ interface HeroProps {
   fullHeight?: boolean;
   kenBurns?: boolean;
   imageSrc?: string;
+  imageSrcs?: string[];
   logoSrc?: string;
   logoAlt?: string;
   logoPlain?: boolean;
@@ -33,6 +34,7 @@ export function Hero({
   fullHeight = true,
   kenBurns = true,
   imageSrc,
+  imageSrcs,
   logoSrc,
   logoAlt,
   logoPlain = false,
@@ -128,6 +130,7 @@ export function Hero({
         focused={focused}
         priority
         imageSrc={imageSrc}
+        imageSrcs={imageSrcs}
         kenBurns={kenBurns}
       />
 

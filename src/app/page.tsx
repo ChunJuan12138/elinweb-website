@@ -166,15 +166,19 @@ export default function HomePage() {
        description="连接上游制造与下游生产，让两端各自专注专业。我们以服务为核心，卖货只是服务的一部分。"
        primaryCta={{ label: "立即咨询", href: "/#contact" }}
        secondaryCta={{ label: "服务业务", href: "/business" }}
-       imageSrc="/images/industrial/steel-mill.jpg"
-       logoSrc="/images/logo.png"
-       logoAlt="艺林工业供应链"
-       logoPlain
+       imageSrcs={[
+        "/images/CompanyPanorama/panorama00.JPG",
+        "/images/CompanyPanorama/panorama01.JPG",
+      ]}
+      logoSrc="/images/logo.png"
+      logoAlt="艺林工业供应链"
+      logoPlain
      />
 
       <Section
         background="image"
-        imageSrc="/images/industrial/machinery.jpg"
+        imageSrc="/images/CompanyPanorama/panorama00.JPG"
+        imageBlur={false}
         fullHeight={false}
         className="py-20 md:py-28"
       >
@@ -212,7 +216,8 @@ export default function HomePage() {
 
       <Section
         background="image"
-        imageSrc="/images/industrial/electrical-room.jpg"
+        imageSrc="/images/CompanyPanorama/panorama01.JPG"
+        imageBlur={false}
       >
         <SectionHeader
           title="公司沿革与规模实力"
@@ -254,7 +259,8 @@ export default function HomePage() {
 
       <Section
         background="image"
-        imageSrc="/images/industrial/pipes-valves.jpg"
+        imageSrc="/images/CompanyPanorama/panorama00.JPG"
+        imageBlur={false}
         fullHeight={false}
       >
         <SectionHeader title="核心能力" />

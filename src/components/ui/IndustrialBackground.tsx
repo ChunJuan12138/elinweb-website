@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 interface IndustrialBackgroundProps {
   className?: string;
@@ -10,9 +10,11 @@ interface IndustrialBackgroundProps {
   children?: ReactNode;
   showOverlay?: boolean;
   imageSrc?: string;
+  imageSrcs?: string[];
   priority?: boolean;
   kenBurns?: boolean;
   imageBlur?: boolean;
+  slideshowInterval?: number;
 }
 
 export function IndustrialBackground({
@@ -22,10 +24,23 @@ export function IndustrialBackground({
   children,
   showOverlay = true,
   imageSrc = "/images/industrial/steel-mill.jpg",
+  imageSrcs,
   priority = false,
   kenBurns = false,
   imageBlur = true,
+  slideshowInterval = 6000,
 }: IndustrialBackgroundProps) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const slides = imageSrcs && imageSrcs.length > 0 ? imageSrcs : [imageSrc];
+
+  useEffect(() => {
+    if (slides.length <= 1) return;
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % slides.length);
+    }, slideshowInterval);
+    return () => clearInterval(timer);
+  }, [slides.length, slideshowInterval]);
+
   const sceneTransform = kenBurns
     ? ""
     : blur
@@ -44,15 +59,20 @@ export function IndustrialBackground({
         } ${imageBlur ? "blur-sm" : ""}`}
         aria-hidden="true"
       >
-        <Image
-          src={imageSrc}
-          alt=""
-          fill
-          className="object-cover"
-          priority={priority}
-          sizes="100vw"
-          loading={priority ? "eager" : "lazy"}
-        />
+        {slides.map((src, index) => (
+          <Image
+            key={src}
+            src={src}
+            alt=""
+            fill
+            className={`object-cover transition-opacity duration-1000 ease-in-out ${
+              index === currentIndex ? "opacity-100" : "opacity-0"
+            }`}
+            priority={priority && index === 0}
+            sizes="100vw"
+            loading={priority && index === 0 ? "eager" : "lazy"}
+          />
+        ))}
       </div>
 
       {/* readability overlay - lighter for brighter industrial photos */}
