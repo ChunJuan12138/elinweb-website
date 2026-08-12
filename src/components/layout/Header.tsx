@@ -13,7 +13,7 @@ const navItems = [
   { label: "发展历程", href: "/history" },
 ];
 
-const contactCta = { label: "联系我们", href: "/#contact" };
+const contactCta = { label: "联系我们", href: "/contact" };
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
