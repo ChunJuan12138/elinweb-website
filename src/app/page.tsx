@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { Section, SectionHeader } from "@/components/sections/Section";
 import { FeatureCard } from "@/components/cards/FeatureCard";
+import { TiltCard } from "@/components/ui/TiltCard";
 import { StaggerReveal } from "@/components/animation/StaggerReveal";
 import { FadeInUp } from "@/components/animation/FadeInUp";
 import { CountUpContainer } from "@/components/animation/CountUpContainer";
@@ -270,12 +271,14 @@ export default function HomePage() {
                 key={item.title}
                 className="bento-card h-full"
               >
-                <FeatureCard
-                  icon={item.icon}
-                  title={item.title}
-                  description={item.description}
-                  animate={false}
-                />
+                <TiltCard className="h-full">
+                  <FeatureCard
+                    icon={item.icon}
+                    title={item.title}
+                    description={item.description}
+                    animate={false}
+                  />
+                </TiltCard>
               </div>
             ))}
           </StaggerReveal>
