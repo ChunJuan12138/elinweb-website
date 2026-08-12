@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const navItems = [
@@ -18,6 +19,8 @@ const contactCta = { label: "联系我们", href: "/contact" };
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   useEffect(() => {
     const onScroll = () => {
@@ -66,7 +69,15 @@ export function Header() {
 
         <nav className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="nav-link">
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`nav-link relative transition-colors ${
+                isActive(item.href)
+                  ? "text-accent after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:rounded-full after:bg-accent"
+                  : ""
+              }`}
+            >
               {item.label}
             </Link>
           ))}
@@ -110,29 +121,35 @@ export function Header() {
         </button>
       </div>
 
-      {mobileOpen && (
-        <div className="border-t border-steel-200 bg-white lg:hidden">
-          <div className="container-wide flex flex-col gap-4 py-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-base font-medium text-steel-700 hover:text-primary"
-                onClick={() => setMobileOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+      <div
+        className={`overflow-hidden border-t border-steel-200 bg-white transition-all duration-300 ease-in-out lg:hidden ${
+          mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="container-wide flex flex-col gap-4 py-4">
+          {navItems.map((item) => (
             <Link
-              href={contactCta.href}
-              className="btn-primary mt-2 text-center"
+              key={item.href}
+              href={item.href}
+              className={`text-base font-medium transition-colors ${
+                isActive(item.href)
+                  ? "text-accent"
+                  : "text-steel-700 hover:text-primary"
+              }`}
               onClick={() => setMobileOpen(false)}
             >
-              {contactCta.label}
+              {item.label}
             </Link>
-          </div>
+          ))}
+          <Link
+            href={contactCta.href}
+            className="btn-primary mt-2 text-center"
+            onClick={() => setMobileOpen(false)}
+          >
+            {contactCta.label}
+          </Link>
         </div>
-      )}
+      </div>
     </header>
   );
 }

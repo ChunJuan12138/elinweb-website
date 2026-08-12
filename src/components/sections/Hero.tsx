@@ -185,15 +185,16 @@ export function Hero({
               delay={0.2}
               className={
                 logoPlain
-                  ? "relative mx-auto aspect-square w-full max-w-[360px] overflow-hidden md:max-w-[420px] lg:max-w-[520px]"
-                  : "relative mx-auto aspect-square w-full max-w-[360px] overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 shadow-lg backdrop-blur-sm"
+                  ? "group relative mx-auto aspect-square w-full max-w-[360px] animate-float overflow-hidden md:max-w-[420px] lg:max-w-[520px]"
+                  : "group relative mx-auto aspect-square w-full max-w-[360px] animate-float overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 shadow-lg backdrop-blur-sm"
               }
             >
+              <div className="absolute inset-0 z-10 bg-[linear-gradient(110deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%)] translate-x-[-100%] transition-transform duration-1000 group-hover:translate-x-[100%]" />
               <Image
                 src={logoSrc}
                 alt={logoAlt || ""}
                 fill
-                className="object-contain p-4 drop-shadow-2xl"
+                className="object-contain p-4 drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 768px) 360px, (max-width: 1024px) 420px, 520px"
                 priority
               />
