@@ -6,6 +6,7 @@ import { StaggerReveal } from "@/components/animation/StaggerReveal";
 import { FadeInUp } from "@/components/animation/FadeInUp";
 import { CountUpContainer } from "@/components/animation/CountUpContainer";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { HangingQR } from "@/components/ui/HangingQR";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -162,6 +163,7 @@ const capabilities: { title: string; description: string; icon: ReactNode }[] =
 export default function HomePage() {
   return (
     <>
+      <HangingQR />
      <Hero
        title="立足包头、辐射包头周边工矿企业的本地化工业供应链服务商"
        description="连接上游制造与下游生产，让两端各自专注专业。我们以服务为核心，卖货只是服务的一部分。"

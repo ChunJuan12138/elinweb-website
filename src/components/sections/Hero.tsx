@@ -8,6 +8,7 @@ import { gsap } from "@/lib/gsap";
 import { prefersReducedMotion } from "@/lib/reducedMotion";
 import { IndustrialBackground } from "@/components/ui/IndustrialBackground";
 import { FadeInUp } from "@/components/animation/FadeInUp";
+import { BlurText } from "@/components/animation/BlurText";
 
 interface HeroProps {
   title: string;
@@ -143,7 +144,9 @@ export function Hero({
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div className="max-w-2xl">
             <div className="hero-title hero-animate opacity-0">
-              <h1 className="heading-xl text-white drop-shadow-lg">{title}</h1>
+              <h1 className="heading-xl text-white drop-shadow-lg">
+                <BlurText text={title} splitBy="words" stagger={0.08} duration={0.8} />
+              </h1>
               {subtitle && (
                 <h2 className="heading-lg mt-4 text-white drop-shadow-lg">
                   {subtitle}
