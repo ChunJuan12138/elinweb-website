@@ -282,6 +282,31 @@ export default function HomePage() {
             ))}
           </StaggerReveal>
       </Section>
+
+      <Section
+        background="image"
+        imageSrc="/images/CompanyPanorama/panorama01.JPG"
+        imageBlur={false}
+        fullHeight={false}
+        className="py-20 md:py-28"
+      >
+        <FadeInUp direction="up">
+          <div className="mx-auto max-w-3xl rounded-xl border border-accent/60 bg-white/10 p-6 text-center shadow-sm backdrop-blur-sm md:p-8 lg:p-12">
+            <h2 className="heading-lg text-white drop-shadow-md">联系我们，开启合作</h2>
+            <p className="mt-4 body-lg text-steel-200 drop-shadow-md">
+              无论您是下游工矿企业需要设备供应与现场服务，还是上游制造商希望打通包头市场，欢迎与我们联系，专人对接。
+            </p>
+            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Link href="/contact" className="btn-primary min-w-[160px]">
+                立即咨询
+              </Link>
+              <Link href="/business" className="btn-secondary min-w-[160px]">
+                了解服务业务
+              </Link>
+            </div>
+          </div>
+        </FadeInUp>
+      </Section>
     </>
   );
 }

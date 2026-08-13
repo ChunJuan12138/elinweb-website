@@ -37,14 +37,16 @@ export function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "border-b border-steel-200 bg-white/95 shadow-md backdrop-blur"
-          : "border-b border-white/10 bg-white/80 shadow-sm backdrop-blur"
+          : "border-b border-white/10 bg-gradient-to-b from-black/70 via-black/40 to-transparent text-white backdrop-blur-sm"
       }`}
     >
       <div className="container-wide flex h-20 items-center justify-between md:h-24">
         <Link href="/" className="group flex items-center gap-4">
           <div
-            className={`relative flex items-center justify-center overflow-hidden rounded-lg bg-primary-50 transition-all duration-500 group-hover:bg-primary-100 ${
-              scrolled ? "h-[56px] w-[80px] md:h-[64px] md:w-[90px]" : "h-[72px] w-[100px] md:h-[88px] md:w-[110px]"
+            className={`relative flex items-center justify-center overflow-hidden rounded-lg transition-all duration-500 ${
+              scrolled
+                ? "h-[56px] w-[80px] bg-primary-50 group-hover:bg-primary-100 md:h-[64px] md:w-[90px]"
+                : "h-[72px] w-[100px] border border-white/20 bg-white/10 md:h-[88px] md:w-[110px]"
             }`}
           >
             <div className="absolute inset-0 bg-[linear-gradient(110deg,transparent_25%,rgba(255,255,255,0.6)_50%,transparent_75%)] translate-x-[-100%] transition-transform duration-1000 group-hover:translate-x-[100%]" />
@@ -58,10 +60,10 @@ export function Header() {
           </div>
 
           <div className="hidden flex-col justify-center lg:flex">
-            <span className={`font-bold leading-tight transition-all duration-300 ${scrolled ? "text-lg text-primary md:text-xl" : "text-xl text-primary md:text-2xl"}`}>
+            <span className={`font-bold leading-tight transition-all duration-300 ${scrolled ? "text-lg text-primary md:text-xl" : "text-xl text-white md:text-2xl"}`}>
               艺林工业供应链
             </span>
-            <span className="text-xs text-steel-700 transition-all duration-300">
+            <span className={`text-xs transition-all duration-300 ${scrolled ? "text-steel-700" : "text-white/80"}`}>
               包钢本土化工业供应链服务商
             </span>
           </div>
@@ -72,10 +74,12 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`nav-link relative transition-colors ${
+              className={`relative text-sm font-medium transition-colors duration-300 ${
                 isActive(item.href)
                   ? "text-accent after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:rounded-full after:bg-accent"
-                  : ""
+                  : scrolled
+                    ? "text-steel-700 hover:text-primary after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
+                    : "text-white/90 hover:text-white after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
               }`}
             >
               {item.label}
@@ -91,7 +95,7 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-steel-700 lg:hidden"
+          className={`inline-flex items-center justify-center rounded-md p-2 lg:hidden ${scrolled ? "text-steel-700" : "text-white"}`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="切换导航"
           aria-expanded={mobileOpen}
