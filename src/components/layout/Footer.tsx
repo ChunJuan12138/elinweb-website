@@ -29,14 +29,14 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <h3 className="text-xl font-bold">艺林工业供应链</h3>
-            <p className="mt-1 text-sm text-accent">包头本土化工业供应链服务商</p>
+            <p className="mt-1 text-sm text-steel-200">包头本土化工业供应链服务商</p>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-steel-300">
               立足包头、辐射包头周边工矿企业，连接上游制造与下游生产，让两端各自专注专业。
             </p>
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-steel-300">
+            <h4 className="border-b border-accent/50 pb-2 text-sm font-bold uppercase tracking-wider text-white">
               快速导航
             </h4>
             <ul className="mt-4 space-y-3">
@@ -54,7 +54,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-steel-300">
+            <h4 className="border-b border-accent/50 pb-2 text-sm font-bold uppercase tracking-wider text-white">
               联系信息
             </h4>
             <ul className="mt-4 space-y-3">

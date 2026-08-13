@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>艺林工业供应链 - 企业宣传册</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 24mm;
+      page-break-after: always;
+      position: relative;
+      overflow: hidden;
+    }
+    .page:last-child {
+      page-break-after: auto;
+    }
+    .cover {
+      background: linear-gradient(135deg, #0b2740 0%, #0f4c81 60%, #1a549f 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .cover::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 80%;
+      height: 120%;
+      background: radial-gradient(circle, rgba(194, 58, 37, 0.15) 0%, transparent 70%);
+    }
+    .cover-logo {
+      width: 160px;
+      height: 160px;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+    .cover-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .cover h1 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 2px;
+    }
+    .cover .subtitle {
+      font-size: 20px;
+      color: #f6afa3;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 1;
+    }
+    .cover .tagline {
+      font-size: 18px;
+      max-width: 420px;
+      line-height: 1.8;
+      color: #dfe2e6;
+      position: relative;
+      z-index: 1;
+    }
+    .cover-footer {
+      position: absolute;
+      bottom: 30mm;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: #91c6ff;
+      font-size: 14px;
+      z-index: 1;
+    }
+    .section-page {
+      background: #f7f8f9;
+    }
+    .section-header {
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 3px solid #c23a25;
+    }
+    .section-header h2 {
+      font-size: 28px;
+      color: #0f4c81;
+      font-weight: 700;
+    }
+    .section-header p {
+      font-size: 14px;
+      color: #616b76;
+      margin-top: 6px;
+    }
+    .about-text {
+      font-size: 15px;
+      color: #374151;
+      text-align: justify;
+      margin-bottom: 24px;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .info-card {
+      background: white;
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border-left: 4px solid #0f4c81;
+    }
+    .info-card h4 {
+      font-size: 13px;
+      color: #8b96a3;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .info-card p {
+      font-size: 15px;
+      color: #1f2937;
+      font-weight: 600;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+    .card h3 {
+      font-size: 17px;
+      color: #0f4c81;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .card p {
+      font-size: 13px;
+      color: #535b64;
+      line-height: 1.7;
+    }
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      background: #eff7ff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      color: #0f4c81;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .partners-section h3 {
+      font-size: 18px;
+      color: #0f4c81;
+      margin: 24px 0 12px;
+    }
+    .partner-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .partner-tag {
+      background: white;
+      border: 1px solid #dfe2e6;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 13px;
+      color: #374151;
+    }
+    .contact-main {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
+      align-items: start;
+    }
+    .contact-list {
+      list-style: none;
+    }
+    .contact-list li {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #dfe2e6;
+    }
+    .contact-list li:last-child {
+      border-bottom: none;
+    }
+    .contact-list .label {
+      font-size: 12px;
+      color: #8b96a3;
+      margin-bottom: 4px;
+    }
+    .contact-list .value {
+      font-size: 15px;
+      color: #1f2937;
+      font-weight: 600;
+    }
+    .qr-area {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+    .qr-area img {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      margin-bottom: 12px;
+    }
+    .qr-area p {
+      font-size: 13px;
+      color: #616b76;
+    }
+    .footer-note {
+      position: absolute;
+      bottom: 16mm;
+      left: 24mm;
+      right: 24mm;
+      font-size: 11px;
+      color: #8b96a3;
+      text-align: center;
+      border-top: 1px solid #dfe2e6;
+      padding-top: 12px;
+    }
+    .page-number {
+      position: absolute;
+      bottom: 16mm;
+      right: 24mm;
+      font-size: 11px;
+      color: #8b96a3;
+    }
+    .highlight {
+      color: #c23a25;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <!-- 封面 -->
+  <div class="page cover">
+    <div class="cover-logo">
+      <img src="file:///Users/Oct/Project/elinWeb/public/images/logo.png" alt="艺林工业供应链 Logo">
+    </div>
+    <h1>艺林工业供应链</h1>
+    <p class="subtitle">包头本土化工业供应链服务商</p>
+    <p class="tagline">
+      立足包头、辐射包头周边工矿企业<br>
+      连接上游制造与下游生产<br>
+      让两端各自专注专业
+    </p>
+    <div class="cover-footer">
+      内蒙古艺林供应链科技有限责任公司
+    </div>
+  </div>
+
+  <!-- 关于艺林 -->
+  <div class="page section-page">
+    <div class="section-header">
+      <h2>关于艺林</h2>
+      <p>About Yilin Industrial Supply Chain</p>
+    </div>
+    <p class="about-text">
+      艺林工业供应链是一家<strong>立足包头、辐射包头周边工矿企业的本地化工业供应链服务商</strong>。我们以服务为核心，连接上游制造与下游生产，让两端各自专注专业。卖货只是服务的一部分，真正的价值在于为客户解决设备选型、现场调试、应急供货、技术协同等全链路问题。
+    </p>
+    <p class="about-text">
+      公司深耕包头本地工业生态，与多家设计院、工程单位、高校建立了长期合作关系，能够为工矿企业提供从咨询、勘测、方案匹配到供货交付、安装调试、售后维保的一站式服务。
+    </p>
+    <div class="info-grid">
+      <div class="info-card">
+        <h4>公司全称</h4>
+        <p>内蒙古艺林供应链科技有限责任公司</p>
+      </div>
+      <div class="info-card">
+        <h4>服务理念</h4>
+        <p>让客户专注生产与制造</p>
+      </div>
+      <div class="info-card">
+        <h4>服务区域</h4>
+        <p>包头及包头周边工矿企业</p>
+      </div>
+      <div class="info-card">
+        <h4>核心定位</h4>
+        <p>本地化工业供应链服务商</p>
+      </div>
+    </div>
+    <div class="page-number">02</div>
+  </div>
+
+  <!-- 服务业务 -->
+  <div class="page section-page">
+    <div class="section-header">
+      <h2>服务业务</h2>
+      <p>Service Business</p>
+    </div>
+    <p class="about-text">
+      我们围绕工矿企业实际需求，提供覆盖设备供应、技术服务、项目协同的综合性供应链服务。
+    </p>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">01</div>
+        <h3>设备类供应</h3>
+        <p>仪表、电气、机械等多品类工业设备供应，满足工矿企业一站式采购需求，常备库存支撑紧急供货。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">02</div>
+        <h3>现场技术服务</h3>
+        <p>电气、机械、自动化、仪表各专业工程师团队，提供 7×24 小时现场响应与技术支持。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">03</div>
+        <h3>项目全流程协同</h3>
+        <p>与大型设计院、工程单位深度合作，参与项目前期方案、中期供货、后期调试的全流程协同。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">04</div>
+        <h3>本地化应急保障</h3>
+        <p>立足包头，快速响应周边工矿企业突发需求，缩短供货周期，降低停机损失。</p>
+      </div>
+    </div>
+    <div class="page-number">03</div>
+  </div>
+
+  <!-- 核心优势 -->
+  <div class="page section-page">
+    <div class="section-header">
+      <h2>核心优势</h2>
+      <p>Core Advantages</p>
+    </div>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">A</div>
+        <h3>响应速度</h3>
+        <p>本地化团队，7×24 小时现场响应，紧急需求快速到场，减少客户等待时间。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">B</div>
+        <h3>本地服务</h3>
+        <p>深耕包头工业生态，熟悉本地工矿企业需求与供应链环境，服务更贴近实际。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">C</div>
+        <h3>工程师团队</h3>
+        <p>电气、机械、自动化、仪表各专业独立工程师，技术覆盖全面，现场问题精准解决。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">D</div>
+        <h3>产学研支撑</h3>
+        <p>与内蒙古科技大学机械工程学院、自动化与电气工程学院深度合作，技术服务有科研支撑。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">E</div>
+        <h3>生态协同</h3>
+        <p>与中冶赛迪、中冶京诚、包钢设计院等设计院，上海宝冶、中国二冶、包钢西创等工程单位深度合作。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">F</div>
+        <h3>一站式供应</h3>
+        <p>多品类覆盖，从选型、供货到调试、售后，减少客户多头对接成本。</p>
+      </div>
+    </div>
+    <div class="page-number">04</div>
+  </div>
+
+  <!-- 合作生态 -->
+  <div class="page section-page">
+    <div class="section-header">
+      <h2>合作生态</h2>
+      <p>Partnership Ecosystem</p>
+    </div>
+    <p class="about-text">
+      艺林与众多设计院、工程单位、高校建立长期合作关系，形成覆盖「设计—施工—供货—服务」的工业供应链生态网络。
+    </p>
+    <div class="partners-section">
+      <h3>设计院</h3>
+      <div class="partner-list">
+        <span class="partner-tag">中冶赛迪</span>
+        <span class="partner-tag">中冶京诚</span>
+        <span class="partner-tag">中冶东方</span>
+        <span class="partner-tag">首钢国际</span>
+        <span class="partner-tag">包钢设计院</span>
+      </div>
+    </div>
+    <div class="partners-section">
+      <h3>工程单位</h3>
+      <div class="partner-list">
+        <span class="partner-tag">上海宝冶</span>
+        <span class="partner-tag">中国二冶</span>
+        <span class="partner-tag">内蒙古环投</span>
+        <span class="partner-tag">包钢西创建设</span>
+        <span class="partner-tag">包钢综企</span>
+      </div>
+    </div>
+    <div class="partners-section">
+      <h3>高校与科研</h3>
+      <div class="partner-list">
+        <span class="partner-tag">内蒙古科技大学机械工程学院</span>
+        <span class="partner-tag">内蒙古科技大学自动化与电气工程学院</span>
+      </div>
+    </div>
+    <div class="footer-note">本资料仅供参考，具体合作以正式合同为准。</div>
+    <div class="page-number">05</div>
+  </div>
+
+  <!-- 联系我们 -->
+  <div class="page section-page">
+    <div class="section-header">
+      <h2>联系我们</h2>
+      <p>Contact Us</p>
+    </div>
+    <div class="contact-main">
+      <div>
+        <p class="about-text">
+          无论您是下游工矿企业需要设备供应与现场服务，还是上游制造商希望打通包头市场，欢迎与我们联系，专人对接。
+        </p>
+        <ul class="contact-list">
+          <li>
+            <div class="label">公司全称</div>
+            <div class="value">内蒙古艺林供应链科技有限责任公司</div>
+          </li>
+          <li>
+            <div class="label">电话</div>
+            <div class="value">0472-2110904</div>
+          </li>
+          <li>
+            <div class="label">邮箱</div>
+            <div class="value">yuanzhongke@elincom.cn</div>
+          </li>
+          <li>
+            <div class="label">地址</div>
+            <div class="value">包头市昆都仑区包钢中桥停车场北</div>
+          </li>
+          <li>
+            <div class="label">备案信息</div>
+            <div class="value">蒙ICP备2026005407号-1 | 蒙公网安备15020302000680号</div>
+          </li>
+        </ul>
+      </div>
+      <div class="qr-area">
+        <img src="file:///Users/Oct/Project/elinWeb/public/images/qr-code.png" alt="联系我们二维码">
+        <p>扫码咨询 / 了解更多</p>
+      </div>
+    </div>
+    <div class="footer-note">© 2026 内蒙古艺林供应链科技有限责任公司. 保留所有权利.</div>
+    <div class="page-number">06</div>
+  </div>
+</body>
+</html>
