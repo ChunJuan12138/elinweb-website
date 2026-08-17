@@ -23,6 +23,57 @@ const pricingTiers = [
   },
 ];
 
+const tierIcons = [
+  <svg
+    key="supply"
+    className="h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+    />
+  </svg>,
+  <svg
+    key="service"
+    className="h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37 1 .608 2.296.07 2.572-1.065z"
+    />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+    />
+  </svg>,
+  <svg
+    key="value"
+    className="h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M13 10V3L4 14h7v7l9-11h-7z"
+    />
+  </svg>,
+];
+
 const externalStandards = [
   "产品供应：多品牌比价，透明报价，明示服务费率",
   "技术服务：按项目报价（方案/安装/调试/验收）",
@@ -35,7 +86,7 @@ const internalRates = [
   {
     title: "产品供应服务费",
     value: "5%-10%",
-    note: "震坤行 13%，我们更低因服务更好",
+    note: "按供货金额比例，具体以合同为准",
   },
   { title: "技术服务", value: "按项目", note: "根据复杂度和工作量报价" },
   { title: "运维服务", value: "年度", note: "巡检/维保/应急响应打包" },
@@ -83,32 +134,22 @@ export default function PricingPage() {
       <Section
         background="image"
         imageSrc="/images/industrial/electrical-room.jpg"
+        fullHeight={false}
       >
-        <SectionHeader title="三层收费结构" />
+        <SectionHeader
+          title="三层收费结构"
+          description="商品与服务分离计价，服务费明码标价，让客户看得懂、算得清。"
+        />
         <StaggerReveal className="mt-12 grid gap-6 lg:grid-cols-3">
-            {pricingTiers.map((item) => (
-              <FeatureCard
-                key={item.title}
-                icon={
-                  <svg
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                }
-                title={item.title}
-                description={item.description}
-              />
-            ))}
-          </StaggerReveal>
+          {pricingTiers.map((item, index) => (
+            <FeatureCard
+              key={item.title}
+              icon={tierIcons[index]}
+              title={item.title}
+              description={item.description}
+            />
+          ))}
+        </StaggerReveal>
       </Section>
 
       <Section
@@ -148,21 +189,21 @@ export default function PricingPage() {
         imageSrc="/images/industrial/mining-truck.jpg"
         fullHeight={false}
       >
-        <SectionHeader title="对内参考费率" light />
+        <SectionHeader title="对内参考费率" />
         <StaggerReveal className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {internalRates.map((item) => (
-              <div
-                key={item.title}
-                className="reveal group rounded-xl border border-accent/60 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:bg-white/10"
-              >
-                <p className="text-sm text-steel-300">{item.title}</p>
-                <p className="mt-2 text-2xl font-bold text-white md:text-3xl">
-                  {item.value}
-                </p>
-                <p className="mt-2 text-xs text-steel-400">{item.note}</p>
-              </div>
-            ))}
-          </StaggerReveal>
+          {internalRates.map((item) => (
+            <div
+              key={item.title}
+              className="reveal group rounded-xl border border-accent/60 bg-white/10 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:bg-white/15 hover:shadow-lg"
+            >
+              <p className="text-sm text-steel-300">{item.title}</p>
+              <p className="mt-2 text-2xl font-bold text-white md:text-3xl">
+                {item.value}
+              </p>
+              <p className="mt-2 text-xs text-steel-400">{item.note}</p>
+            </div>
+          ))}
+        </StaggerReveal>
       </Section>
     </>
   );

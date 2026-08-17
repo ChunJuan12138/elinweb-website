@@ -140,7 +140,7 @@ function ServiceCard({
           {description}
         </p>
         <a
-          href="#contact"
+          href="/contact"
           className="mt-5 inline-flex items-center text-sm font-semibold text-accent transition-colors hover:text-white"
         >
           了解详情

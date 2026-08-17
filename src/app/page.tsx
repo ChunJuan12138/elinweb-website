@@ -225,7 +225,7 @@ export default function HomePage() {
       >
         <SectionHeader
           title="公司沿革与规模实力"
-          description="2009 年起步开展业务，2010 年注册包头市艺林贸易有限责任公司；历经十余年发展，现以内蒙古艺林供应链科技有限责任公司为主体公司运营。"
+          description="2009 年起步开展业务，2010 年注册包头市艺林贸易有限责任公司；历经十余年发展，现以内蒙古艺林工业供应链科技有限公司为主体公司运营。"
         />
         <div className="mt-12">
           <CountUpContainer>

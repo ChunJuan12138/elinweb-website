@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useRef } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
 import { prefersReducedMotion } from "@/lib/reducedMotion";
@@ -43,6 +43,28 @@ export function StaggerReveal({
 
   const targetSelector = selector || childSelector;
   const offset = directionOffset[direction];
+
+  // Fallback: if the reveal animation never fires (e.g. static export without
+  // scroll, or ScrollTrigger fails to initialize), force the content visible
+  // after a short delay so the page remains usable and SEO-friendly.
+  useEffect(() => {
+    if (!ref.current) return;
+    const targets = Array.from(
+      ref.current.querySelectorAll<HTMLElement>(targetSelector),
+    );
+    if (targets.length === 0) return;
+
+    const timer = setTimeout(() => {
+      targets.forEach((el) => {
+        const computed = window.getComputedStyle(el);
+        if (parseFloat(computed.opacity) < 0.1) {
+          gsap.set(el, { x: 0, y: 0, opacity: 1, willChange: "auto" });
+        }
+      });
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [targetSelector]);
 
   useGSAP(
     () => {

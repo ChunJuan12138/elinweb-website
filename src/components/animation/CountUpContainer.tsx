@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useRef } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
 import { prefersReducedMotion } from "@/lib/reducedMotion";
@@ -36,12 +36,37 @@ export function CountUpContainer({
 }: CountUpContainerProps) {
   const ref = useRef<HTMLDivElement>(null);
 
+  // Fallback: if the count-up animation never completes (e.g. static export
+  // without scroll), restore the original numeric text after a short delay.
+  useEffect(() => {
+    if (!ref.current) return;
+    const elements = Array.from(
+      ref.current.querySelectorAll<HTMLElement>(selector),
+    );
+    if (elements.length === 0) return;
+
+    const timer = setTimeout(() => {
+      elements.forEach((el) => {
+        const raw = el.dataset.countUp || el.textContent || "";
+        if (!raw) return;
+        const current = el.textContent || "";
+        // If the counter is still at or near zero, show the final value.
+        const numericMatch = current.match(/^(\d+)/);
+        if (!numericMatch || parseInt(numericMatch[1], 10) < 2) {
+          el.textContent = raw;
+        }
+      });
+    }, 3500);
+
+    return () => clearTimeout(timer);
+  }, [selector]);
+
   useGSAP(
     () => {
       if (!ref.current) return;
 
       const elements = gsap.utils.toArray<HTMLElement>(
-        ref.current.querySelectorAll(selector)
+        ref.current.querySelectorAll(selector),
       );
       if (elements.length === 0) return;
 
@@ -82,11 +107,11 @@ export function CountUpContainer({
               el.textContent = text;
             },
           },
-          index * stagger
+          index * stagger,
         );
       });
     },
-    { scope: ref }
+    { scope: ref },
   );
 
   return (
