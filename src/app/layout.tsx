@@ -28,6 +28,10 @@ export const metadata: Metadata = {
     "技术服务",
     "内蒙古艺林供应链",
   ],
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
