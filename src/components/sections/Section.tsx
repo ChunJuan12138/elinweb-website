@@ -74,7 +74,8 @@ export function Section({
             />
           </div>
           {/* readability overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-primary-950/40 via-transparent to-primary-900/20" />
+          <div className="absolute inset-0 bg-primary-950/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-950/70 via-primary-950/25 to-primary-900/40" />
         </div>
       )}
 
