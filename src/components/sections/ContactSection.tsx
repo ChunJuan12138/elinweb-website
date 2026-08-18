@@ -1,5 +1,5 @@
 import { FadeInUp } from "@/components/animation/FadeInUp";
-import { RandomFadeImage } from "@/components/ui/RandomFadeImage";
+import { MapContainer } from "@/components/ui/MapContainer";
 
 interface ContactSectionProps {
   showMap?: boolean;
@@ -59,52 +59,40 @@ export function ContactSection({ showMap = true }: ContactSectionProps) {
 
           {showMap && (
             <div className="mt-8">
-              <a
-                href="https://uri.amap.com/search?keyword=%E5%8C%85%E5%A4%B4%E5%B8%82%E6%98%86%E9%83%BD%E4%BB%91%E5%8C%BA%E5%8C%85%E9%92%A2%E4%B8%AD%E6%A1%A5%E5%81%9C%E8%BD%A6%E5%9C%BA%E5%8C%97"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative inline-block w-full max-w-2xl overflow-hidden rounded-xl border border-accent/60 bg-white/5 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-lg"
-                aria-label="在地图中查看公司位置"
-              >
-                <div className="relative aspect-video w-full overflow-hidden">
-                  <RandomFadeImage
-                    src="/images/map.jpg"
-                    alt="公司位置地图（点击在高德地图中打开导航）"
-                    fill
-                    className="h-full w-full transition-transform duration-500 group-hover:scale-[1.03]"
-                    sizes="(max-width: 768px) 100vw, 672px"
-                    minDelay={0.3}
-                    maxDelay={1.5}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-950/70 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                    <p className="text-sm font-semibold text-white drop-shadow-md">
-                      包头市昆都仑区包钢中桥停车场北
-                    </p>
-                    <span className="inline-flex items-center gap-1 rounded-full bg-accent/90 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur-sm">
-                      <svg
-                        className="h-3 w-3"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                      </svg>
-                      导航
-                    </span>
-                  </div>
+              <div className="group relative inline-block w-full max-w-2xl overflow-hidden rounded-xl border border-accent/60 bg-white/5 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-lg">
+                <MapContainer
+                  address="包头市昆都仑区包钢中桥停车场北"
+                  lng={109.787407}
+                  lat={40.659485}
+                  companyName="内蒙古艺林工业供应链科技有限公司"
+                />
+                <div className="pointer-events-none absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                  <p className="text-sm font-semibold text-white drop-shadow-md">
+                    包头市昆都仑区包钢中桥停车场北
+                  </p>
+                  <span className="inline-flex items-center gap-1 rounded-full bg-accent/90 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+                    <svg
+                      className="h-3 w-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    导航
+                  </span>
                 </div>
-              </a>
+              </div>
             </div>
           )}
         </div>
