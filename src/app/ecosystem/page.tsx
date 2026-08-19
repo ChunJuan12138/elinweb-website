@@ -77,7 +77,7 @@ export default function EcosystemPage() {
               label="工业生态合作网络"
               aspectRatio="aspect-[4/3]"
               variant="industrial"
-              imageSrc="/images/industrial/steel-mill.jpg"
+              imageSrc="/images/illustration_09.jpg"
             />
           </FadeInUp>
           <FadeInUp delay={0.15} className="order-1 lg:order-2">

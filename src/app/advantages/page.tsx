@@ -82,7 +82,7 @@ export default function AdvantagesPage() {
               label="包钢现场服务"
               aspectRatio="aspect-[4/3]"
               variant="industrial"
-              imageSrc="/images/industrial/mining-truck.jpg"
+              imageSrc="/images/illustration_06.jpg"
             />
           </FadeInUp>
           <FadeInUp delay={0.15} className="order-1 lg:order-2">

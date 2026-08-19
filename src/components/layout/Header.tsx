@@ -95,13 +95,13 @@ export function Header() {
 
         <button
           type="button"
-          className={`inline-flex items-center justify-center rounded-md p-2 lg:hidden ${scrolled ? "text-steel-700" : "text-white"}`}
+          className={`inline-flex cursor-pointer items-center justify-center rounded-md p-2 lg:hidden ${scrolled ? "text-steel-700" : "text-white"}`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="切换导航"
           aria-expanded={mobileOpen}
         >
           <svg
-            className="h-6 w-6"
+            className="pointer-events-none h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

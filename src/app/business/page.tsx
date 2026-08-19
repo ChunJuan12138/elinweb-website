@@ -197,7 +197,7 @@ export default function BusinessPage() {
               label="工业现场服务与交付"
               aspectRatio="aspect-[4/3]"
               variant="industrial"
-              imageSrc="/images/industrial/pipes-valves.jpg"
+              imageSrc="/images/illustration_05.jpg"
             />
           </FadeInUp>
         </div>

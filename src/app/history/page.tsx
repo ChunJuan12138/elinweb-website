@@ -112,7 +112,7 @@ export default function HistoryPage() {
               {milestones.map((item, index) => (
                 <div key={item.year} className="reveal relative pl-20 md:pl-0">
                   {/* 节点 */}
-                  <div className="absolute left-8 top-0 z-10 flex h-16 w-16 -translate-x-1/2 items-center justify-center rounded-full bg-accent text-white shadow-md md:left-1/2 md:-ml-8">
+                  <div className="absolute left-8 top-0 z-10 flex h-16 w-16 -translate-x-1/2 items-center justify-center rounded-full bg-accent text-white shadow-md md:left-1/2 md:ml-0">
                     <span className="text-center text-sm font-bold leading-tight">
                       {item.year}
                     </span>

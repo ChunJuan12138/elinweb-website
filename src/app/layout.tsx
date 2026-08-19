@@ -29,8 +29,8 @@ export const metadata: Metadata = {
     "内蒙古艺林供应链",
   ],
   icons: {
-    icon: "/favicon.ico",
-    apple: "/favicon.png",
+    icon: { url: "/favicon.png?v=2", type: "image/png" },
+    apple: "/favicon.png?v=2",
   },
 };
 

@@ -125,7 +125,7 @@ export default function PricingPage() {
               label="工业供应链成本透明化"
               aspectRatio="aspect-[4/3]"
               variant="industrial"
-              imageSrc="/images/industrial/steel-mill.jpg"
+              imageSrc="/images/illustration_02.jpg"
             />
           </FadeInUp>
         </div>
