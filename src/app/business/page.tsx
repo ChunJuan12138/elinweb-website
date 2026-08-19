@@ -17,7 +17,7 @@ const services: {
     title: "设备与备品备件供应",
     description:
       "以设备类为核心，覆盖仪表、电气、机械大类及流量、分析、控制、高低压、变频、自动化、传动、泵阀等细分品类；原燃料等品类同步拓展。",
-    image: "/images/svc-supply.jpg",
+    image: "/images/illustration_10.jpg",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
         <rect x="1" y="3" width="22" height="18" rx="2" />
@@ -30,7 +30,7 @@ const services: {
     title: "专业技术服务",
     description:
       "电气、机械、自动化、仪表专业工程师团队，提供选型、安装指导、调试、故障诊断、改造升级等现场服务，24 小时响应。",
-    image: "/images/svc-tech.jpg",
+    image: "/images/illustration_03.jpg",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
         <circle cx="12" cy="12" r="10" />
@@ -47,7 +47,7 @@ const services: {
     title: "仪表与环保运维",
     description:
       "烟气监测、水质监测等在线监测系统运维，自营承接并与内蒙古环投深度合作联合实施。",
-    image: "/images/svc-env.jpg",
+    image: "/images/illustration_04.jpg",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -62,7 +62,7 @@ const services: {
     title: "物流与交付服务",
     description:
       "到货验收、卸货协调、现场配送——交付的最后一公里。",
-    image: "/images/svc-logistics.jpg",
+    image: "/images/illustration_05.jpg",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
         <rect x="1" y="3" width="15" height="13" />
@@ -76,7 +76,7 @@ const services: {
     title: "售后与陪伴服务",
     description:
       "现场问题响应、退换货协调、使用指导、备件补充——售后的最后一公里。",
-    image: "/images/svc-after.jpg",
+    image: "/images/illustration_02.jpg",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
@@ -87,7 +87,7 @@ const services: {
     title: "工程协同",
     description:
       "与设计院、施工检修单位联动，参与大型项目设备选型、供应、安装、检修全流程。",
-    image: "/images/svc-eng.jpg",
+    image: "/images/illustration_01.jpg",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
         <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2" />
