@@ -16,7 +16,7 @@ const capabilities: {
     title: "设备类供应为核心",
     description:
       "多品类覆盖——仪表、电气、机械等大类及细分领域，依托稳定供应商网络与本地仓储能力，为工矿企业提供及时、可靠的设备与备品备件供应。",
-    image: "/images/svc-supply.jpg",
+    image: "/images/illustration_10.jpg",
     icon: (
       <svg
         className="h-6 w-6"
@@ -37,7 +37,7 @@ const capabilities: {
     title: "专业服务工程师团队",
     description:
       "电气、机械、自动化、仪表各专业独立工程师，提供选型、安装指导、调试、故障诊断与改造升级，24 小时现场响应。",
-    image: "/images/svc-tech.jpg",
+    image: "/images/illustration_03.jpg",
     icon: (
       <svg
         className="h-6 w-6"
@@ -58,7 +58,7 @@ const capabilities: {
     title: "产学研合作",
     description:
       "与内蒙古科技大学机械工程学院、自动化与电气工程学院深度合作，将科研能力转化为现场技术支撑，疑难问题有研究团队兜底。",
-    image: "/images/svc-env.jpg",
+    image: "/images/illustration_08.jpg",
     icon: (
       <svg
         className="h-6 w-6"
@@ -81,7 +81,7 @@ const capabilities: {
     title: "生态协同",
     description:
       "与中冶赛迪、中冶京诚、中冶东方、首钢国际、包钢设计院等设计院，上海宝冶、中国二冶、内蒙古环投、包钢西创建设、包钢综企等工程单位深度合作，大型项目全程协同。",
-    image: "/images/svc-eng.jpg",
+    image: "/images/illustration_09.jpg",
     icon: (
       <svg
         className="h-6 w-6"
