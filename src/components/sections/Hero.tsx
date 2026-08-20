@@ -1,14 +1,28 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
-import { ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useGSAP } from "@gsap/react";
+import Image from "next/image";
+import { gsap } from "@/lib/gsap";
+import { prefersReducedMotion } from "@/lib/reducedMotion";
+import { IndustrialBackground } from "@/components/ui/IndustrialBackground";
+import { FadeInUp } from "@/components/animation/FadeInUp";
+import { BlurText } from "@/components/animation/BlurText";
 
 interface HeroProps {
   title: string;
-  subtitle: string;
-  description?: string;
+  subtitle?: string;
+  description?: ReactNode;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
-  showLogo?: boolean;
+  fullHeight?: boolean;
+  kenBurns?: boolean;
+  imageSrc?: string;
+  imageSrcs?: string[];
+  logoSrc?: string;
+  logoAlt?: string;
+  logoPlain?: boolean;
   children?: ReactNode;
 }
 
@@ -18,54 +32,140 @@ export function Hero({
   description,
   primaryCta,
   secondaryCta,
-  showLogo = false,
+  fullHeight = true,
+  kenBurns = true,
+  imageSrc,
+  imageSrcs,
+  logoSrc,
+  logoAlt,
+  logoPlain = false,
   children,
 }: HeroProps) {
+  const scopeRef = useRef<HTMLDivElement>(null);
+  const [focused, setFocused] = useState(false);
+
+  useEffect(() => {
+    const el = scopeRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setFocused(true);
+        }
+      },
+      { threshold: 0.15 },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useGSAP(
+    () => {
+      if (prefersReducedMotion()) {
+        gsap.set(".hero-animate", { y: 0, opacity: 1 });
+        gsap.set(".hero-scan-line", { scaleX: 1 });
+        return;
+      }
+
+      const animateElements = gsap.utils.toArray<HTMLElement>(".hero-animate");
+      gsap.set(animateElements, { willChange: "transform, opacity" });
+
+      const tl = gsap.timeline({
+        onComplete: () => {
+          gsap.set(animateElements, { willChange: "auto" });
+        },
+      });
+
+      // Steel imprint: title arrives with weight and slight compression release
+      tl.fromTo(
+        ".hero-title",
+        { y: 60, opacity: 0, scale: 0.98 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.9,
+          ease: "power3.out",
+        },
+      );
+
+      // Inspection scan line draws beneath the title
+      tl.fromTo(
+        ".hero-scan-line",
+        { scaleX: 0, opacity: 0 },
+        { scaleX: 1, opacity: 1, duration: 0.7, ease: "power2.inOut" },
+        "-=0.35",
+      );
+
+      // Supporting elements follow
+      tl.fromTo(
+        ".hero-body",
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" },
+        "-=0.4",
+      );
+
+      tl.fromTo(
+        ".hero-actions",
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" },
+        "-=0.45",
+      );
+    },
+    { scope: scopeRef },
+  );
+
   return (
-    <section className="relative overflow-hidden bg-primary-950">
-      <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(11,39,64,0.98)_0%,rgba(15,76,129,0.92)_50%,rgba(11,39,64,0.95)_100%)]" />
-      <div
-        className="absolute inset-0 opacity-[0.08]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)`,
-          backgroundSize: "48px 48px",
-        }}
+    <section
+      className={`group relative overflow-hidden ${
+        fullHeight ? "min-h-screen flex items-center" : ""
+      }`}
+      onMouseEnter={() => setFocused(true)}
+      onFocus={() => setFocused(true)}
+      tabIndex={-1}
+    >
+      <IndustrialBackground
+        blur={kenBurns}
+        focused={focused}
+        priority
+        imageSrc={imageSrc}
+        imageSrcs={imageSrcs}
+        kenBurns={kenBurns}
       />
 
-      <div className="container-wide relative py-16 md:py-24 lg:py-32">
+      <div
+        ref={scopeRef}
+        className={`container-wide relative w-full ${
+          fullHeight ? "py-16 md:py-24 lg:py-32" : "py-16 md:py-20"
+        }`}
+      >
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div className="max-w-2xl">
-            {showLogo && (
-              <div className="group mb-8 inline-flex items-center gap-4 rounded-xl bg-white/10 p-4 backdrop-blur-sm transition-all duration-500 hover:bg-white/15">
-                <div className="relative h-16 w-40 shrink-0 transition-transform duration-500 group-hover:scale-105">
-                  <Image
-                    src="/images/logo.png"
-                    alt="艺林工业供应链"
-                    fill
-                    className="object-contain object-left drop-shadow-[0_0_10px_rgba(255,255,255,0.15)]"
-                    priority
-                  />
-                </div>
-                <div className="hidden flex-col border-l border-white/20 pl-4 sm:flex">
-                  <span className="text-lg font-bold text-white">艺林工业供应链</span>
-                  <span className="text-xs text-steel-300">深耕包钢 14 年+</span>
-                </div>
+            <div className="hero-title hero-animate opacity-0">
+              <h1 className="heading-xl text-white drop-shadow-lg">
+                <BlurText text={title} splitBy="words" stagger={0.08} duration={0.8} />
+              </h1>
+              {subtitle && (
+                <h2 className="heading-lg mt-4 text-white drop-shadow-lg">
+                  {subtitle}
+                </h2>
+              )}
+              <div className="hero-scan-line mt-4 h-1 w-24 origin-left rounded-full bg-accent opacity-0" />
+            </div>
+            {description && (
+              <div className="hero-body hero-animate opacity-0 mt-6 text-lg leading-relaxed text-steel-200 md:text-xl drop-shadow-md">
+                {description}
               </div>
             )}
 
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent">
-              {subtitle}
-            </p>
-            <h1 className="mt-4 heading-xl text-white">{title}</h1>
-            {description && (
-              <p className="mt-6 text-lg leading-relaxed text-steel-200 md:text-xl">
-                {description}
-              </p>
-            )}
-
-            <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row">
+            <div className="hero-actions hero-animate opacity-0 mt-10 flex flex-col items-start gap-4 sm:flex-row">
               {primaryCta && (
-                <Link href={primaryCta.href} className="btn-primary min-w-[160px]">
+                <Link
+                  href={primaryCta.href}
+                  className="btn-primary min-w-[160px]"
+                >
                   {primaryCta.label}
                 </Link>
               )}
@@ -79,35 +179,34 @@ export function Hero({
               )}
             </div>
           </div>
-
-          <div className="relative hidden lg:block">
-            {children || (
-              <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 shadow-2xl">
-                <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.05)_0%,transparent_50%)]" />
-                <div className="absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
-                  style={{
-                    backgroundImage: `radial-gradient(circle at 50% 50%, rgba(194,58,37,0.15) 0%, transparent 60%)`,
-                  }}
-                />
-                <div className="relative flex h-full flex-col items-center justify-center text-center">
-                  <div className="relative h-28 w-64 transition-transform duration-700 group-hover:scale-110">
-                    <Image
-                      src="/images/logo.png"
-                      alt="艺林工业供应链"
-                      fill
-                      className="object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
-                      priority
-                    />
-                  </div>
-                  <p className="mt-6 text-lg font-medium text-white">内蒙古艺林工业供应链科技有限公司</p>
-                  <p className="mt-2 text-sm text-steel-300">
-                    工业仪表 · 电气 · 矿山设备 · 阀门 · 执行机构 · 空压机 · 钢丝绳
-                  </p>
-                </div>
-              </div>
-            )}
-          </div>
+          {logoSrc && (
+            <FadeInUp
+              direction="up"
+              delay={0.2}
+              className={
+                logoPlain
+                  ? "group relative mx-auto aspect-square w-full max-w-[360px] animate-float overflow-hidden md:max-w-[420px] lg:max-w-[520px]"
+                  : "group relative mx-auto aspect-square w-full max-w-[360px] animate-float overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 shadow-lg backdrop-blur-sm"
+              }
+            >
+              <div className="absolute inset-0 z-10 bg-[linear-gradient(110deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%)] translate-x-[-100%] transition-transform duration-1000 group-hover:translate-x-[100%]" />
+              <Image
+                src={logoSrc}
+                alt={logoAlt || ""}
+                fill
+                className="object-contain p-4 drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 768px) 360px, (max-width: 1024px) 420px, 520px"
+                priority
+              />
+            </FadeInUp>
+          )}
         </div>
+
+        {children && (
+          <div className="hero-bottom-content mt-12 w-full">
+            {children}
+          </div>
+        )}
       </div>
     </section>
   );

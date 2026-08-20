@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { FloatingContact } from "@/components/layout/FloatingContact";
+import { GsapReady } from "@/components/effects/GsapReady";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -17,20 +19,20 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "艺林工业供应链 | 最懂包钢的本土化工业供应链全包服务商",
+  title: "艺林工业供应链 | 本地化工业供应链服务商",
   description:
-    "内蒙古艺林工业供应链科技有限公司，深耕包钢体系14年以上，提供工业仪表、电气、矿山设备、阀门、执行机构、空压机、钢丝绳、备品备件等全品类供应链服务。24小时响应，30分钟到场。",
+    "内蒙古艺林工业供应链科技有限公司，立足包头、辐射包头周边工矿企业，连接上游制造与下游生产，让两端各自专注专业。",
   keywords: [
-    "包钢供应商",
-    "包钢备件",
-    "工业设备供应",
     "工业供应链",
-    "内蒙古工业品",
-    "包钢投标代办",
-    "ABB 包钢",
-    "西门子 包钢",
-    "施耐德 包钢",
+    "包头工矿企业",
+    "设备供应",
+    "技术服务",
+    "内蒙古艺林供应链",
   ],
+  icons: {
+    icon: { url: "/favicon.png?v=2", type: "image/png" },
+    apple: "/favicon.png?v=2",
+  },
 };
 
 export default function RootLayout({
@@ -41,11 +43,13 @@ export default function RootLayout({
   return (
     <html lang="zh-CN">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col antialiased pt-20 md:pt-24`}
       >
+        <GsapReady />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <FloatingContact />
       </body>
     </html>
   );

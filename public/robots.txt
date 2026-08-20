@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yilin-supply.com/sitemap.xml

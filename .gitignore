@@ -35,5 +35,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# custom
-/dist
+# Trae / AI skill artifacts
+/.agents/
+/.aider-desk/
+/skills-lock.json

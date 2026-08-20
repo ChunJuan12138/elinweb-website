@@ -1,209 +1,317 @@
 import { Hero } from "@/components/sections/Hero";
 import { Section, SectionHeader } from "@/components/sections/Section";
 import { FeatureCard } from "@/components/cards/FeatureCard";
-import { StatCard } from "@/components/cards/StatCard";
-import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
+import { TiltCard } from "@/components/ui/TiltCard";
+import { StaggerReveal } from "@/components/animation/StaggerReveal";
+import { FadeInUp } from "@/components/animation/FadeInUp";
+import { CountUpContainer } from "@/components/animation/CountUpContainer";
+import { FloatingHomeNav } from "@/components/navigation/FloatingHomeNav";
 import Link from "next/link";
+import type { ReactNode } from "react";
 
-const advantages = [
+const stats: { value: string; label: string; icon: ReactNode }[] = [
   {
-    title: "最懂包钢",
-    description:
-      "深耕包钢体系 14 年以上，熟悉客户画像、组织架构、招投标习惯及各分厂需求，外地企业无法复制的本土化理解。",
+    value: "300+",
+    label: "余家国内外品牌厂商",
+    icon: (
+      <svg
+        className="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5"
+        />
+      </svg>
+    ),
   },
   {
-    title: "三层人脉壁垒",
-    description:
-      "业务圈、品牌圈、本地包钢家属圈三层人脉网络，形成稳定的信任关系与信息优势。",
+    value: "5000万+",
+    label: "年营收",
+    icon: (
+      <svg
+        className="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+        />
+      </svg>
+    ),
   },
   {
-    title: "专业团队",
-    description:
-      "包钢领域最大服务团队，仪表、电气、矿山设备、阀门、执行机构、空压机、钢丝绳等品类各有专家。",
-  },
-  {
-    title: "经得起考验",
-    description:
-      "14 年服务历程经得起国企审计、招标、廉洁考验，合规透明，长期稳定合作。",
-  },
-  {
-    title: "一线品牌资源",
-    description:
-      "与 ABB、西门子、施耐德、川仪、山特维克、阿特拉斯、美卓等国际一线品牌保持长期代理关系。",
-  },
-  {
-    title: "全包式服务",
-    description:
-      "从投标策划、代办、资质协调、送货、验收、挂账、开票，到安装调试、运维检修、质量异议处理，全流程闭环。",
+    value: "14+",
+    label: "年服务沉淀",
+    icon: (
+      <svg
+        className="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+    ),
   },
 ];
 
-const stats = [
-  { value: "14+", label: "年服务包钢体系" },
-  { value: "10+", label: "服务包钢分厂" },
-  { value: "24h", label: "全天候响应" },
-  { value: "30min", label: "到场承诺" },
-];
+const capabilities: { title: string; description: string; icon: ReactNode }[] =
+  [
+    {
+      title: "设备类供应为核心",
+      description: "仪表、电气、机械等多品类覆盖，满足工矿企业一站式采购需求。",
+      icon: (
+        <svg
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: "专业服务工程师团队",
+      description:
+        "电气、机械、自动化、仪表各专业工程师，7×24 小时现场响应。",
+      icon: (
+        <svg
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: "产学研合作",
+      description:
+        "与内蒙古科技大学深度合作，技术服务有科研支撑。",
+      icon: (
+        <svg
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path d="M12 14l9-5-9-5-9 5 9 5z" />
+          <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: "生态协同",
+      description:
+        "与中冶赛迪、中冶京诚、包钢设计院等深度合作，大型项目全程协同。",
+      icon: (
+        <svg
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+          />
+        </svg>
+      ),
+    },
+  ];
 
 export default function HomePage() {
   return (
     <>
-      <Hero
-        title="最懂包钢的本土化工业供应链全包服务商"
-        subtitle="内蒙古艺林工业供应链科技"
-        description="深耕包钢体系 14 年以上，为上游厂家提供投标代办、资质协调、送货验收、运维检修等全包服务；为包钢各分厂提供 24 小时响应、30 分钟到场的保姆式现场服务。"
-        primaryCta={{ label: "合作咨询", href: "/contact" }}
-        secondaryCta={{ label: "了解服务能力", href: "/services" }}
-        showLogo
-      />
+      <FloatingHomeNav />
+     <Hero
+       title="立足包头、辐射包头周边工矿企业的本地化工业供应链服务商"
+       description="连接上游制造与下游生产，让两端各自专注专业。我们以服务为核心，卖货只是服务的一部分。"
+       primaryCta={{ label: "立即咨询", href: "/contact" }}
+       secondaryCta={{ label: "服务业务", href: "/business" }}
+       imageSrcs={[
+        "/images/CompanyPanorama/panorama00.JPG",
+        "/images/CompanyPanorama/panorama01.JPG",
+      ]}
+      logoSrc="/images/logo.png"
+      logoAlt="艺林工业供应链"
+      logoPlain
+     />
 
-      <Section background="muted">
-        <SectionHeader
-          title="为什么选择与艺林合作"
-          subtitle="核心优势"
-          description="我们不仅是供应商，更是懂包钢、懂工业、懂本地规则的长期合作伙伴。"
-        />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {advantages.map((item) => (
-            <FeatureCard
-              key={item.title}
-              icon={
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              }
-              title={item.title}
-              description={item.description}
-            />
-          ))}
-        </div>
-      </Section>
-
-      <Section background="primary">
-        <SectionHeader
-          title="用数字说话"
-          subtitle="实力沉淀"
-          description="十四年如一日，服务包钢集团各分厂，构建起稳定、专业、合规的工业供应链服务体系。"
-          light
-        />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((stat) => (
-            <StatCard key={stat.label} value={stat.value} label={stat.label} />
-          ))}
-        </div>
-      </Section>
-
-      <Section background="white">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent">
-              服务范围
+      <Section
+        id="company-intro"
+        background="image"
+        imageSrc="/images/CompanyPanorama/panorama00.JPG"
+        imageBlur={false}
+        fullHeight={false}
+        className="py-20 md:py-28"
+      >
+        <FadeInUp direction="up">
+          <div className="mx-auto max-w-3xl rounded-xl border border-accent/60 bg-white/10 p-6 text-center shadow-sm backdrop-blur-sm md:p-8 lg:p-12">
+            <h2 className="heading-lg text-white drop-shadow-md">公司简介</h2>
+            <p className="mt-4 body-lg text-steel-200 drop-shadow-md">
+              我们是一家本地化工业供应链服务商——立足包头、辐射包头周边工矿企业，连接上游制造与下游生产，让两端各自专注专业。
             </p>
-            <h2 className="mt-3 heading-lg">覆盖工业供应链全品类</h2>
-            <p className="mt-4 body-lg">
-              工业仪表、电气、矿山设备、阀门、执行机构、空压机、钢丝绳、备品备件……
-              无论您是需要进入包钢市场的上游厂家，还是需要可靠现场服务的包钢分厂，
-              艺林都能提供专业、合规、高效的一站式支持。
-            </p>
-            <ul className="mt-8 space-y-3">
-              {[
-                "投标策划与代办",
-                "资质协调与合规支持",
-                "送货、验收、挂账、开票",
-                "安装调试与运维检修",
-                "质量异议处理",
-                "24 小时现场响应",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-steel-700">
-                  <span className="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
-                    <svg
-                      className="h-3 w-3"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={3}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
             <div className="mt-8">
-              <Link href="/services" className="btn-primary">
-                查看全部服务
+              <Link
+                href="/business"
+                className="btn-primary min-w-[160px]"
+              >
+                服务业务
               </Link>
             </div>
           </div>
+        </FadeInUp>
 
-          <PlaceholderImage
-            label="工业设备与供应链服务场景图"
-            aspectRatio="aspect-[4/3]"
-          />
-        </div>
-      </Section>
-
-      <Section background="muted">
-        <SectionHeader
-          title="长期合作的一线品牌"
-          subtitle="品牌资源"
-          description="与国际国内一线工业品牌建立长期代理关系，账期、折扣、优先权等资源整合能力，为客户创造真实价值。"
-        />
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-8 md:gap-12">
-          {[
-            "ABB",
-            "SIEMENS",
-            "Schneider Electric",
-            "川仪",
-            "山特维克",
-            "阿特拉斯·科普柯",
-            "美卓",
-          ].map((brand) => (
-            <div
-              key={brand}
-              className="flex h-16 items-center justify-center rounded-lg border border-steel-200 bg-white px-6 text-sm font-semibold text-steel-500 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary-200 hover:text-primary md:px-8"
-            >
-              {brand}
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section background="primary">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="heading-lg text-white">
-            有产品想进入包钢市场？
-            <br />
-            需要靠谱的本地化工业服务团队？
-          </h2>
-          <p className="mt-6 text-lg text-steel-200">
-            欢迎中大型民营企业、国企及一线品牌厂家与我们洽谈合作。
-            拒绝超低价中标、劣质品牌、没有底线的供应商。
-          </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link href="/contact" className="btn-primary min-w-[160px]">
-              立即咨询
-            </Link>
-            <Link href="/about" className="btn-secondary min-w-[160px]">
-              了解艺林
-            </Link>
+        <FadeInUp direction="up" distance={30}>
+          <div className="mx-auto mt-12 max-w-4xl rounded-xl border border-accent/60 bg-white/10 p-6 text-center shadow-sm backdrop-blur-sm md:p-8 lg:p-12">
+            <h3 className="text-2xl font-bold text-white drop-shadow-md md:text-3xl lg:text-4xl">
+              以服务为核心，卖货只是服务的一部分
+            </h3>
+            <p className="mt-6 body-lg text-steel-200 drop-shadow-md">
+              我们与部分工业品电商平台有相似之处，但本质不同：我们以服务为核心，卖货只是服务的一部分。
+            </p>
+            <p className="mt-4 body-lg text-steel-200 drop-shadow-md">
+              让客户专注生产与制造，交付与售后的最后一公里，交给艺林。我们与客户共生共长。
+            </p>
           </div>
+        </FadeInUp>
+      </Section>
+
+      <Section
+        id="company-history"
+        background="image"
+        imageSrc="/images/CompanyPanorama/panorama01.JPG"
+        imageBlur={false}
+      >
+        <SectionHeader
+          title="公司沿革与规模实力"
+          description="2009 年起步开展业务，2010 年注册包头市艺林贸易有限责任公司；历经十余年发展，现以内蒙古艺林工业供应链科技有限公司为主体公司运营。"
+        />
+        <div className="mt-12">
+          <CountUpContainer>
+            <StaggerReveal
+              selector=".stat-strip-item"
+              direction="up"
+              distance={30}
+            >
+              <div className="relative rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm md:p-12">
+                <div className="absolute left-8 right-8 top-1/2 hidden h-px -translate-y-1/2 bg-white/10 md:block" />
+                <div className="relative grid gap-8 md:grid-cols-3">
+                  {stats.map((item) => (
+                    <div
+                      key={item.label}
+                      className="stat-strip-item flex flex-col items-center gap-3 text-center"
+                    >
+                      <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent/20 text-accent">
+                        {item.icon}
+                      </div>
+                      <p
+                        data-count-up={item.value}
+                        className="text-3xl font-bold text-white md:text-4xl lg:text-5xl"
+                      >
+                        {item.value}
+                      </p>
+                      <p className="text-sm text-steel-300">{item.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </StaggerReveal>
+          </CountUpContainer>
         </div>
+      </Section>
+
+      <Section
+        id="core-capabilities"
+        background="image"
+        imageSrc="/images/CompanyPanorama/panorama00.JPG"
+        imageBlur={false}
+        fullHeight={false}
+      >
+        <SectionHeader title="核心能力" />
+        <StaggerReveal selector=".bento-card" direction="up" distance={30} className="mt-12 grid auto-rows-fr gap-6 sm:grid-cols-2">
+            {capabilities.map((item) => (
+              <div
+                key={item.title}
+                className="bento-card h-full"
+              >
+                <TiltCard className="h-full">
+                  <FeatureCard
+                    icon={item.icon}
+                    title={item.title}
+                    description={item.description}
+                    animate={false}
+                  />
+                </TiltCard>
+              </div>
+            ))}
+          </StaggerReveal>
+      </Section>
+
+      <Section
+        id="contact-cta"
+        background="image"
+        imageSrc="/images/CompanyPanorama/panorama01.JPG"
+        imageBlur={false}
+        fullHeight={false}
+        className="py-20 md:py-28"
+      >
+        <FadeInUp direction="up">
+          <div className="mx-auto max-w-3xl rounded-xl border border-accent/60 bg-white/10 p-6 text-center shadow-sm backdrop-blur-sm md:p-8 lg:p-12">
+            <h2 className="heading-lg text-white drop-shadow-md">联系我们，开启合作</h2>
+            <p className="mt-4 body-lg text-steel-200 drop-shadow-md">
+              无论您是下游工矿企业需要设备供应与现场服务，还是上游制造商希望打通包头市场，欢迎与我们联系，专人对接。
+            </p>
+            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Link href="/contact" className="btn-primary min-w-[160px]">
+                立即咨询
+              </Link>
+              <Link href="/business" className="btn-secondary min-w-[160px]">
+                了解服务业务
+              </Link>
+            </div>
+          </div>
+        </FadeInUp>
       </Section>
     </>
   );

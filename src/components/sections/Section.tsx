@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
+import Image from "next/image";
 
 interface SectionHeaderProps {
   title: string;
-  subtitle?: string;
   description?: string;
   centered?: boolean;
   light?: boolean;
@@ -10,46 +10,76 @@ interface SectionHeaderProps {
 
 export function SectionHeader({
   title,
-  subtitle,
   description,
   centered = true,
-  light = false,
+  light = true,
 }: SectionHeaderProps) {
   return (
     <div className={centered ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
-      {subtitle && (
-        <p className="text-sm font-semibold uppercase tracking-wider text-accent">
-          {subtitle}
-        </p>
-      )}
-      <h2 className={`mt-3 heading-lg ${light ? "text-white" : ""}`}>{title}</h2>
+      <h2 className={`heading-lg ${light ? "text-white drop-shadow-md" : ""}`}>{title}</h2>
       {description && (
-        <p className={`mt-4 body-lg ${light ? "text-steel-300" : ""}`}>{description}</p>
+        <p className={`mt-4 body-lg ${light ? "text-steel-200 drop-shadow-md" : ""}`}>
+          {description}
+        </p>
       )}
     </div>
   );
 }
 
+type BackgroundType = "image" | "solid-primary";
+
 interface SectionProps {
   children: ReactNode;
   className?: string;
-  background?: "white" | "muted" | "primary";
+  background?: BackgroundType;
+  fullHeight?: boolean;
+  imageSrc?: string;
+  imageClassName?: string;
+  imageBlur?: boolean;
+  id?: string;
 }
 
 export function Section({
   children,
   className = "",
-  background = "white",
+  background = "image",
+  fullHeight = true,
+  imageSrc = "/images/industrial/steel-mill.jpg",
+  imageClassName = "",
+  imageBlur = true,
+  id,
 }: SectionProps) {
-  const bgClasses = {
-    white: "bg-white",
-    muted: "bg-steel-50",
-    primary: "bg-primary-950",
-  };
+  const useImage = background === "image";
 
   return (
-    <section className={`section ${bgClasses[background]} ${className}`}>
-      <div className="container-wide">{children}</div>
+    <section
+      id={id}
+      className={`group relative overflow-hidden ${
+        fullHeight ? "min-h-screen flex flex-col justify-center" : ""
+      } ${useImage ? "text-white" : ""} ${
+        background === "solid-primary" ? "bg-primary-950 text-white" : ""
+      } ${className}`}
+    >
+      {useImage && (
+        <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+          <div className={`absolute -inset-[5%] ${imageBlur ? "blur-sm" : ""} ${imageClassName}`}>
+            <Image
+              src={imageSrc}
+              alt=""
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority={false}
+              loading="lazy"
+            />
+          </div>
+          {/* readability overlay */}
+          <div className="absolute inset-0 bg-primary-950/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-950/70 via-primary-950/25 to-primary-900/40" />
+        </div>
+      )}
+
+      <div className="container-wide relative z-10">{children}</div>
     </section>
   );
 }

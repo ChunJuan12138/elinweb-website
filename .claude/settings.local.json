@@ -1,0 +1,52 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node *)",
+      "Skill(impeccable)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(curl *)",
+      "Bash(IMPECCABLE_CRITIQUE_META='{\"target\":\"landing\",\"total_score\":28,\"max_score\":40,\"na_heuristics\":\"\",\"p0_count\":0,\"p1_count\":3}' node *)",
+      "Bash(npm run *)",
+      "Bash(python3 /tmp/remove_pills.py)",
+      "Bash(python3 *)",
+      "Bash(npx prettier *)",
+      "Bash(lsof -nP -iTCP:3456,3000)",
+      "Bash(kill 34477)",
+      "Bash(grep -R \"#[0-9a-fA-F]\\\\{3,6\\\\}\" src/app src/components)",
+      "Bash(lsof -nP -iTCP:3000,3456)",
+      "Bash(lsof -nP -iTCP:3456)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(lsof -nP -iTCP:3459)",
+      "Bash(pkill -f \"http.server\")",
+      "Bash(lsof -nP -iTCP:3460)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ ! -f \"/Users/Oct/.claude/skills/impeccable/scripts/hook.mjs\" ] || node \"/Users/Oct/.claude/skills/impeccable/scripts/hook.mjs\"",
+            "timeout": 5,
+            "statusMessage": "Checking UI changes"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ ! -f \"/Users/Oct/.claude/skills/impeccable/scripts/hook.mjs\" ] || node \"/Users/Oct/.claude/skills/impeccable/scripts/hook.mjs\"",
+            "timeout": 30,
+            "statusMessage": "Design deep pass"
+          }
+        ]
+      }
+    ]
+  },
+  "description": "Impeccable design detector: immediate-tier checks after Edit/Write/MultiEdit on UI files, full-rule deep pass on Stop."
+}
