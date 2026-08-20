@@ -1,11 +1,9 @@
 import { Section } from "@/components/sections/Section";
 import { ContactSection } from "@/components/sections/ContactSection";
-import { HangingQR } from "@/components/ui/HangingQR";
 
 export default function ContactPage() {
   return (
     <>
-      <HangingQR />
       <Section
         background="solid-primary"
         fullHeight={false}

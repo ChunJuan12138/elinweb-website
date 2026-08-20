@@ -208,7 +208,7 @@ export default function HomePage() {
               以服务为核心，卖货只是服务的一部分
             </h3>
             <p className="mt-6 body-lg text-steel-200 drop-shadow-md">
-              我们与震坤行、欧冶等平台有相似之处，但本质不同：他们侧重卖货，服务是附带；我们以服务为核心，卖货只是服务的一部分。
+              我们与部分工业品电商平台有相似之处，但本质不同：我们以服务为核心，卖货只是服务的一部分。
             </p>
             <p className="mt-4 body-lg text-steel-200 drop-shadow-md">
               让客户专注生产与制造，交付与售后的最后一公里，交给艺林。我们与客户共生共长。

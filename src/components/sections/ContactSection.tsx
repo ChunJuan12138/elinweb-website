@@ -27,10 +27,10 @@ export function ContactSection({ showMap = true }: ContactSectionProps) {
               0472-2110904
             </a>
             <a
-              href="mailto:yuanzhongke@elincom.cn"
+              href="mailto:yilin@yilinsupply.cn"
               className="btn-secondary min-w-[180px]"
             >
-              yuanzhongke@elincom.cn
+              yilin@yilinsupply.cn
             </a>
           </div>
           <p className="mt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-steel-300">
@@ -46,10 +46,10 @@ export function ContactSection({ showMap = true }: ContactSectionProps) {
             </span>
             <span>邮箱</span>
             <a
-              href="mailto:yuanzhongke@elincom.cn"
+              href="mailto:yilin@yilinsupply.cn"
               className="text-white transition-colors hover:text-accent"
             >
-              yuanzhongke@elincom.cn
+              yilin@yilinsupply.cn
             </a>
             <span className="hidden sm:inline" aria-hidden="true">
               |

@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { FloatingContact } from "@/components/layout/FloatingContact";
 import { GsapReady } from "@/components/effects/GsapReady";
 
 const geistSans = localFont({
@@ -48,6 +49,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <FloatingContact />
       </body>
     </html>
   );

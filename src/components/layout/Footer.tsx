@@ -14,7 +14,7 @@ const footerLinks = [
 const contactInfo = [
   { label: "公司全称", value: "内蒙古艺林工业供应链科技有限公司" },
   { label: "电话", value: "0472-2110904", href: "tel:04722110904" },
-  { label: "邮箱", value: "yuanzhongke@elincom.cn", href: "mailto:yuanzhongke@elincom.cn" },
+  { label: "邮箱", value: "yilin@yilinsupply.cn", href: "mailto:yilin@yilinsupply.cn" },
   { label: "地址", value: "包头市昆都仑区包钢中桥停车场北" },
   { label: "服务区域", value: "包头及包头周边工矿企业" },
   { label: "服务理念", value: "让客户专注生产与制造" },
